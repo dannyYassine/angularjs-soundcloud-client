@@ -1,0 +1,17 @@
+{
+  "name": "angularjs-dribbble",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Danny Yassine <dannyyassine@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/dannyYassine/angularjs-soundcloud-client",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
