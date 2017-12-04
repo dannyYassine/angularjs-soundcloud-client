@@ -328,7 +328,7 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
+  background-color: #1D1E1F;
 }
 .header-nav li {
   float: left;
@@ -342,10 +342,10 @@ body {
 }
 /* Change the link color to #111 (black) on hover */
 .header-nav li a:hover {
-  background-color: deeppink;
+  background-color: #7F2A00;
 }
 .nav-btn-active {
-  background-color: hotpink;
+  background-color: #FF5400;
 }
 .header-nav .right-btn {
   float: right;
@@ -391,7 +391,7 @@ body {
   border-radius: 5px;
 }
 .home {
-  background: black;
+  background: #262728;
 }
 .shot-detail {
   background: white;
@@ -425,7 +425,7 @@ body {
 .footer {
   height: 200px;
   width: 100%;
-  background: #333;
+  background: #1D1E1F;
   position: relative;
 }
 .footer h4 {

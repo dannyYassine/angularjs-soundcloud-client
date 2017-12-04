@@ -45159,7 +45159,7 @@ module.exports = HomeComponent;
 /* 82 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"home\">\n    <br>\n    <br>\n    <br>\n    <br>\n    <br>\n    <br>\n    <br>\n    Home\n</div>";
+module.exports = "<div class=\"home full-height\">\n    <br>\n    <br>\n    <br>\n    <br>\n    <br>\n    <br>\n    <br>\n    Home\n</div>";
 
 /***/ }),
 /* 83 */
@@ -45246,7 +45246,7 @@ module.exports = AppFooterComponent;
 /* 89 */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n    AppFooter\n</div>";
+module.exports = "<div class=\"footer\">\n    AppFooter\n</div>";
 
 /***/ }),
 /* 90 */
@@ -45291,7 +45291,7 @@ module.exports = {
 /* 93 */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n    <nav-header></nav-header>\n    <div class=\"full-height\" ui-view></div>\n    <app-footer></app-footer>\n</div>";
+module.exports = "<div>\n    <nav-header></nav-header>\n    <div ui-view></div>\n    <app-footer></app-footer>\n</div>";
 
 /***/ })
 /******/ ]);
