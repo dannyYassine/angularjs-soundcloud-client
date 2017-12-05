@@ -4,7 +4,8 @@
 
 const HomeComponent = {
     template: require('./template.html'),
-    replace: true
+    replace: true,
+    controllerAs: 'vm'
 };
 
 module.exports = HomeComponent;
