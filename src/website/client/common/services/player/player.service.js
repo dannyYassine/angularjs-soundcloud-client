@@ -12,12 +12,10 @@ const PlayerService = (function ($rootScope, soundcloudConfigAPI) {
     /**
      * Audio Object
      */
-    let audio;
-
-    /**
-     * Current song
-     */
-    let currentTrack;
+    let player = {
+        audio: null,
+        track: null
+    };
 
     const _canPlaySong = (song) => {
         return true;
@@ -27,9 +25,9 @@ const PlayerService = (function ($rootScope, soundcloudConfigAPI) {
      * Resets current audio song to default settings
      */
     const _resetPlayerIfNeeded = () => {
-        if (this.audio) {
-            this.audio.pause();
-            this.audio = null;
+        if (player.audio) {
+            player.audio.pause();
+            player.audio = null;
         }
     };
 
@@ -43,10 +41,9 @@ const PlayerService = (function ($rootScope, soundcloudConfigAPI) {
             return;
         }
         _resetPlayerIfNeeded();
-        this.currentTrack = song;
-        this.audio = new Audio(`${song.stream_url}?client_id=${soundcloudConfigAPI.clientID()}`);
-        this.audio.play();
-        $rootScope.$broadcast('sdn.notifications.player.play', song);
+        player.track = song;
+        player.audio = new Audio(`${song.stream_url}?client_id=${soundcloudConfigAPI.clientID()}`);
+        player.audio.play();
     };
 
     /**
@@ -54,11 +51,10 @@ const PlayerService = (function ($rootScope, soundcloudConfigAPI) {
      * @param song
      */
     const pauseSong = () => {
-        if (!this.audio) {
+        if (!player.audio) {
             return;
         }
-        this.audio.pause();
-        $rootScope.$broadcast('sdn.notifications.player.pause', this.currentTrack);
+        player.audio.pause();
     };
 
     /**
@@ -66,11 +62,11 @@ const PlayerService = (function ($rootScope, soundcloudConfigAPI) {
      * @param song
      */
     const stopSong = () => {
-        if (!this.audio) {
+        if (!player.audio) {
             return;
         }
-        this.audio.pause();
-        $rootScope.$broadcast('sdn.notifications.player.stop', this.currentTrack);
+        player.audio.pause();
+        player.audio = null;
     };
 
     /**
@@ -78,12 +74,11 @@ const PlayerService = (function ($rootScope, soundcloudConfigAPI) {
      * @param position: In terms of percentage of the song; Value between 0.00 and 1.00
      */
     const seekToPosition = (position) => {
-        this.audio.currentTime = position * this.audio.duration;
+        player.audio.currentTime = position * player.audio.duration;
     };
 
     return {
-        audio: audio,
-        track: currentTrack,
+        player,
         play : playSong,
         pause: pauseSong,
         stop : stopSong,

@@ -16,15 +16,12 @@ function PlayerController ($scope, playerService) {
     vm.onStopClicked = onStopClicked;
 
     function $onInit() {
-        $scope.$on('sdn.notifications.player.play', (event, song) => {
-            console.log(event, song);
-            vm.track = song;
-        });
+        vm.player = playerService.player;
     }
+
     function $onChanges($event) {
         console.log($event);
     }
-
     /**
      * Input methods
      */

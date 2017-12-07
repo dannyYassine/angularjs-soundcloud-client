@@ -955,6 +955,14 @@ exports.services = services;
 /* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
+__webpack_require__(57);
+module.exports = angular;
+
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
 "use strict";
 
 function __export(m) {
@@ -968,12 +976,12 @@ __export(__webpack_require__(14));
 __export(__webpack_require__(2));
 __export(__webpack_require__(1));
 __export(__webpack_require__(21));
-__export(__webpack_require__(5));
+__export(__webpack_require__(6));
 __export(__webpack_require__(7));
 //# sourceMappingURL=index.js.map
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1137,14 +1145,6 @@ exports.joinNeighborsR = joinNeighborsR;
 //# sourceMappingURL=strings.js.map
 
 /***/ }),
-/* 6 */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(57);
-module.exports = angular;
-
-
-/***/ }),
 /* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1188,7 +1188,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
  */ /** for typedoc */
 var hof_1 = __webpack_require__(2);
 var predicates_1 = __webpack_require__(1);
-var strings_1 = __webpack_require__(5);
+var strings_1 = __webpack_require__(6);
 /** @hidden */
 function uiViewString(uiview) {
     if (!uiview)
@@ -1423,8 +1423,8 @@ var TransitionHookScope;
  */ /** for typedoc */
 Object.defineProperty(exports, "__esModule", { value: true });
 var predicates_1 = __webpack_require__(1);
-var strings_1 = __webpack_require__(5);
-var common_1 = __webpack_require__(4);
+var strings_1 = __webpack_require__(6);
+var common_1 = __webpack_require__(5);
 /**
  * Encapsulate the target (destination) state/params/options of a [[Transition]].
  *
@@ -1782,7 +1782,7 @@ exports.Param = Param;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var common_1 = __webpack_require__(0);
-var strings_1 = __webpack_require__(5);
+var strings_1 = __webpack_require__(6);
 var hof_1 = __webpack_require__(2);
 var RejectType;
 (function (RejectType) {
@@ -1879,7 +1879,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /** for typedoc */
 var interface_1 = __webpack_require__(8);
 var common_1 = __webpack_require__(0);
-var strings_1 = __webpack_require__(5);
+var strings_1 = __webpack_require__(6);
 var predicates_1 = __webpack_require__(1);
 var hof_1 = __webpack_require__(2);
 var trace_1 = __webpack_require__(7);
@@ -2110,9 +2110,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var common_1 = __webpack_require__(0);
 var coreservices_1 = __webpack_require__(3);
 var trace_1 = __webpack_require__(7);
-var strings_1 = __webpack_require__(5);
+var strings_1 = __webpack_require__(6);
 var predicates_1 = __webpack_require__(1);
-var common_2 = __webpack_require__(4);
+var common_2 = __webpack_require__(5);
 // TODO: explicitly make this user configurable
 exports.defaultResolvePolicy = {
     when: "LAZY",
@@ -2339,7 +2339,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /** for typedoc */
 var trace_1 = __webpack_require__(7);
 var coreservices_1 = __webpack_require__(3);
-var strings_1 = __webpack_require__(5);
+var strings_1 = __webpack_require__(6);
 var common_1 = __webpack_require__(0);
 var predicates_1 = __webpack_require__(1);
 var hof_1 = __webpack_require__(2);
@@ -3156,8 +3156,8 @@ var coreservices_1 = __webpack_require__(3);
 var interface_1 = __webpack_require__(29);
 var resolvable_1 = __webpack_require__(13);
 var pathFactory_1 = __webpack_require__(16);
-var strings_1 = __webpack_require__(5);
-var common_2 = __webpack_require__(4);
+var strings_1 = __webpack_require__(6);
+var common_2 = __webpack_require__(5);
 var whens = interface_1.resolvePolicies.when;
 var ALL_WHENS = [whens.EAGER, whens.LAZY];
 var EAGER_WHENS = [whens.EAGER];
@@ -3363,7 +3363,7 @@ var common_1 = __webpack_require__(0);
 var hof_1 = __webpack_require__(2);
 var predicates_1 = __webpack_require__(1);
 var param_1 = __webpack_require__(10);
-var strings_1 = __webpack_require__(5);
+var strings_1 = __webpack_require__(6);
 /** @hidden */
 function quoteRegExp(string, param) {
     var surroundPattern = ['', ''], result = string.replace(/[\\\[\]\^$*+?.()|{}]/g, "\\$&");
@@ -3879,7 +3879,7 @@ exports.UrlMatcher = UrlMatcher;
  * @module vanilla
  */ /** */
 Object.defineProperty(exports, "__esModule", { value: true });
-var common_1 = __webpack_require__(4);
+var common_1 = __webpack_require__(5);
 var utils_1 = __webpack_require__(26);
 /** A base `LocationServices` */
 var BaseLocationServices = /** @class */ (function () {
@@ -4744,7 +4744,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @module vanilla
  */
 /** */
-var common_1 = __webpack_require__(4);
+var common_1 = __webpack_require__(5);
 exports.keyValsToObjectR = function (accum, _a) {
     var key = _a[0], val = _a[1];
     if (!accum.hasOwnProperty(key)) {
@@ -5188,7 +5188,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /** @module state */ /** for typedoc */
 var common_1 = __webpack_require__(0);
 var predicates_1 = __webpack_require__(1);
-var strings_1 = __webpack_require__(5);
+var strings_1 = __webpack_require__(6);
 var hof_1 = __webpack_require__(2);
 var resolvable_1 = __webpack_require__(13);
 var coreservices_1 = __webpack_require__(3);
@@ -6712,7 +6712,7 @@ var urlMatcher_1 = __webpack_require__(18);
 var hof_1 = __webpack_require__(2);
 var urlRule_1 = __webpack_require__(40);
 var targetState_1 = __webpack_require__(9);
-var common_2 = __webpack_require__(4);
+var common_2 = __webpack_require__(5);
 /** @hidden */
 function appendBasePath(url, isHtml5, absolute, baseHref) {
     if (baseHref === '/')
@@ -7800,7 +7800,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @module vanilla
  */
 /** */
-var index_1 = __webpack_require__(4);
+var index_1 = __webpack_require__(5);
 /**
  * An angular1-like promise api
  *
@@ -7861,7 +7861,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @module vanilla
  */
 /** */
-var index_1 = __webpack_require__(4);
+var index_1 = __webpack_require__(5);
 // globally available injectables
 var globals = {};
 var STRIP_COMMENTS = /((\/\/.*$)|(\/\*[\s\S]*?\*\/))/mg;
@@ -7977,7 +7977,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @module vanilla
  */
 /** */
-var common_1 = __webpack_require__(4);
+var common_1 = __webpack_require__(5);
 var baseLocationService_1 = __webpack_require__(19);
 /** A `LocationServices` that uses the browser hash "#" to get/set the current location */
 var HashLocationService = /** @class */ (function (_super) {
@@ -8060,7 +8060,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var baseLocationService_1 = __webpack_require__(19);
-var common_1 = __webpack_require__(4);
+var common_1 = __webpack_require__(5);
 /**
  * A `LocationServices` that gets/sets the current location using the browser's `location` and `history` apis
  *
@@ -25319,7 +25319,7 @@ __webpack_require__(56);
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_angular__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__uirouter_angularjs__ = __webpack_require__(58);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__uirouter_angularjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__uirouter_angularjs__);
@@ -25331,11 +25331,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 __webpack_require__(80);
-__webpack_require__(104);
+__webpack_require__(89);
 
 let app = __WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('sdn', [__WEBPACK_IMPORTED_MODULE_1__uirouter_angularjs___default.a, 'sdn.api.services', 'sdn.components']);
 
-__webpack_require__(85);
+__webpack_require__(94);
 
 app.config(configLocationProvider).config(configRouterProvider);
 
@@ -59567,7 +59567,7 @@ $provide.value("$locale", {
  * @license MIT License, http://www.opensource.org/licenses/MIT
  */
 (function (global, factory) {
-	 true ? factory(exports, __webpack_require__(6), __webpack_require__(59)) :
+	 true ? factory(exports, __webpack_require__(4), __webpack_require__(59)) :
 	typeof define === 'function' && define.amd ? define(['exports', 'angular', '@uirouter/core'], factory) :
 	(factory((global['@uirouter/angularjs'] = {}),global.angular,global['@uirouter/core']));
 }(this, (function (exports,ng_from_import,core) { 'use strict';
@@ -61589,7 +61589,7 @@ function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
 Object.defineProperty(exports, "__esModule", { value: true });
-__export(__webpack_require__(4));
+__export(__webpack_require__(5));
 __export(__webpack_require__(60));
 __export(__webpack_require__(61));
 __export(__webpack_require__(62));
@@ -62207,7 +62207,7 @@ exports.UIRouterPluginBase = UIRouterPluginBase;
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_angular__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_lodash__ = __webpack_require__(53);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_lodash__);
@@ -62222,7 +62222,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 let api_services = __WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('sdn.api.services', ['restangular']);
 
-__webpack_require__(108);
+__webpack_require__(83);
 
 api_services.config(configRestAngularProvider);
 api_services.config(configSoundCloundProvider);
@@ -62238,8 +62238,8 @@ function configSoundCloundProvider(soundCloudConfigAPIProvider) {
     soundCloudConfigAPIProvider.setClientID('ShH74NlijJdrezMwJlhCWxRr4TlUqG3U');
 }
 
-__webpack_require__(83);
-__webpack_require__(102);
+__webpack_require__(85);
+__webpack_require__(87);
 
 /***/ }),
 /* 81 */
@@ -62282,7 +62282,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   /* global define, require */
   // https://github.com/umdjs/umd/blob/master/templates/returnExports.js
   if (true) {
-    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(53), __webpack_require__(6)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(53), __webpack_require__(4)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
 				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
 				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -63736,515 +63736,9 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_angular__);
-/**
- * Created by dannyyassine on 2017-12-04.
- */
-
-
-const SoundcloudModule = __webpack_require__(84);
-SoundcloudModule.$inject = ['Restangular'];
-
-__WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('sdn.api.services').service('soundcloundAPI', SoundcloudModule);
-
-/***/ }),
-/* 84 */
-/***/ (function(module, exports) {
-
-/**
- * Created by dannyyassine on 2017-12-04.
- */
-
-const SoundcloundAPI = function (restangular) {
-
-    const defaultParams = {
-        client_id: 'ShH74NlijJdrezMwJlhCWxRr4TlUqG3U'
-    };
-
-    const getFeaturedTracks = () => {
-        const params = defaultParams;
-        params.q = "secret%20of%20mana";
-        let tracks = restangular.all('/tracks');
-        return tracks.getList(params);
-    };
-
-    const searchTracks = searchText => {
-        const params = defaultParams;
-        params.q = searchText;
-        let tracks = restangular.all('/tracks');
-        return tracks.getList(params);
-    };
-
-    return {
-        getFeaturedTracks,
-        searchTracks
-    };
-};
-
-module.exports = SoundcloundAPI;
-
-/***/ }),
-/* 85 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/**
- * Created by dannyyassine on 2017-12-03.
- */
-
-__webpack_require__(86);
-__webpack_require__(90);
-__webpack_require__(93);
-__webpack_require__(94);
-__webpack_require__(97);
-
-__webpack_require__(98);
-
-/***/ }),
-/* 86 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_angular__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__home_component__ = __webpack_require__(87);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__home_component___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__home_component__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_controller__ = __webpack_require__(89);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_controller___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__home_controller__);
-/**
- * Created by dannyyassine on 2017-12-03.
- */
-
-
-
-
-__WEBPACK_IMPORTED_MODULE_2__home_controller___default.a.$inject = ['soundcloundAPI'];
-__WEBPACK_IMPORTED_MODULE_1__home_component___default.a.controller = __WEBPACK_IMPORTED_MODULE_2__home_controller___default.a;
-
-__WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('sdn').component('home', __WEBPACK_IMPORTED_MODULE_1__home_component___default.a);
-
-/***/ }),
-/* 87 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/**
- * Created by dannyyassine on 2017-12-03.
- */
-
-const HomeComponent = {
-    template: __webpack_require__(88),
-    replace: true,
-    controllerAs: 'vm'
-};
-
-module.exports = HomeComponent;
-
-/***/ }),
-/* 88 */
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"home full-height\">\n    <div class=\"main-content-layout\">\n        <track-list tracks=\"vm.tracks\"></track-list>\n    </div>\n</div>";
-
-/***/ }),
-/* 89 */
-/***/ (function(module, exports) {
-
-/**
- * Created by dannyyassine on 2017-12-04.
- */
-
-function HomeContainerController(soundcloudService) {
-    let vm = this;
-
-    vm.$onInit = $onInit;
-
-    function $onInit() {
-        soundcloudService.getFeaturedTracks().then(response => {
-            console.log(response);
-            vm.tracks = response;
-        });
-    }
-}
-
-module.exports = HomeContainerController;
-
-/***/ }),
-/* 90 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_angular__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__navHeader_component__ = __webpack_require__(91);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__navHeader_component___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__navHeader_component__);
-/**
- * Created by dannyyassine on 2017-12-03.
- */
-
-
-
-
-__WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('sdn').component('navHeader', __WEBPACK_IMPORTED_MODULE_1__navHeader_component___default.a);
-
-/***/ }),
-/* 91 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/**
- * Created by dannyyassine on 2017-12-03.
- */
-
-const NavHeaderComponent = {
-  template: __webpack_require__(92),
-  replace: true
-};
-
-module.exports = NavHeaderComponent;
-
-/***/ }),
-/* 92 */
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"header-nav\">\n    <ul>\n        <li>\n            <a ui-sref=\"home\" ui-sref-active=\"nav-btn-active\">Home</a>\n        </li>\n        <li class=\"right-btn\" ui-sref-active=\"nav-btn-active\">\n            <a href=\"https://github.com/dannyYassine/angularjs-soundcloud-client\" target=\"_blank\">\n                <img class=\"right-btn-img\" src=\"/assets/github-white.png\"/>\n            </a>\n        </li>\n    </ul>\n</div>";
-
-/***/ }),
-/* 93 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_angular__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__player_component__ = __webpack_require__(110);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__player_component___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__player_component__);
-/**
- * Created by dannyyassine on 2017-12-04.
- */
-
-
-
-
-__WEBPACK_IMPORTED_MODULE_1__player_component___default.a.$inject = ['$scope', 'playerService'];
-
-__WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('sdn').component('player', __WEBPACK_IMPORTED_MODULE_1__player_component___default.a);
-
-/***/ }),
-/* 94 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_angular__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__appFooter_component__ = __webpack_require__(95);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__appFooter_component___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__appFooter_component__);
-/**
- * Created by dannyyassine on 2017-12-03.
- */
-
-
-
-
-__WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('sdn').component('appFooter', __WEBPACK_IMPORTED_MODULE_1__appFooter_component___default.a);
-
-/***/ }),
-/* 95 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/**
- * Created by dannyyassine on 2017-12-03.
- */
-
-const AppFooterComponent = {
-  template: __webpack_require__(96)
-};
-
-module.exports = AppFooterComponent;
-
-/***/ }),
-/* 96 */
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"footer\">\n    AppFooter\n</div>";
-
-/***/ }),
-/* 97 */
-/***/ (function(module, exports) {
-
-/**
- * Created by dannyyassine on 2017-12-03.
- */
-
-/***/ }),
-/* 98 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_angular__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_component__ = __webpack_require__(99);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_component___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__app_component__);
-/**
- * Created by dannyyassine on 2017-12-03.
- */
-
-
-
-__WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('sdn').component('app', __WEBPACK_IMPORTED_MODULE_1__app_component___default.a);
-
-/***/ }),
-/* 99 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/**
- * Created by dannyyassine on 2017-12-03.
- */
-
-module.exports = {
-  template: __webpack_require__(100),
-  replace: true
-};
-
-/***/ }),
-/* 100 */
-/***/ (function(module, exports) {
-
-module.exports = "<div>\n    <nav-header></nav-header>\n    <player></player>\n    <div class=\"main-content-layout\">\n        <div ui-view></div>\n    </div>\n    <app-footer></app-footer>\n</div>";
-
-/***/ }),
-/* 101 */
-/***/ (function(module, exports) {
-
-/**
- * Created by dannyyassine on 2017-12-06.
- */
-
-/**
- * PlayerService
- * Class to handle audio actions for the current song
- * @type {Function}
- */
-const PlayerService = function ($rootScope, soundcloudConfigAPI) {
-
-    /**
-     * Audio Object
-     */
-    let audio;
-
-    /**
-     * Current song
-     */
-    let currentTrack;
-
-    const _canPlaySong = song => {
-        return true;
-    };
-
-    /**
-     * Resets current audio song to default settings
-     */
-    const _resetPlayerIfNeeded = () => {
-        if (this.audio) {
-            this.audio.pause();
-            this.audio = null;
-        }
-    };
-
-    /**
-     * Play song and set it as new current song
-     * @param song
-     */
-    const playSong = song => {
-        if (!_canPlaySong(song)) {
-            $rootScope.$emit('sdn.notifications.player.error', song);
-            return;
-        }
-        _resetPlayerIfNeeded();
-        this.currentTrack = song;
-        this.audio = new Audio(`${song.stream_url}?client_id=${soundcloudConfigAPI.clientID()}`);
-        this.audio.play();
-        $rootScope.$broadcast('sdn.notifications.player.play', song);
-    };
-
-    /**
-     * Pause current song
-     * @param song
-     */
-    const pauseSong = () => {
-        if (!this.audio) {
-            return;
-        }
-        this.audio.pause();
-        $rootScope.$broadcast('sdn.notifications.player.pause', this.currentTrack);
-    };
-
-    /**
-     * Stop current song
-     * @param song
-     */
-    const stopSong = () => {
-        if (!this.audio) {
-            return;
-        }
-        this.audio.pause();
-        $rootScope.$broadcast('sdn.notifications.player.stop', this.currentTrack);
-    };
-
-    /**
-     * Seek to a certain position in the current song
-     * @param position: In terms of percentage of the song; Value between 0.00 and 1.00
-     */
-    const seekToPosition = position => {
-        this.audio.currentTime = position * this.audio.duration;
-    };
-
-    return {
-        audio: audio,
-        track: currentTrack,
-        play: playSong,
-        pause: pauseSong,
-        stop: stopSong,
-        seek: seekToPosition
-    };
-};
-
-module.exports = PlayerService;
-
-/***/ }),
-/* 102 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_angular__);
-/**
- * Created by dannyyassine on 2017-12-04.
- */
-
-
-const PlayerService = __webpack_require__(101);
-PlayerService.$inject = ['$rootScope', 'soundCloudConfigAPI'];
-
-__WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('sdn.api.services').service('playerService', PlayerService);
-
-/***/ }),
-/* 103 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_angular__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__trackList_component__ = __webpack_require__(105);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__trackList_component___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__trackList_component__);
-/**
- * Created by dannyyassine on 2017-12-04.
- */
-
-
-
-
-__WEBPACK_IMPORTED_MODULE_1__trackList_component___default.a.$inject = ['playerService'];
-
-__WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('sdn.components').component('trackList', __WEBPACK_IMPORTED_MODULE_1__trackList_component___default.a);
-
-/***/ }),
-/* 104 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_angular__);
-/**
- * Created by dannyyassine on 2017-12-06.
- */
-
-
-
-__WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('sdn.components', []);
-
-__webpack_require__(103);
-
-/***/ }),
-/* 105 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/**
- * Created by dannyyassine on 2017-12-03.
- */
-
-const TrackListComponent = {
-    bindings: {
-        tracks: '<'
-    },
-    template: __webpack_require__(106),
-    controller: __webpack_require__(107),
-    controllerAs: 'vm'
-};
-
-module.exports = TrackListComponent;
-
-/***/ }),
-/* 106 */
-/***/ (function(module, exports) {
-
-module.exports = "<div>\n    <div ng-repeat=\"track in vm.tracks\">\n        <p>{{track.title}}</p>\n        <img\n                ng-src=\"{{track.artwork_url}}\"\n                width=\"100\"\n                height=\"100\"\n        />\n        <div>\n            <h4 ng-click=\"vm.onPlayClicked(track)\">PLAY</h4>\n        </div>\n    </div>\n</div>";
-
-/***/ }),
-/* 107 */
-/***/ (function(module, exports) {
-
-/**
- * Created by dannyyassine on 2017-12-04.
- */
-
-function TrackListController(playerService) {
-    let vm = this;
-
-    vm.$onInit = $onInit;
-
-    vm.onPlayClicked = onPlayClicked;
-    vm.onPauseClicked = onPauseClicked;
-    vm.onStopClicked = onStopClicked;
-
-    /**
-     * Life Cycles
-     */
-    function $onInit() {}
-
-    /**
-     * Input methods
-     */
-
-    function onPlayClicked(track) {
-        playerService.play(track);
-    }
-
-    function onPauseClicked() {
-        playerService.pause();
-    }
-
-    function onStopClicked() {
-        playerService.stop();
-    }
-}
-
-module.exports = TrackListController;
-
-/***/ }),
-/* 108 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_angular__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__soundcloudAPI__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__soundcloudAPI__ = __webpack_require__(84);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__soundcloudAPI___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__soundcloudAPI__);
 /**
  * Created by dannyyassine on 2017-12-06.
@@ -64256,7 +63750,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 __WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('sdn.api.services').provider('soundCloudConfigAPI', __WEBPACK_IMPORTED_MODULE_1__soundcloudAPI___default.a);
 
 /***/ }),
-/* 109 */
+/* 84 */
 /***/ (function(module, exports) {
 
 /**
@@ -64312,7 +63806,424 @@ function SoundCloudConfigAPIProvider() {
 module.exports = SoundCloudConfigAPIProvider;
 
 /***/ }),
-/* 110 */
+/* 85 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_angular__);
+/**
+ * Created by dannyyassine on 2017-12-04.
+ */
+
+
+const SoundcloudModule = __webpack_require__(86);
+SoundcloudModule.$inject = ['Restangular'];
+
+__WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('sdn.api.services').service('soundcloundAPI', SoundcloudModule);
+
+/***/ }),
+/* 86 */
+/***/ (function(module, exports) {
+
+/**
+ * Created by dannyyassine on 2017-12-04.
+ */
+
+const SoundcloundAPI = function (restangular) {
+
+    const defaultParams = {
+        client_id: 'ShH74NlijJdrezMwJlhCWxRr4TlUqG3U'
+    };
+
+    const getFeaturedTracks = () => {
+        const params = defaultParams;
+        params.q = "secret%20of%20mana";
+        let tracks = restangular.all('/tracks');
+        return tracks.getList(params);
+    };
+
+    const searchTracks = searchText => {
+        const params = defaultParams;
+        params.q = searchText;
+        let tracks = restangular.all('/tracks');
+        return tracks.getList(params);
+    };
+
+    return {
+        getFeaturedTracks,
+        searchTracks
+    };
+};
+
+module.exports = SoundcloundAPI;
+
+/***/ }),
+/* 87 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_angular__);
+/**
+ * Created by dannyyassine on 2017-12-04.
+ */
+
+
+const PlayerService = __webpack_require__(88);
+PlayerService.$inject = ['$rootScope', 'soundCloudConfigAPI'];
+
+__WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('sdn.api.services').service('playerService', PlayerService);
+
+/***/ }),
+/* 88 */
+/***/ (function(module, exports) {
+
+/**
+ * Created by dannyyassine on 2017-12-06.
+ */
+
+/**
+ * PlayerService
+ * Class to handle audio actions for the current song
+ * @type {Function}
+ */
+const PlayerService = function ($rootScope, soundcloudConfigAPI) {
+
+    /**
+     * Audio Object
+     */
+    let player = {
+        audio: null,
+        track: null
+    };
+
+    const _canPlaySong = song => {
+        return true;
+    };
+
+    /**
+     * Resets current audio song to default settings
+     */
+    const _resetPlayerIfNeeded = () => {
+        if (player.audio) {
+            player.audio.pause();
+            player.audio = null;
+        }
+    };
+
+    /**
+     * Play song and set it as new current song
+     * @param song
+     */
+    const playSong = song => {
+        if (!_canPlaySong(song)) {
+            $rootScope.$emit('sdn.notifications.player.error', song);
+            return;
+        }
+        _resetPlayerIfNeeded();
+        player.track = song;
+        player.audio = new Audio(`${song.stream_url}?client_id=${soundcloudConfigAPI.clientID()}`);
+        player.audio.play();
+    };
+
+    /**
+     * Pause current song
+     * @param song
+     */
+    const pauseSong = () => {
+        if (!player.audio) {
+            return;
+        }
+        player.audio.pause();
+    };
+
+    /**
+     * Stop current song
+     * @param song
+     */
+    const stopSong = () => {
+        if (!player.audio) {
+            return;
+        }
+        player.audio.pause();
+        player.audio = null;
+    };
+
+    /**
+     * Seek to a certain position in the current song
+     * @param position: In terms of percentage of the song; Value between 0.00 and 1.00
+     */
+    const seekToPosition = position => {
+        player.audio.currentTime = position * player.audio.duration;
+    };
+
+    return {
+        player,
+        play: playSong,
+        pause: pauseSong,
+        stop: stopSong,
+        seek: seekToPosition
+    };
+};
+
+module.exports = PlayerService;
+
+/***/ }),
+/* 89 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_angular__);
+/**
+ * Created by dannyyassine on 2017-12-06.
+ */
+
+
+
+__WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('sdn.components', []);
+
+__webpack_require__(90);
+
+/***/ }),
+/* 90 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_angular__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__trackList_component__ = __webpack_require__(91);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__trackList_component___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__trackList_component__);
+/**
+ * Created by dannyyassine on 2017-12-04.
+ */
+
+
+
+
+__WEBPACK_IMPORTED_MODULE_1__trackList_component___default.a.$inject = ['playerService'];
+
+__WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('sdn.components').component('trackList', __WEBPACK_IMPORTED_MODULE_1__trackList_component___default.a);
+
+/***/ }),
+/* 91 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/**
+ * Created by dannyyassine on 2017-12-03.
+ */
+
+const TrackListComponent = {
+    bindings: {
+        tracks: '<'
+    },
+    template: __webpack_require__(92),
+    controller: __webpack_require__(93),
+    controllerAs: 'vm'
+};
+
+module.exports = TrackListComponent;
+
+/***/ }),
+/* 92 */
+/***/ (function(module, exports) {
+
+module.exports = "<div>\n    <div ng-repeat=\"track in vm.tracks\">\n        <p>{{track.title}}</p>\n        <img\n                ng-src=\"{{track.artwork_url}}\"\n                width=\"100\"\n                height=\"100\"\n        />\n        <div>\n            <h4 ng-click=\"vm.onPlayClicked(track)\">PLAY</h4>\n        </div>\n    </div>\n</div>";
+
+/***/ }),
+/* 93 */
+/***/ (function(module, exports) {
+
+/**
+ * Created by dannyyassine on 2017-12-04.
+ */
+
+function TrackListController(playerService) {
+    let vm = this;
+
+    vm.$onInit = $onInit;
+
+    vm.onPlayClicked = onPlayClicked;
+    vm.onPauseClicked = onPauseClicked;
+    vm.onStopClicked = onStopClicked;
+
+    /**
+     * Life Cycles
+     */
+    function $onInit() {}
+
+    /**
+     * Input methods
+     */
+
+    function onPlayClicked(track) {
+        playerService.play(track);
+    }
+
+    function onPauseClicked() {
+        playerService.pause();
+    }
+
+    function onStopClicked() {
+        playerService.stop();
+    }
+}
+
+module.exports = TrackListController;
+
+/***/ }),
+/* 94 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/**
+ * Created by dannyyassine on 2017-12-03.
+ */
+
+__webpack_require__(95);
+__webpack_require__(99);
+__webpack_require__(102);
+__webpack_require__(106);
+__webpack_require__(109);
+
+__webpack_require__(110);
+
+/***/ }),
+/* 95 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_angular__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__home_component__ = __webpack_require__(96);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__home_component___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__home_component__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_controller__ = __webpack_require__(98);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_controller___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__home_controller__);
+/**
+ * Created by dannyyassine on 2017-12-03.
+ */
+
+
+
+
+__WEBPACK_IMPORTED_MODULE_2__home_controller___default.a.$inject = ['soundcloundAPI'];
+__WEBPACK_IMPORTED_MODULE_1__home_component___default.a.controller = __WEBPACK_IMPORTED_MODULE_2__home_controller___default.a;
+
+__WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('sdn').component('home', __WEBPACK_IMPORTED_MODULE_1__home_component___default.a);
+
+/***/ }),
+/* 96 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/**
+ * Created by dannyyassine on 2017-12-03.
+ */
+
+const HomeComponent = {
+    template: __webpack_require__(97),
+    replace: true,
+    controllerAs: 'vm'
+};
+
+module.exports = HomeComponent;
+
+/***/ }),
+/* 97 */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"home full-height\">\n    <div class=\"main-content-layout\">\n        <track-list tracks=\"vm.tracks\"></track-list>\n    </div>\n</div>";
+
+/***/ }),
+/* 98 */
+/***/ (function(module, exports) {
+
+/**
+ * Created by dannyyassine on 2017-12-04.
+ */
+
+function HomeContainerController(soundcloudService) {
+    let vm = this;
+
+    vm.$onInit = $onInit;
+
+    function $onInit() {
+        soundcloudService.getFeaturedTracks().then(response => {
+            console.log(response);
+            vm.tracks = response;
+        });
+    }
+}
+
+module.exports = HomeContainerController;
+
+/***/ }),
+/* 99 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_angular__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__navHeader_component__ = __webpack_require__(100);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__navHeader_component___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__navHeader_component__);
+/**
+ * Created by dannyyassine on 2017-12-03.
+ */
+
+
+
+
+__WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('sdn').component('navHeader', __WEBPACK_IMPORTED_MODULE_1__navHeader_component___default.a);
+
+/***/ }),
+/* 100 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/**
+ * Created by dannyyassine on 2017-12-03.
+ */
+
+const NavHeaderComponent = {
+  template: __webpack_require__(101),
+  replace: true
+};
+
+module.exports = NavHeaderComponent;
+
+/***/ }),
+/* 101 */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"header-nav\">\n    <ul>\n        <li>\n            <a ui-sref=\"home\" ui-sref-active=\"nav-btn-active\">Home</a>\n        </li>\n        <li class=\"right-btn\" ui-sref-active=\"nav-btn-active\">\n            <a href=\"https://github.com/dannyYassine/angularjs-soundcloud-client\" target=\"_blank\">\n                <img class=\"right-btn-img\" src=\"/assets/github-white.png\"/>\n            </a>\n        </li>\n    </ul>\n</div>";
+
+/***/ }),
+/* 102 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_angular__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__player_component__ = __webpack_require__(103);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__player_component___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__player_component__);
+/**
+ * Created by dannyyassine on 2017-12-04.
+ */
+
+
+
+
+__WEBPACK_IMPORTED_MODULE_1__player_component___default.a.$inject = ['$scope', 'playerService'];
+
+__WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('sdn').component('player', __WEBPACK_IMPORTED_MODULE_1__player_component___default.a);
+
+/***/ }),
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -64323,22 +64234,22 @@ const PlayerComponent = {
   bindings: {
     track: '<'
   },
-  template: __webpack_require__(111),
+  template: __webpack_require__(104),
   replace: true,
-  controller: __webpack_require__(112),
+  controller: __webpack_require__(105),
   controllerAs: 'vm'
 };
 
 module.exports = PlayerComponent;
 
 /***/ }),
-/* 111 */
+/* 104 */
 /***/ (function(module, exports) {
 
-module.exports = "<div ng-if=\"vm.track\">\n    <h4>{{ vm.track.title }}</h4>\n    <h4 ng-click=\"vm.onPauseClicked()\">PAUSE</h4>\n    <h4 ng-click=\"vm.onStopClicked()\">STOP</h4>\n</div>";
+module.exports = "<div class=\"player\" ng-class=\"{'player-animate-in': vm.player.audio, 'player-animate-out': vm.player.audio === null}\">\n    <h4>{{ vm.player.track.title }}</h4>\n    <p ng-click=\"vm.onPauseClicked()\">PAUSE</p>\n    <p ng-click=\"vm.onStopClicked()\">STOP</p>\n</div>";
 
 /***/ }),
-/* 112 */
+/* 105 */
 /***/ (function(module, exports) {
 
 /**
@@ -64359,15 +64270,12 @@ function PlayerController($scope, playerService) {
     vm.onStopClicked = onStopClicked;
 
     function $onInit() {
-        $scope.$on('sdn.notifications.player.play', (event, song) => {
-            console.log(event, song);
-            vm.track = song;
-        });
+        vm.player = playerService.player;
     }
+
     function $onChanges($event) {
         console.log($event);
     }
-
     /**
      * Input methods
      */
@@ -64380,6 +64288,90 @@ function PlayerController($scope, playerService) {
 }
 
 module.exports = PlayerController;
+
+/***/ }),
+/* 106 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_angular__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__appFooter_component__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__appFooter_component___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__appFooter_component__);
+/**
+ * Created by dannyyassine on 2017-12-03.
+ */
+
+
+
+
+__WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('sdn').component('appFooter', __WEBPACK_IMPORTED_MODULE_1__appFooter_component___default.a);
+
+/***/ }),
+/* 107 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/**
+ * Created by dannyyassine on 2017-12-03.
+ */
+
+const AppFooterComponent = {
+  template: __webpack_require__(108)
+};
+
+module.exports = AppFooterComponent;
+
+/***/ }),
+/* 108 */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"footer\">\n    AppFooter\n</div>";
+
+/***/ }),
+/* 109 */
+/***/ (function(module, exports) {
+
+/**
+ * Created by dannyyassine on 2017-12-03.
+ */
+
+/***/ }),
+/* 110 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_angular__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_component__ = __webpack_require__(111);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_component___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__app_component__);
+/**
+ * Created by dannyyassine on 2017-12-03.
+ */
+
+
+
+__WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('sdn').component('app', __WEBPACK_IMPORTED_MODULE_1__app_component___default.a);
+
+/***/ }),
+/* 111 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/**
+ * Created by dannyyassine on 2017-12-03.
+ */
+
+module.exports = {
+  template: __webpack_require__(112),
+  replace: true
+};
+
+/***/ }),
+/* 112 */
+/***/ (function(module, exports) {
+
+module.exports = "<div>\n    <nav-header></nav-header>\n    <div class=\"main-content-layout\">\n        <div ui-view></div>\n    </div>\n    <app-footer></app-footer>\n    <player></player>\n</div>";
 
 /***/ })
 /******/ ]);

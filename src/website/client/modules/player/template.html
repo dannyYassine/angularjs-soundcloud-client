@@ -1,5 +1,5 @@
-<div ng-if="vm.track">
-    <h4>{{ vm.track.title }}</h4>
-    <h4 ng-click="vm.onPauseClicked()">PAUSE</h4>
-    <h4 ng-click="vm.onStopClicked()">STOP</h4>
+<div class="player" ng-class="{'player-animate-in': vm.player.audio, 'player-animate-out': vm.player.audio === null}">
+    <h4>{{ vm.player.track.title }}</h4>
+    <p ng-click="vm.onPauseClicked()">PAUSE</p>
+    <p ng-click="vm.onStopClicked()">STOP</p>
 </div>
