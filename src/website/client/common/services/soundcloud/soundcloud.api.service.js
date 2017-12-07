@@ -2,19 +2,32 @@
  * Created by dannyyassine on 2017-12-04.
  */
 
-const SoundcloundAPI = (function (restangular) {
+/**
+ * SoundCloundAPI
+ * @type {Function}
+ */
+const SoundCloundAPI = (function (restangular, soundcloudConfigAPI) {
 
     const defaultParams = {
-        client_id: 'ShH74NlijJdrezMwJlhCWxRr4TlUqG3U'
+        client_id: soundcloudConfigAPI.clientID()
     };
 
+    /**
+     * Returns a promise
+     * @returns {*|{method, params, headers}}
+     */
     const getFeaturedTracks = () => {
         const params = defaultParams;
-        params.q = "secret%20of%20mana";
+        params.q = "chrono%20trigger";
         let tracks = restangular.all('/tracks');
         return tracks.getList(params);
     };
 
+    /**
+     * Returns a promise
+     * @param searchText
+     * @returns {*|{method, params, headers}}
+     */
     const searchTracks = (searchText) => {
         const params = defaultParams;
         params.q = searchText;
@@ -22,6 +35,9 @@ const SoundcloundAPI = (function (restangular) {
         return tracks.getList(params);
     };
 
+    /**
+     * Return class
+     */
     return {
         getFeaturedTracks,
         searchTracks
@@ -29,4 +45,4 @@ const SoundcloundAPI = (function (restangular) {
 
 });
 
-module.exports = SoundcloundAPI;
+module.exports = SoundCloundAPI;

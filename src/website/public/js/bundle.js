@@ -63819,7 +63819,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 const SoundcloudModule = __webpack_require__(86);
-SoundcloudModule.$inject = ['Restangular'];
+SoundcloudModule.$inject = ['Restangular', 'soundCloudConfigAPI'];
 
 __WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('sdn.api.services').service('soundcloundAPI', SoundcloudModule);
 
@@ -63831,33 +63831,49 @@ __WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('sdn.api.services').servi
  * Created by dannyyassine on 2017-12-04.
  */
 
-const SoundcloundAPI = function (restangular) {
+/**
+ * SoundCloundAPI
+ * @type {Function}
+ */
+const SoundCloundAPI = function (restangular, soundcloudConfigAPI) {
 
-    const defaultParams = {
-        client_id: 'ShH74NlijJdrezMwJlhCWxRr4TlUqG3U'
-    };
+  const defaultParams = {
+    client_id: soundcloudConfigAPI.clientID()
+  };
 
-    const getFeaturedTracks = () => {
-        const params = defaultParams;
-        params.q = "secret%20of%20mana";
-        let tracks = restangular.all('/tracks');
-        return tracks.getList(params);
-    };
+  /**
+   * Returns a promise
+   * @returns {*|{method, params, headers}}
+   */
+  const getFeaturedTracks = () => {
+    const params = defaultParams;
+    params.q = "chrono%20trigger";
+    let tracks = restangular.all('/tracks');
+    return tracks.getList(params);
+  };
 
-    const searchTracks = searchText => {
-        const params = defaultParams;
-        params.q = searchText;
-        let tracks = restangular.all('/tracks');
-        return tracks.getList(params);
-    };
+  /**
+   * Returns a promise
+   * @param searchText
+   * @returns {*|{method, params, headers}}
+   */
+  const searchTracks = searchText => {
+    const params = defaultParams;
+    params.q = searchText;
+    let tracks = restangular.all('/tracks');
+    return tracks.getList(params);
+  };
 
-    return {
-        getFeaturedTracks,
-        searchTracks
-    };
+  /**
+   * Return class
+   */
+  return {
+    getFeaturedTracks,
+    searchTracks
+  };
 };
 
-module.exports = SoundcloundAPI;
+module.exports = SoundCloundAPI;
 
 /***/ }),
 /* 87 */

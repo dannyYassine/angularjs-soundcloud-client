@@ -4,7 +4,7 @@
 import angular from 'angular';
 
 const SoundcloudModule = require('./soundcloud.api.service');
-SoundcloudModule.$inject = ['Restangular'];
+SoundcloudModule.$inject = ['Restangular', 'soundCloudConfigAPI'];
 
 angular.module('sdn.api.services')
     .service('soundcloundAPI', SoundcloudModule);
