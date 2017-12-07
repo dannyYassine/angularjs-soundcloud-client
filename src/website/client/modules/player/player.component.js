@@ -2,13 +2,14 @@
  * Created by dannyyassine on 2017-12-03.
  */
 
-const TrackListComponent = {
+const PlayerComponent = {
     bindings: {
-        tracks: '<'
+      track: '<'
     },
     template: require('./template.html'),
-    controller: require('./trackList.controller'),
+    replace: true,
+    controller: require('./player.controller'),
     controllerAs: 'vm'
 };
 
-module.exports = TrackListComponent;
+module.exports = PlayerComponent;

@@ -6,12 +6,14 @@ import angular from 'angular';
 import uiRouter from '@uirouter/angularjs';
 
 require('./common/services');
+require('./common/components');
 
 let app = angular.module('sdn',
     [
         uiRouter,
 
-        'sdn.api.services'
+        'sdn.api.services',
+        'sdn.components'
     ]);
 
 require('./modules');

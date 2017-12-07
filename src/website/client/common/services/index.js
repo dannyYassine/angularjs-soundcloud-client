@@ -7,7 +7,10 @@ import "restangular";
 
 let api_services = angular.module('sdn.api.services', ['restangular']);
 
+require('./soundcloudAPIProvider');
+
 api_services.config(configRestAngularProvider);
+api_services.config(configSoundCloundProvider);
 
 function configRestAngularProvider(RestangularProvider) {
     RestangularProvider.setBaseUrl('https://api.soundcloud.com/');
@@ -16,6 +19,12 @@ function configRestAngularProvider(RestangularProvider) {
     });
 }
 
+function configSoundCloundProvider(soundCloudConfigAPIProvider) {
+    soundCloudConfigAPIProvider.setClientID('ShH74NlijJdrezMwJlhCWxRr4TlUqG3U');
+}
+
 require('./soundcloud');
+require('./player');
+
 
 
