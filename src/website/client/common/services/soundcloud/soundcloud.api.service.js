@@ -9,7 +9,8 @@
 const SoundCloundAPI = (function (restangular, soundcloudConfigAPI) {
 
     const defaultParams = {
-        client_id: soundcloudConfigAPI.clientID()
+        client_id: soundcloudConfigAPI.clientID(),
+        limit: 60
     };
 
     /**

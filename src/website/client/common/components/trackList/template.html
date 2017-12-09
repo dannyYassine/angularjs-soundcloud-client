@@ -2,7 +2,9 @@
     <div ng-repeat="track in vm.tracks">
         <div class="border-top-line"></div>
         <div class="track-card hover-position-shadow">
-            <img class="card-img" ng-src="{{track.artwork_url | trackArtworkFilter:500 }}"/>
+            <div class="card-img-container">
+                <img class="card-img" ng-src="{{track.artwork_url | trackArtworkFilter:500 }}"/>
+            </div>
             <div class="black-line"></div>
             <div class="track-info">
                 <p id="title">{{track.user.permalink}}</p>

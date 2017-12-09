@@ -63936,7 +63936,8 @@ __WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('sdn.api.services').servi
 const SoundCloundAPI = function (restangular, soundcloudConfigAPI) {
 
   const defaultParams = {
-    client_id: soundcloudConfigAPI.clientID()
+    client_id: soundcloudConfigAPI.clientID(),
+    limit: 60
   };
 
   /**
@@ -64148,7 +64149,7 @@ module.exports = TrackListComponent;
 /* 95 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"track-list-container\">\n    <div ng-repeat=\"track in vm.tracks\">\n        <div class=\"border-top-line\"></div>\n        <div class=\"track-card hover-position-shadow\">\n            <img class=\"card-img\" ng-src=\"{{track.artwork_url | trackArtworkFilter:500 }}\"/>\n            <div class=\"black-line\"></div>\n            <div class=\"track-info\">\n                <p id=\"title\">{{track.user.permalink}}</p>\n                <p id=\"sub-title\">{{track.title}}</p>\n                <div class=\"card-controls\">\n                    <p class=\"play-btn\" ng-click=\"vm.onPlayClicked(track)\">PLAY</p>\n                    <p class=\"duration\">{{track.duration | trackDurationFilter:\"mm:ss\"}}</p>\n                    <!--<p class=\"duration\">Likes {{track.favoritings_count}}</p>-->\n                </div>\n            </div>\n        </div>\n    </div>\n</div>";
+module.exports = "<div class=\"track-list-container\">\n    <div ng-repeat=\"track in vm.tracks\">\n        <div class=\"border-top-line\"></div>\n        <div class=\"track-card hover-position-shadow\">\n            <div class=\"card-img-container\">\n                <img class=\"card-img\" ng-src=\"{{track.artwork_url | trackArtworkFilter:500 }}\"/>\n            </div>\n            <div class=\"black-line\"></div>\n            <div class=\"track-info\">\n                <p id=\"title\">{{track.user.permalink}}</p>\n                <p id=\"sub-title\">{{track.title}}</p>\n                <div class=\"card-controls\">\n                    <p class=\"play-btn\" ng-click=\"vm.onPlayClicked(track)\">PLAY</p>\n                    <p class=\"duration\">{{track.duration | trackDurationFilter:\"mm:ss\"}}</p>\n                    <!--<p class=\"duration\">Likes {{track.favoritings_count}}</p>-->\n                </div>\n            </div>\n        </div>\n    </div>\n</div>";
 
 /***/ }),
 /* 96 */
