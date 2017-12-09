@@ -31,6 +31,13 @@ function PlayerController ($scope, playerService) {
     function onStopClicked() {
         playerService.stop();
     }
+
+    function onProgressClicked(evt) {
+        var e = evt.target;
+        var dim = e.getBoundingClientRect();
+        var x = evt.clientX - dim.left;
+        var position = x/dim.width;
+    }
 }
 
 module.exports = PlayerController;
