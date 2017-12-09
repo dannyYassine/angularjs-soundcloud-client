@@ -183,11 +183,14 @@ th {
 .full-height {
   min-height: 100vh;
 }
-.main-content-layout {
+.main-layout {
   margin: 0 auto;
+  padding-top: 28px;
+}
+.main-content-layout {
   max-width: 1200px;
+  margin: 0 auto;
   width: 80%;
-  padding-top: 40px;
 }
 @keyframes fade-in-bottom-anim {
   from {
@@ -280,8 +283,8 @@ th {
   transition: box-shadow 0.25s ease-in-out, transform 0.25s ease-in-out;
 }
 .hover-position-shadow:hover {
-  box-shadow: 0px 3px 10px lightGrey;
-  transform: translateY(-4px) scale3d(1.025, 1.025, 1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+  transform: translateY(-1px) scale3d(1.005, 1.005, 1);
 }
 .hover-shadow {
   box-shadow: 0px 0px 0px transparent;
@@ -298,6 +301,16 @@ body {
 }
 .hidden {
   opacity: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+p {
+  font-family: "Avenir Next";
 }
 .corner-1 {
   border-radius: 1px;
@@ -322,13 +335,15 @@ body {
   width: 100%;
   position: fixed;
   z-index: 10;
+  background-color: #262728;
+  box-shadow: 0 3px 0 0 rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 .header-nav ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #1D1E1F;
 }
 .header-nav li {
   float: left;
@@ -355,40 +370,68 @@ body {
   width: 18px;
   margin: 0 auto;
 }
-.card-list-container {
+.track-list-container {
   display: flex;
   flex-wrap: wrap;
-  min-height: 200px;
-  max-width: 780px;
+  padding-top: 40px;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
 }
-.card-container {
-  background-color: white;
-  height: 180px;
-  margin-bottom: 20px;
-  border-radius: 5px;
-  border: solid 5px white;
-}
-.card-container h4 {
-  display: inline;
-  font-size: 10px;
-  padding-left: 10px;
-}
-.card {
+.track-card {
+  background-color: #1D1E1F;
   border: 1px black;
-  width: 30%;
-  margin: 0 auto;
+  width: 220px;
+  height: 400px;
   float: left;
+  margin: 0 10px 40px 10px;
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.6);
 }
-.card .card-img {
-  margin: 0 auto;
+.track-card .card-img {
+  display: block;
   width: 100%;
+  height: auto;
 }
-.card h4 {
+.track-card h4 {
   text-decoration: none;
+}
+.track-info {
+  padding: 10px;
+}
+.track-info p {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.track-info p#title {
+  color: #7F8081;
+}
+.track-info p#sub-title {
+  color: #BFC0C1;
+  max-height: 65px;
+  overflow: hidden;
 }
 .card-img {
   display: block;
-  border-radius: 5px;
+}
+.border-top-line {
+  margin: 0 10px;
+  margin-bottom: 20px;
+  border-top: 0.5px solid rgba(255, 255, 255, 0.2);
+}
+.play-btn {
+  color: #823c00;
+}
+.card-controls p {
+  float: left;
+  margin-right: 10px;
+}
+.card-controls p.duration {
+  color: #7F8081;
+}
+.black-line {
+  border-top: 10px solid rgba(0, 0, 0, 0.5);
 }
 .player {
   display: block;
@@ -399,7 +442,7 @@ body {
   background: #262728;
   border-top: 2px solid #FF5400;
   bottom: -100px;
-  transition: bottom 0.5s ease-out;
+  transition: bottom 0.25s ease-out;
 }
 .player h4 {
   margin: 0;
@@ -413,6 +456,33 @@ body {
 }
 .home {
   background: #262728;
+}
+.home-header {
+  background: #1D1E1F;
+  height: 225px;
+  position: relative;
+}
+.home-header .title-container {
+  position: absolute;
+  top: 50%;
+}
+.home-header h2,
+.home-header h5 {
+  color: #d6d6d6;
+  vertical-align: middle;
+  height: 100%;
+  margin-top: -20px;
+  marging-bottom: 0px;
+}
+.home-header h5 {
+  font-family: "Avenir Next";
+  font-weight: 400;
+  font-size: 13px;
+}
+.home-header h2 {
+  font-family: "Avenir Next";
+  font-weight: 200;
+  font-size: 30px;
 }
 .shot-detail {
   background: white;

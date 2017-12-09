@@ -7,7 +7,7 @@
  * Class to handle audio actions for the current song
  * @type {Function}
  */
-const PlayerService = (function ($rootScope, soundcloudConfigAPI) {
+const PlayerService = (function ($rootScope, soundCloudConfigAPI) {
 
     /**
      * Audio Object
@@ -42,7 +42,7 @@ const PlayerService = (function ($rootScope, soundcloudConfigAPI) {
         }
         _resetPlayerIfNeeded();
         player.track = song;
-        player.audio = new Audio(`${song.stream_url}?client_id=${soundcloudConfigAPI.clientID()}`);
+        player.audio = new Audio(`${song.stream_url}?client_id=${soundCloudConfigAPI.clientID()}`);
         player.audio.play();
     };
 

@@ -25330,10 +25330,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
+__webpack_require__(113);
 __webpack_require__(80);
 __webpack_require__(89);
 
-let app = __WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('sdn', [__WEBPACK_IMPORTED_MODULE_1__uirouter_angularjs___default.a, 'sdn.api.services', 'sdn.components']);
+let app = __WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('sdn', [__WEBPACK_IMPORTED_MODULE_1__uirouter_angularjs___default.a, 'sdn.api.services', 'sdn.components', 'sdn.filters']);
 
 __webpack_require__(94);
 
@@ -25351,12 +25352,19 @@ function configRouterProvider($urlRouterProvider) {
 
 app.config(function ($stateProvider) {
     const homeState = {
-        name: 'home',
+        name: 'featured',
         url: '/',
         component: 'home'
     };
 
+    const searchState = {
+        name: 'search',
+        url: '/search',
+        component: 'home'
+    };
+
     $stateProvider.state(homeState);
+    $stateProvider.state(searchState);
 });
 
 /***/ }),
@@ -63906,7 +63914,7 @@ __WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('sdn.api.services').servi
  * Class to handle audio actions for the current song
  * @type {Function}
  */
-const PlayerService = function ($rootScope, soundcloudConfigAPI) {
+const PlayerService = function ($rootScope, soundCloudConfigAPI) {
 
     /**
      * Audio Object
@@ -63941,7 +63949,7 @@ const PlayerService = function ($rootScope, soundcloudConfigAPI) {
         }
         _resetPlayerIfNeeded();
         player.track = song;
-        player.audio = new Audio(`${song.stream_url}?client_id=${soundcloudConfigAPI.clientID()}`);
+        player.audio = new Audio(`${song.stream_url}?client_id=${soundCloudConfigAPI.clientID()}`);
         player.audio.play();
     };
 
@@ -64049,7 +64057,7 @@ module.exports = TrackListComponent;
 /* 92 */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n    <div ng-repeat=\"track in vm.tracks\">\n        <p>{{track.title}}</p>\n        <img\n                ng-src=\"{{track.artwork_url}}\"\n                width=\"100\"\n                height=\"100\"\n        />\n        <div>\n            <h4 ng-click=\"vm.onPlayClicked(track)\">PLAY</h4>\n        </div>\n    </div>\n</div>";
+module.exports = "<div class=\"track-list-container\">\n    <div ng-repeat=\"track in vm.tracks\">\n        <div class=\"border-top-line\"></div>\n        <div class=\"track-card hover-position-shadow\">\n            <img class=\"card-img\" ng-src=\"{{track.artwork_url | trackArtworkFilter:500 }}\"/>\n            <div class=\"black-line\"></div>\n            <div class=\"track-info\">\n                <p id=\"title\">{{track.user.permalink}}</p>\n                <p id=\"sub-title\">{{track.title}}</p>\n                <div class=\"card-controls\">\n                    <p class=\"play-btn\" ng-click=\"vm.onPlayClicked(track)\">PLAY</p>\n                    <p class=\"duration\">{{track.duration | trackDuration:\"mm:ss\"}}</p>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>";
 
 /***/ }),
 /* 93 */
@@ -64152,7 +64160,7 @@ module.exports = HomeComponent;
 /* 97 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"home full-height\">\n    <div class=\"main-content-layout\">\n        <track-list tracks=\"vm.tracks\"></track-list>\n    </div>\n</div>";
+module.exports = "<div class=\"home full-height\">\n    <div class=\"home-header\">\n        <div class=\"main-content-layout\">\n            <div class=\"title-container\">\n                <h5>Spotlight /</h5>\n                <h2>Featured Tracks</h2>\n            </div>\n        </div>\n    </div>\n    <div class=\"main-content-layout\">\n        <track-list tracks=\"vm.tracks\"></track-list>\n    </div>\n</div>";
 
 /***/ }),
 /* 98 */
@@ -64215,7 +64223,7 @@ module.exports = NavHeaderComponent;
 /* 101 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"header-nav\">\n    <ul>\n        <li>\n            <a ui-sref=\"home\" ui-sref-active=\"nav-btn-active\">Home</a>\n        </li>\n        <li class=\"right-btn\" ui-sref-active=\"nav-btn-active\">\n            <a href=\"https://github.com/dannyYassine/angularjs-soundcloud-client\" target=\"_blank\">\n                <img class=\"right-btn-img\" src=\"/assets/github-white.png\"/>\n            </a>\n        </li>\n    </ul>\n</div>";
+module.exports = "<div class=\"header-nav\">\n        <div class=\"main-content-layout\">\n            <ul>\n                <li>\n                    <a ui-sref=\"featured\" ui-sref-active=\"nav-btn-active\">Featured</a>\n                </li>\n                <li>\n                    <a ui-sref=\"search\" ui-sref-active=\"nav-btn-active\">Search</a>\n                </li>\n                <li class=\"right-btn\" ui-sref-active=\"nav-btn-active\">\n                    <a href=\"https://github.com/dannyYassine/angularjs-soundcloud-client\" target=\"_blank\">\n                        <img class=\"right-btn-img\" src=\"/assets/github-white.png\"/>\n                    </a>\n                </li>\n                <li class=\"right-btn\" ui-sref-active=\"nav-btn-active\">\n                    <a href=\"https://www.linkedin.com/in/danny-yassine-1837a240/\" target=\"_blank\">\n                        Danny Yassine\n                    </a>\n                </li>\n            </ul>\n    </div>\n</div>";
 
 /***/ }),
 /* 102 */
@@ -64387,7 +64395,79 @@ module.exports = {
 /* 112 */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n    <nav-header></nav-header>\n    <div class=\"main-content-layout\">\n        <div ui-view></div>\n    </div>\n    <app-footer></app-footer>\n    <player></player>\n</div>";
+module.exports = "<div>\n    <nav-header></nav-header>\n    <div class=\"main-layout\">\n        <div ui-view></div>\n    </div>\n    <app-footer></app-footer>\n    <player></player>\n</div>";
+
+/***/ }),
+/* 113 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_angular__);
+/**
+ * Created by dannyyassine on 2017-12-09.
+ */
+
+
+
+__WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('sdn.filters', []);
+
+__webpack_require__(114);
+__webpack_require__(115);
+
+/***/ }),
+/* 114 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_angular__);
+/**
+ * Created by dannyyassine on 2017-12-09.
+ */
+
+
+
+__WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('sdn.filters').filter('trackArtworkFilter', function () {
+
+    function trackArtworkFilter(url, size) {
+        return url.replace('-large', '-t' + size + 'x' + size);
+    }
+    // trackArtworkFilter.$stateful = true;
+
+    return trackArtworkFilter;
+});
+
+/***/ }),
+/* 115 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_angular__);
+/**
+ * Created by dannyyassine on 2017-12-09.
+ */
+
+
+
+__WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('sdn.filters').filter('trackDuration', function () {
+
+    function trackDurationFilter(duration, format) {
+        let timeFormat = format || "mm:ss";
+
+        if (timeFormat === "mm:ss") {
+            return duration;
+        }
+
+        return "duration";
+    }
+
+    return trackDurationFilter;
+});
 
 /***/ })
 /******/ ]);

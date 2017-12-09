@@ -1,13 +1,17 @@
-<div>
+<div class="track-list-container">
     <div ng-repeat="track in vm.tracks">
-        <p>{{track.title}}</p>
-        <img
-                ng-src="{{track.artwork_url}}"
-                width="100"
-                height="100"
-        />
-        <div>
-            <h4 ng-click="vm.onPlayClicked(track)">PLAY</h4>
+        <div class="border-top-line"></div>
+        <div class="track-card hover-position-shadow">
+            <img class="card-img" ng-src="{{track.artwork_url | trackArtworkFilter:500 }}"/>
+            <div class="black-line"></div>
+            <div class="track-info">
+                <p id="title">{{track.user.permalink}}</p>
+                <p id="sub-title">{{track.title}}</p>
+                <div class="card-controls">
+                    <p class="play-btn" ng-click="vm.onPlayClicked(track)">PLAY</p>
+                    <p class="duration">{{track.duration | trackDuration:"mm:ss"}}</p>
+                </div>
+            </div>
         </div>
     </div>
 </div>
