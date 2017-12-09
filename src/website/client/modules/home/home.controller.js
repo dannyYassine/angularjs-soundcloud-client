@@ -9,7 +9,6 @@ function HomeContainerController (soundcloudService) {
     
     function $onInit() {
         soundcloudService.getFeaturedTracks().then(response => {
-            console.log(response);
             vm.tracks = response;
         });
     }

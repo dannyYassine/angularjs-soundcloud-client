@@ -1,5 +1,9 @@
 <div class="player" ng-class="{'player-animate-in': vm.player.audio, 'player-animate-out': vm.player.audio === null}">
-    <h4>{{ vm.player.track.title }}</h4>
-    <p ng-click="vm.onPauseClicked()">PAUSE</p>
-    <p ng-click="vm.onStopClicked()">STOP</p>
+    <div id="track-progress-bar" class="progress-bar"></div>
+    <div class="main-content-layout">
+        <h5>{{vm.player.track.title}}</h5>
+        <p class="player-play" ng-click="vm.onPauseClicked()">PAUSE</p>
+        <p class="player-stop" ng-click="vm.onStopClicked()">STOP</p>
+        <p class="player-duration">{{vm.getCurrentTime() }} / {{vm.player.track.duration | trackDurationFilter:"mm:ss"}}</p>
+    </div>
 </div>

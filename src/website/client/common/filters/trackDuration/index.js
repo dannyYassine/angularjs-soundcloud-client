@@ -7,21 +7,21 @@ import angular from 'angular';
 angular.module('sdn.filters')
     .filter('trackDurationFilter', function() {
 
-        function trackDurationFilter(duration, format) {
+        function trackDurationFilter(duration, format, inMiliSeconds) {
             let timeDuration = duration;
             let timeFormat = format || "mm:ss";
+            inMiliSeconds = inMiliSeconds === undefined ? true : inMiliSeconds;
 
             if (!isNaN(duration)) {
                 timeDuration = Number(duration);
             }
-
-            timeDuration = timeDuration / 1000;
+    
+            timeDuration = timeDuration / (inMiliSeconds ? 1000 : 1);
 
             let stringOutput = "";
 
             let minutes = Math.floor(Math.floor(timeDuration) / 60);
             let seconds = Math.floor(timeDuration - minutes * 60);
-
 
             if (timeFormat === "mm:ss") {
                 if (seconds >= 0 && seconds <= 9) {
@@ -32,7 +32,6 @@ angular.module('sdn.filters')
                 let seconds = Math.floor(timeDuration) / 3600;
                 stringOutput = seconds + "secs";
             }
-            console.log(format, stringOutput);
             return stringOutput;
         }
 

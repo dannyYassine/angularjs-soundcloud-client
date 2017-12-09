@@ -62268,15 +62268,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 __WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('sdn.filters').filter('trackDurationFilter', function () {
 
-    function trackDurationFilter(duration, format) {
+    function trackDurationFilter(duration, format, inMiliSeconds) {
         let timeDuration = duration;
         let timeFormat = format || "mm:ss";
+        inMiliSeconds = inMiliSeconds === undefined ? true : inMiliSeconds;
 
         if (!isNaN(duration)) {
             timeDuration = Number(duration);
         }
 
-        timeDuration = timeDuration / 1000;
+        timeDuration = timeDuration / (inMiliSeconds ? 1000 : 1);
 
         let stringOutput = "";
 
@@ -62292,7 +62293,6 @@ __WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('sdn.filters').filter('tr
             let seconds = Math.floor(timeDuration) / 3600;
             stringOutput = seconds + "secs";
         }
-        console.log(format, stringOutput);
         return stringOutput;
     }
 
@@ -64041,6 +64041,7 @@ const PlayerService = function ($rootScope, soundCloudConfigAPI) {
         player.track = song;
         player.audio = new Audio(`${song.stream_url}?client_id=${soundCloudConfigAPI.clientID()}`);
         player.audio.play();
+        $rootScope.$broadcast('sdn.notifications.player.play', song);
     };
 
     /**
@@ -64267,7 +64268,6 @@ function HomeContainerController(soundcloudService) {
 
     function $onInit() {
         soundcloudService.getFeaturedTracks().then(response => {
-            console.log(response);
             vm.tracks = response;
         });
     }
@@ -64332,7 +64332,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-__WEBPACK_IMPORTED_MODULE_1__player_component___default.a.$inject = ['$scope', 'playerService'];
+__WEBPACK_IMPORTED_MODULE_1__player_component___default.a.$inject = ['$scope', 'playerService', 'trackDurationFilterFilter'];
 
 __WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('sdn').component('player', __WEBPACK_IMPORTED_MODULE_1__player_component___default.a);
 
@@ -64349,7 +64349,6 @@ const PlayerComponent = {
     track: '<'
   },
   template: __webpack_require__(107),
-  replace: true,
   controller: __webpack_require__(108),
   controllerAs: 'vm'
 };
@@ -64360,7 +64359,7 @@ module.exports = PlayerComponent;
 /* 107 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"player\" ng-class=\"{'player-animate-in': vm.player.audio, 'player-animate-out': vm.player.audio === null}\">\n    <h4>{{ vm.player.track.title }}</h4>\n    <p ng-click=\"vm.onPauseClicked()\">PAUSE</p>\n    <p ng-click=\"vm.onStopClicked()\">STOP</p>\n</div>";
+module.exports = "<div class=\"player\" ng-class=\"{'player-animate-in': vm.player.audio, 'player-animate-out': vm.player.audio === null}\">\n    <div id=\"track-progress-bar\" class=\"progress-bar\"></div>\n    <div class=\"main-content-layout\">\n        <h5>{{vm.player.track.title}}</h5>\n        <p class=\"player-play\" ng-click=\"vm.onPauseClicked()\">PAUSE</p>\n        <p class=\"player-stop\" ng-click=\"vm.onStopClicked()\">STOP</p>\n        <p class=\"player-duration\">{{vm.getCurrentTime() }} / {{vm.player.track.duration | trackDurationFilter:\"mm:ss\"}}</p>\n    </div>\n</div>";
 
 /***/ }),
 /* 108 */
@@ -64370,8 +64369,10 @@ module.exports = "<div class=\"player\" ng-class=\"{'player-animate-in': vm.play
  * Created by dannyyassine on 2017-12-04.
  */
 
-function PlayerController($scope, playerService) {
+function PlayerController($scope, playerService, trackDurationFilter) {
     let vm = this;
+    vm.local = {};
+    $scope.currentTime = 0.0;
 
     /**
      * Life cycles
@@ -64380,19 +64381,33 @@ function PlayerController($scope, playerService) {
     vm.$onInit = $onInit;
     vm.$onChanges = $onChanges;
 
+    vm.getCurrentTime = getCurrentTime;
     vm.onPauseClicked = onPauseClicked;
     vm.onStopClicked = onStopClicked;
 
     function $onInit() {
         vm.player = playerService.player;
+        $scope.$on('sdn.notifications.player.play', e => {
+            vm.player.audio.addEventListener('timeupdate', () => {
+                $scope.$apply();
+            });
+        });
     }
 
-    function $onChanges($event) {
-        console.log($event);
-    }
+    function $onChanges($event) {}
+    // console.log($event);
+
     /**
      * Input methods
      */
+    function getCurrentTime() {
+        if (!vm.player.audio) {
+            return 0.00;
+        }
+        let time = vm.player.audio.currentTime || 0.0;
+        return trackDurationFilter(time, "mm:ss", false);
+    }
+
     function onPauseClicked() {
         playerService.pause();
     }

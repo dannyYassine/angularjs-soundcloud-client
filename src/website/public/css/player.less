@@ -1,20 +1,50 @@
+@playerHeight: 75px;
+
 .player {
   display: block;
   width: 100%;
   position: fixed;
   z-index: 10;
-  height: 100px;
+  height: @playerHeight;
   background: #262728;
   border-top: 2px solid #FF5400;
-  bottom: -100px;
+  bottom: -@playerHeight;
   transition: bottom 0.25s ease-out;
 }
 
+.track-progress-bar {
+
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
 .player {
-  h4 {
-    margin: 0;
+  h5 {
+    margin: 10px 0 0 0;
     padding: 0;
+    color: #BFC0C1;
   }
+  p {
+    margin: 5px 5px;
+    float: left;
+    color: #7F8081;
+  }
+}
+
+.player-play {
+
+}
+
+.player-pause {
+
+}
+
+.player-duration {
+  width: 100px;
 }
 
 .player-animate-in {
@@ -22,5 +52,5 @@
 }
 
 .player-animate-out {
-  bottom: -100px;
+  bottom: -@playerHeight;
 }

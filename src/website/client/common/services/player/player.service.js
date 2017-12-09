@@ -44,6 +44,7 @@ const PlayerService = (function ($rootScope, soundCloudConfigAPI) {
         player.track = song;
         player.audio = new Audio(`${song.stream_url}?client_id=${soundCloudConfigAPI.clientID()}`);
         player.audio.play();
+        $rootScope.$broadcast('sdn.notifications.player.play', song);
     };
 
     /**

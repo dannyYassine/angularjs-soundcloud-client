@@ -7,7 +7,6 @@ const PlayerComponent = {
       track: '<'
     },
     template: require('./template.html'),
-    replace: true,
     controller: require('./player.controller'),
     controllerAs: 'vm'
 };
