@@ -47,5 +47,8 @@
   "bugs": {
     "url": "https://github.com/dannyYassine/angularjs-soundcloud-client/issues"
   },
-  "homepage": "https://github.com/dannyYassine/angularjs-soundcloud-client#readme"
+  "homepage": "https://github.com/dannyYassine/angularjs-soundcloud-client#readme",
+  "engines": {
+    "node": "6.11.5"
+  }
 }
