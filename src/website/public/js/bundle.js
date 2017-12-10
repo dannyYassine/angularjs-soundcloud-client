@@ -63949,7 +63949,7 @@ const SoundCloundAPI = function (restangular, soundcloudConfigAPI) {
    */
   const getFeaturedTracks = () => {
     const params = defaultParams;
-    params.q = "final%20fantasy";
+    params.q = "chrono trigger";
     let tracks = restangular.all('/tracks');
     return tracks.getList(params);
   };
