@@ -62245,6 +62245,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 __WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('sdn.filters').filter('trackArtworkFilter', function () {
 
     function trackArtworkFilter(url, size) {
+        if (!url) {
+            return "";
+        }
         return url.replace('-large', '-t' + size + 'x' + size);
     }
     // trackArtworkFilter.$stateful = true;
@@ -64360,7 +64363,7 @@ module.exports = PlayerComponent;
 /* 107 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"player\" ng-class=\"{'player-animate-in': vm.player.audio, 'player-animate-out': vm.player.audio === null}\">\n    <div id=\"track-progress-bar\" class=\"progress-bar\"></div>\n    <div class=\"main-content-layout\">\n        <h5>{{vm.player.track.title}}</h5>\n        <p class=\"player-play\" ng-click=\"vm.onPauseClicked()\">PAUSE</p>\n        <p class=\"player-stop\" ng-click=\"vm.onStopClicked()\">STOP</p>\n        <p class=\"player-duration\">{{vm.getCurrentTime() }} / {{vm.player.track.duration | trackDurationFilter:\"mm:ss\"}}</p>\n    </div>\n</div>";
+module.exports = "<div class=\"player\" ng-class=\"{'player-animate-in': vm.player.audio, 'player-animate-out': vm.player.audio === null}\">\n    <canvas id=\"progress\" class=\"progress-bar\" width=\"640\" height=\"10\" ng-click=\"vm.onProgressClicked($event)\"></canvas>\n    <div class=\"main-content-layout\">\n        <h5>{{vm.player.track.title}}</h5>\n        <p class=\"player-play\" ng-click=\"vm.onPauseClicked()\">PAUSE</p>\n        <p class=\"player-stop\" ng-click=\"vm.onStopClicked()\">STOP</p>\n        <p class=\"player-duration\">{{vm.getCurrentTime() }} / {{vm.player.track.duration | trackDurationFilter:\"mm:ss\"}}</p>\n    </div>\n</div>";
 
 /***/ }),
 /* 108 */
@@ -64381,22 +64384,48 @@ function PlayerController($scope, playerService, trackDurationFilter) {
      */
     vm.$onInit = $onInit;
     vm.$onChanges = $onChanges;
+    vm.$postLink = $postLink;
 
     vm.getCurrentTime = getCurrentTime;
     vm.onPauseClicked = onPauseClicked;
     vm.onStopClicked = onStopClicked;
+    vm.onProgressClicked = onProgressClicked;
 
     function $onInit() {
         vm.player = playerService.player;
         $scope.$on('sdn.notifications.player.play', e => {
             vm.player.audio.addEventListener('timeupdate', () => {
+                updateProgress();
                 $scope.$apply();
             });
         });
     }
 
-    function $onChanges($event) {}
-    // console.log($event);
+    function $postLink() {
+        let canvasElement = document.getElementById('progress');
+        let context = document.getElementById('progress').getContext('2d');
+        context.translate(0.5, 0.5);
+        context.fillRect(0, 0, canvasElement.offsetWidth, 100);
+        context.width = document.body.clientWidth;
+    }
+
+    function $onChanges($event) {
+        // console.log($event);
+    }
+
+    function updateProgress() {
+        let canvasElement = document.getElementById('progress');
+        let canvas = document.getElementById('progress').getContext('2d');
+
+        canvas.clearRect(0, 0, canvas.width, 100);
+        canvas.fillStyle = "#000";
+        canvas.fillRect(0, 0, canvas.width, 100);
+
+        canvas.fillStyle = "#ff3300";
+        let progress = vm.player.audio.currentTime / vm.player.audio.duration;
+        console.log(vm.player.audio.currentTime, vm.player.audio.duration, progress, canvasElement.offsetWidth, canvas.width, progress * canvasElement.offsetWidth + 0.5);
+        canvas.fillRect(0, 0, progress * canvas.width, 100);
+    }
 
     /**
      * Input methods
@@ -64414,6 +64443,8 @@ function PlayerController($scope, playerService, trackDurationFilter) {
     }
     function onStopClicked() {
         playerService.stop();
+        let canvas = document.getElementById('progress').getContext('2d');
+        canvas.fillRect(0, 0, 0, 100);
     }
 
     function onProgressClicked(evt) {
@@ -64421,6 +64452,7 @@ function PlayerController($scope, playerService, trackDurationFilter) {
         var dim = e.getBoundingClientRect();
         var x = evt.clientX - dim.left;
         var position = x / dim.width;
+        playerService.seek(position);
     }
 }
 

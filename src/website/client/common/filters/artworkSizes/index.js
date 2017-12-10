@@ -8,6 +8,9 @@ angular.module('sdn.filters')
     .filter('trackArtworkFilter', function() {
 
         function trackArtworkFilter(url, size) {
+            if (!url) {
+                return "";
+            }
             return url.replace('-large', '-t'+size+'x'+size);
         }
         // trackArtworkFilter.$stateful = true;

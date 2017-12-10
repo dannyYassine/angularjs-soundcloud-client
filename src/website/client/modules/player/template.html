@@ -1,5 +1,5 @@
 <div class="player" ng-class="{'player-animate-in': vm.player.audio, 'player-animate-out': vm.player.audio === null}">
-    <div id="track-progress-bar" class="progress-bar"></div>
+    <canvas id="progress" class="progress-bar" width="640" height="10" ng-click="vm.onProgressClicked($event)"></canvas>
     <div class="main-content-layout">
         <h5>{{vm.player.track.title}}</h5>
         <p class="player-play" ng-click="vm.onPauseClicked()">PAUSE</p>
