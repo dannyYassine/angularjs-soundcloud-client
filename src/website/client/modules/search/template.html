@@ -10,6 +10,7 @@
         </div>
     </div>
     <div class="main-content-layout">
+        <div ng-if="vm.isLoading" class="spinner"></div>
         <track-list tracks="vm.tracks"></track-list>
     </div>
 </div>

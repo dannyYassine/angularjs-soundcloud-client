@@ -5,6 +5,7 @@
 const SearchController = function (soundCloudService) {
     let vm = this;
     vm.tracks = [];
+    vm.isLoading = false;
 
     /**
      * Life cycles
@@ -30,8 +31,10 @@ const SearchController = function (soundCloudService) {
     
     function onSearchSubmit(event) {
         let query = document.getElementById('search_input').value;
+        vm.isLoading = true;
         soundCloudService.searchTracks(query)
             .then((response) => {
+                vm.isLoading = false;
                 vm.tracks = response;
             });
     }

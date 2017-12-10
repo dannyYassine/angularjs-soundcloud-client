@@ -5,7 +5,7 @@
 import angular from 'angular';
 import PlayerComponent from './player.component';
 
-PlayerComponent.$inject = ['$scope', 'playerService', 'trackDurationFilterFilter'];
+PlayerComponent.$inject = ['$scope', 'playerService'];
 
 angular.module('sdn')
     .component('player', PlayerComponent);

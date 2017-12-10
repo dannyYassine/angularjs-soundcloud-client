@@ -7,6 +7,13 @@ import angular from 'angular';
 angular.module('sdn.filters')
     .filter('trackDurationFilter', function() {
 
+        /**
+         * @TODO: Use moment.js
+         * @param duration
+         * @param format
+         * @param inMiliSeconds
+         * @returns {string}
+         */
         function trackDurationFilter(duration, format, inMiliSeconds) {
             let timeDuration = duration;
             let timeFormat = format || "mm:ss";
@@ -15,7 +22,7 @@ angular.module('sdn.filters')
             if (!isNaN(duration)) {
                 timeDuration = Number(duration);
             }
-    
+
             timeDuration = timeDuration / (inMiliSeconds ? 1000 : 1);
 
             let stringOutput = "";

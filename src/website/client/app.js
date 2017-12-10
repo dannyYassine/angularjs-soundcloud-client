@@ -5,6 +5,7 @@
 import angular from 'angular';
 import uiRouter from '@uirouter/angularjs';
 
+require('./common/directives');
 require('./common/filters');
 require('./common/services');
 require('./common/components');
@@ -15,7 +16,8 @@ let app = angular.module('sdn',
 
         'sdn.api.services',
         'sdn.components',
-        'sdn.filters'
+        'sdn.filters',
+        'sdn.directives'
     ]);
 
 require('./modules');
@@ -47,6 +49,13 @@ app.config(function($stateProvider) {
         component: 'search'
     };
 
+    const userDetailState = {
+        name: 'users',
+        url: '/users/:id',
+        component: 'userDetail'
+    };
+
     $stateProvider.state(homeState);
     $stateProvider.state(searchState);
+    $stateProvider.state(userDetailState);
 });
