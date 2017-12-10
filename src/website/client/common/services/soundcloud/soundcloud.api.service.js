@@ -19,7 +19,7 @@ const SoundCloundAPI = (function (restangular, soundcloudConfigAPI) {
      */
     const getFeaturedTracks = () => {
         const params = defaultParams;
-        params.q = "chrono%20trigger";
+        params.q = "final%20fantasy";
         let tracks = restangular.all('/tracks');
         return tracks.getList(params);
     };
