@@ -1,0 +1,15 @@
+<div class="full-height">
+    <div class="home-header">
+        <div class="main-content-layout">
+            <div class="title-container">
+                <h5>Search /</h5>
+                <form ng-submit="vm.onSearchSubmit($event)">
+                    <input id="search_input" type="text" placeholder="Let's do this" autofocus/>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="main-content-layout">
+        <track-list tracks="vm.tracks"></track-list>
+    </div>
+</div>

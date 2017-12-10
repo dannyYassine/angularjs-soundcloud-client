@@ -44,7 +44,7 @@ app.config(function($stateProvider) {
     const searchState = {
         name: 'search',
         url: '/search',
-        component: 'home'
+        component: 'search'
     };
 
     $stateProvider.state(homeState);

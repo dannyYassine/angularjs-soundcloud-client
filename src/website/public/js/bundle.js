@@ -25360,7 +25360,7 @@ app.config(function ($stateProvider) {
     const searchState = {
         name: 'search',
         url: '/search',
-        component: 'home'
+        component: 'search'
     };
 
     $stateProvider.state(homeState);
@@ -63949,7 +63949,7 @@ const SoundCloundAPI = function (restangular, soundcloudConfigAPI) {
    */
   const getFeaturedTracks = () => {
     const params = defaultParams;
-    params.q = "1960%20christmas";
+    params.q = "final%20fantasy";
     let tracks = restangular.all('/tracks');
     return tracks.getList(params);
   };
@@ -64222,7 +64222,7 @@ __webpack_require__(105);
 __webpack_require__(109);
 __webpack_require__(112);
 
-__webpack_require__(113);
+__webpack_require__(116);
 
 /***/ }),
 /* 98 */
@@ -64512,21 +64512,97 @@ module.exports = "<div class=\"footer\">\n    AppFooter\n</div>";
 
 /***/ }),
 /* 112 */
-/***/ (function(module, exports) {
-
-/**
- * Created by dannyyassine on 2017-12-03.
- */
-
-/***/ }),
-/* 113 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_angular__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_component__ = __webpack_require__(114);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__search_component__ = __webpack_require__(113);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__search_component___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__search_component__);
+/**
+ * Created by dannyyassine on 2017-12-03.
+ */
+
+
+
+__WEBPACK_IMPORTED_MODULE_1__search_component___default.a.$inject = ['soundcloundAPI'];
+
+__WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('sdn').component('search', __WEBPACK_IMPORTED_MODULE_1__search_component___default.a);
+
+/***/ }),
+/* 113 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/**
+ * Created by dannyyassine on 2017-12-03.
+ */
+
+const SearchComponent = {
+    template: __webpack_require__(114),
+    controller: __webpack_require__(115),
+    controllerAs: 'vm'
+};
+
+module.exports = SearchComponent;
+
+/***/ }),
+/* 114 */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"full-height\">\n    <div class=\"home-header\">\n        <div class=\"main-content-layout\">\n            <div class=\"title-container\">\n                <h5>Search /</h5>\n                <form ng-submit=\"vm.onSearchSubmit($event)\">\n                    <input id=\"search_input\" type=\"text\" placeholder=\"Let's do this\" autofocus/>\n                </form>\n            </div>\n        </div>\n    </div>\n    <div class=\"main-content-layout\">\n        <track-list tracks=\"vm.tracks\"></track-list>\n    </div>\n</div>";
+
+/***/ }),
+/* 115 */
+/***/ (function(module, exports) {
+
+/**
+ * Created by dannyyassine on 2017-12-10.
+ */
+
+const SearchController = function (soundCloudService) {
+    let vm = this;
+    vm.tracks = [];
+
+    /**
+     * Life cycles
+     * @type {$onInit}
+     */
+    vm.$onInit = $onInit;
+    vm.$onChanges = $onChanges;
+    vm.$postLink = $postLink;
+
+    vm.onSearchSubmit = onSearchSubmit;
+
+    function $onInit() {}
+
+    function $postLink() {
+        document.getElementById('search_input').focus();
+    }
+
+    function $onChanges($event) {
+        // console.log($event);
+    }
+
+    function onSearchSubmit(event) {
+        let query = document.getElementById('search_input').value;
+        soundCloudService.searchTracks(query).then(response => {
+            vm.tracks = response;
+        });
+    }
+};
+
+module.exports = SearchController;
+
+/***/ }),
+/* 116 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_angular__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_component__ = __webpack_require__(117);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_component___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__app_component__);
 /**
  * Created by dannyyassine on 2017-12-03.
@@ -64537,7 +64613,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 __WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('sdn').component('app', __WEBPACK_IMPORTED_MODULE_1__app_component___default.a);
 
 /***/ }),
-/* 114 */
+/* 117 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -64545,12 +64621,12 @@ __WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('sdn').component('app', _
  */
 
 module.exports = {
-  template: __webpack_require__(115),
+  template: __webpack_require__(118),
   replace: true
 };
 
 /***/ }),
-/* 115 */
+/* 118 */
 /***/ (function(module, exports) {
 
 module.exports = "<div>\n    <nav-header></nav-header>\n    <div class=\"main-layout\">\n        <div ui-view></div>\n    </div>\n    <app-footer></app-footer>\n    <player></player>\n</div>";

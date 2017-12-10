@@ -309,7 +309,8 @@ h4,
 h5,
 h6,
 a,
-p {
+p,
+input[type=text] {
   font-family: "Avenir Next";
 }
 .corner-1 {
@@ -482,6 +483,20 @@ p {
 }
 .player-animate-out {
   bottom: -75px;
+}
+#search_input {
+  background-color: transparent;
+  width: 100%;
+  display: inline-block;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: #FF5400;
+  outline: none;
+  font-weight: 200;
+  font-size: 30px;
+  padding: 0 0 30px 0;
+  vertical-align: top;
 }
 .home {
   background: #262728;
