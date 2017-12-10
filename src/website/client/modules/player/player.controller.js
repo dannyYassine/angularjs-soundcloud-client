@@ -4,7 +4,7 @@
 
 function PlayerController ($scope, playerService, trackDurationFilter) {
     let vm = this;
-    vm.local = {};
+    vm.playText = "PAUSE";
     $scope.currentTime = 0.0;
 
     /**
@@ -19,6 +19,7 @@ function PlayerController ($scope, playerService, trackDurationFilter) {
     vm.onPauseClicked = onPauseClicked;
     vm.onStopClicked = onStopClicked;
     vm.onProgressClicked = onProgressClicked;
+    vm.isPlaying = isPlaying;
 
     function $onInit() {
         vm.player = playerService.player;
@@ -31,11 +32,7 @@ function PlayerController ($scope, playerService, trackDurationFilter) {
     }
 
     function $postLink() {
-        let canvasElement = document.getElementById('progress');
-        let context = document.getElementById('progress').getContext('2d');
-        context.translate(0.5, 0.5);
-        context.fillRect(0, 0, canvasElement.offsetWidth, 100);
-        context.width = document.body.clientWidth;
+
     }
 
     function $onChanges($event) {
@@ -44,16 +41,13 @@ function PlayerController ($scope, playerService, trackDurationFilter) {
     
     function updateProgress() {
         let canvasElement = document.getElementById('progress');
-        let canvas = document.getElementById('progress').getContext('2d');
-
-        canvas.clearRect(0, 0, canvas.width, 100);
-        canvas.fillStyle = "#000";
-        canvas.fillRect(0, 0, canvas.width, 100);
-
-        canvas.fillStyle = "#ff3300";
         let progress = vm.player.audio.currentTime / vm.player.audio.duration;
-        console.log(vm.player.audio.currentTime, vm.player.audio.duration, progress, canvasElement.offsetWidth, canvas.width, progress * canvasElement.offsetWidth + 0.5);
-        canvas.fillRect(0, 0, progress * canvas.width, 100);
+        canvasElement.style.width = progress * document.body.clientWidth + "px";
+        if (playerService.isPlaying()) {
+            vm.playText = "PAUSE";
+        } else {
+            vm.playText = "PLAY";
+        }
     }
     
     /**
@@ -68,20 +62,28 @@ function PlayerController ($scope, playerService, trackDurationFilter) {
     }
 
     function onPauseClicked() {
-        playerService.pause();
+        if (playerService.isPlaying()) {
+            playerService.pause();
+        } else {
+            playerService.resume();
+        }
     }
     function onStopClicked() {
         playerService.stop();
-        let canvas = document.getElementById('progress').getContext('2d');
-        canvas.fillRect(0, 0, 0, 100);
+        let canvasElement = document.getElementById('progress');
+        canvasElement.style.width = "0px";
     }
 
     function onProgressClicked(evt) {
         var e = evt.target;
-        var dim = e.getBoundingClientRect();
+        var dim = e.getClientRects()[0];
         var x = evt.clientX - dim.left;
-        var position = x/dim.width;
+        var position = x/document.body.clientWidth;
         playerService.seek(position);
+    }
+
+    function isPlaying() {
+        return playerService.isPlaying();
     }
 }
 

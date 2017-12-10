@@ -47,6 +47,13 @@ const PlayerService = (function ($rootScope, soundCloudConfigAPI) {
         $rootScope.$broadcast('sdn.notifications.player.play', song);
     };
 
+    const resume = () => {
+        if (!player.audio) {
+            return;
+        }
+        player.audio.play();
+    };
+
     /**
      * Pause current song
      * @param song
@@ -78,12 +85,18 @@ const PlayerService = (function ($rootScope, soundCloudConfigAPI) {
         player.audio.currentTime = position * player.audio.duration;
     };
 
+    const isPlaying = () => {
+        return !player.audio.paused;
+    };
+
     return {
         player,
         play : playSong,
+        resume: resume,
         pause: pauseSong,
         stop : stopSong,
-        seek : seekToPosition
+        seek : seekToPosition,
+        isPlaying: isPlaying
     }
 
 });

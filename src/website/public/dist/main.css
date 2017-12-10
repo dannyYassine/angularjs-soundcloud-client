@@ -449,19 +449,19 @@ p {
   z-index: 10;
   height: 75px;
   background: #262728;
-  border-top: 2px solid #FF5400;
+  border-top: 4px solid #FF5400;
   bottom: -75px;
   transition: bottom 0.25s ease-out;
 }
 .track-progress-bar {
   width: 100%;
-  height: 10px;
+  height: 8px;
   overflow: hidden;
   background-color: rgba(0, 0, 0, 0.5);
 }
 #progress {
-  width: 100%;
-  height: 10px;
+  width: 1px;
+  height: 8px;
   background-color: #ff3300;
 }
 .player h5 {
