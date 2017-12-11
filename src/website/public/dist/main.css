@@ -430,6 +430,13 @@ input[type=text] {
   width: 18px;
   margin: 0 auto;
 }
+@media (max-width: 400px) {
+  .header-nav li a {
+    padding: 14px 5px;
+    text-decoration: none;
+    font-size: 12px;
+  }
+}
 .track-list-container {
   display: flex;
   flex-wrap: wrap;
@@ -528,12 +535,15 @@ input[type=text] {
 }
 .wave-details {
   margin-left: 40px;
+  margin-right: 20px;
   float: left;
 }
 .wave-details h5 {
   color: #BFC0C1;
   margin-top: 0;
   margin-bottom: 0;
+  height: 20px;
+  overflow: hidden;
 }
 .wave {
   background-color: #1D1E1F;
