@@ -2,13 +2,13 @@
  * Created by dannyyassine on 2017-12-03.
  */
 
-const UserDetailComponent = {
+const WaveListComponent = {
     bindings: {
-        user: '<'
+        tracks: '<'
     },
     template: require('./template.html'),
-    controller: require('./userDetail.controller'),
+    controller: require('./waveList.controller'),
     controllerAs: 'vm'
 };
 
-module.exports = UserDetailComponent;
+module.exports = WaveListComponent;

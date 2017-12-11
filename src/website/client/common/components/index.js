@@ -6,4 +6,7 @@ import angular from 'angular';
 
 angular.module('sdn.components', []);
 
+require('./wave');
+
 require('./trackList');
+require('./waveList');

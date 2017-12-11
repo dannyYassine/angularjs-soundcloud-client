@@ -1,10 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+<div class="full-height user-detail">
+    <div class="home-header">
+        <div class="main-content-layout">
+            <div class="title-container">
+                <h5>{{vm.user.username}} /</h5>
+                <h2>{{vm.user.full_name || "Unknown"}}</h2>
+                <p>{{vm.user.city || "Unknow city"}}, {{vm.user.country || "Unknown country"}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="main-content-layout">
+        <div ng-if="vm.isLoading" class="spinner"></div>
+        <wave-list tracks="vm.tracks"></wave-list>
+    </div>
+</div>

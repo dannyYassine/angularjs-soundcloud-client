@@ -51,8 +51,13 @@ app.config(function($stateProvider) {
 
     const userDetailState = {
         name: 'users',
-        url: '/users/:id',
-        component: 'userDetail'
+        url: '/users/{id}',
+        component: 'userDetail',
+        resolve: {
+            user: function (soundcloundAPI, $transition$) {
+                return soundcloundAPI.getUser($transition$.params().id)
+            }
+        }
     };
 
     $stateProvider.state(homeState);

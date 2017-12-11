@@ -4,8 +4,12 @@
     </div>
     <div class="main-content-layout">
         <h5>{{vm.player.track.title}}</h5>
-        <p class="player-play" ng-click="vm.onPauseClicked()">{{ vm.player.text }}</p>
-        <p class="player-stop" ng-click="vm.onStopClicked()">STOP</p>
+        <p class="player-play" ng-click="vm.onPauseClicked()">
+            <span class="fa fa-lg" ng-class="{'fa-play': !vm.player.isPaused(), 'fa-pause': vm.player.isPaused()}"></span>
+        </p>
         <p class="player-duration">{{ vm.player.currentTime | trackDurationFilter:"mm:ss":false }} / {{vm.player.track.duration | trackDurationFilter:"mm:ss"}}</p>
+        <p class="player-stop" ng-click="vm.onStopClicked()">
+            <span class="fa fa-stop fa-lg"></span>
+        </p>
     </div>
 </div>

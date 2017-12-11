@@ -4,5 +4,5 @@
 
 module.exports = {
     template: require('./app.html'),
-    replace: true
+    controllerAs: 'vm'
 };

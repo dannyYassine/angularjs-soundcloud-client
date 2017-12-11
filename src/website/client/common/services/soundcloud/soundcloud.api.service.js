@@ -9,8 +9,7 @@
 const SoundCloundAPI = (function (restangular, soundcloudConfigAPI) {
 
     const defaultParams = {
-        client_id: soundcloudConfigAPI.clientID(),
-        limit: 60
+        client_id: soundcloudConfigAPI.clientID()
     };
 
     /**
@@ -20,8 +19,32 @@ const SoundCloundAPI = (function (restangular, soundcloudConfigAPI) {
     const getFeaturedTracks = () => {
         const params = defaultParams;
         params.q = "chrono trigger";
+        params.limit = 60;
         let tracks = restangular.all('/tracks');
         return tracks.getList(params);
+    };
+
+    /**
+     * Returns a promise
+     * @param userId
+     */
+    const getUser = (userId) => {
+        const params = defaultParams;
+        let users = restangular.one('users', userId);
+        return users.get(params);
+    };
+
+    /**
+     * Returns a promise
+     * @param userId
+     */
+    const getUserTracks = (userId) => {
+        const params = defaultParams;
+        params.limit = 8;
+        let users = restangular
+            .one('users', userId)
+            .all('tracks');
+        return users.getList(params);
     };
 
     /**
@@ -32,6 +55,7 @@ const SoundCloundAPI = (function (restangular, soundcloudConfigAPI) {
     const searchTracks = (searchText) => {
         const params = defaultParams;
         params.q = searchText;
+        params.limit = 60;
         let tracks = restangular.all('/tracks');
         return tracks.getList(params);
     };
@@ -41,7 +65,9 @@ const SoundCloundAPI = (function (restangular, soundcloudConfigAPI) {
      */
     return {
         getFeaturedTracks,
-        searchTracks
+        searchTracks,
+        getUser,
+        getUserTracks
     }
 
 });

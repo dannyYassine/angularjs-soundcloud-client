@@ -124,7 +124,9 @@ const PlayerService = (function ($rootScope, soundCloudConfigAPI) {
     }
 
     function isPaused() {
-        return !player.audio.paused;
+        return player.audio
+            ? !player.audio.paused
+            : true;
     }
 
 });

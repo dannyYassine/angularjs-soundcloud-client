@@ -4,6 +4,8 @@
 
 const UserDetailController = function (soundCloudService) {
     let vm = this;
+    vm.tracks = [];
+    vm.isLoading = false;
 
     /**
      * Life cycles
@@ -14,7 +16,12 @@ const UserDetailController = function (soundCloudService) {
     vm.$postLink = $postLink;
 
     function $onInit() {
-
+        vm.isLoading = true;
+        soundCloudService.getUserTracks(vm.user.id)
+            .then((response) => {
+                vm.isLoading = false;
+                vm.tracks = response;
+            });
     }
 
     function $postLink() {

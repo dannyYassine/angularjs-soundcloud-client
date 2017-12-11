@@ -3,6 +3,11 @@
  */
 import angular from 'angular';
 import AppComponent from './app.component';
+import AppController from './app.controller';
+
+AppController.$inject = ['$scope'];
+
+AppComponent.controller = AppController;
 
 angular.module('sdn')
     .component('app', AppComponent);
