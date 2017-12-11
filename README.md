@@ -12,6 +12,9 @@
 * .less
 * Gulp
 
+## User Detail
+![](https://github.com/dannyYassine/angularjs-soundcloud-client/blob/master/github/home_3.png)
+
 ## Landing Page
 ![](https://github.com/dannyYassine/angularjs-soundcloud-client/blob/master/github/home.png)
 
