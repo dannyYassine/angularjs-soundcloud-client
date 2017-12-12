@@ -293,6 +293,17 @@ th {
 .hover-shadow:hover {
   box-shadow: 0px 3px 10px lightGrey;
 }
+.highlight {
+  opacity: 0.70;
+  transition: opacity 0.66s ease;
+}
+.highlight:active {
+  opacity: 1.0;
+  color: #552500;
+}
+.highlight:hover {
+  opacity: 1.0;
+}
 html,
 body {
   background: #262728;
@@ -330,6 +341,12 @@ input[type=text] {
 }
 .img-border {
   border: 5px hotpink;
+}
+.soundcloud-blood-orange {
+  color: #ff3300;
+}
+.soundcloud-orange {
+  color: #FF5400;
 }
 .spinner {
   width: 10px;
@@ -479,8 +496,9 @@ input[type=text] {
   margin-bottom: 5px;
 }
 .track-info p#title {
-  color: #7F8081;
+  color: #FF5400;
   height: 20px;
+  text-decoration: underline;
 }
 .track-info p#sub-title {
   color: #BFC0C1;
@@ -496,7 +514,7 @@ input[type=text] {
   border-top: 0.5px solid rgba(255, 255, 255, 0.2);
 }
 .play-btn {
-  color: #ff3300;
+  color: #FF5400;
 }
 .card-controls p {
   float: left;

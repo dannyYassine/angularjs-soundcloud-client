@@ -2,21 +2,22 @@
     <div ng-repeat="track in vm.tracks" dy-fade index="{{$index}}">
             <div class="border-top-line"></div>
             <div class="track-card hover-position-shadow">
-                <a ui-sref="users({ id: track.user.id })">
                     <div class="card-img-container">
                         <img class="card-img" ng-src="{{track.artwork_url | trackArtworkFilter:500 }}"/>
                     </div>
-                </a>
                 <div class="black-line"></div>
                 <div class="track-info">
-                    <p id="title">{{track.user.permalink}}</p>
+                    <a ui-sref="users({ id: track.user.id })">
+                        <p id="title" class="highlight">{{track.user.permalink}}</p>
+                    </a>
                     <p id="sub-title">{{track.title}}</p>
                     <div class="card-controls">
-                        <p class="play-btn" ng-click="vm.onPlayClicked(track)">
-                            <span class="fa fa-play fa-lg"></span>
+                        <p class="play-btn">
+                            <a class="play-btn highlight" href="" ng-click="vm.onPlayClicked(track)">
+                                <span class="fa fa-play fa-lg"></span>
+                            </a>
                         </p>
                         <p class="duration">{{track.duration | trackDurationFilter:"mm:ss"}}</p>
-                        <!--<p class="duration">Likes {{track.favoritings_count}}</p>-->
                     </div>
                 </div>
             </div>

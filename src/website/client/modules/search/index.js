@@ -4,7 +4,7 @@
 import angular from 'angular';
 import SearchComponent from './search.component';
 
-SearchComponent.$inject = ['soundcloundAPI'];
+SearchComponent.$inject = ['$scope', 'soundcloundAPI'];
 
 angular.module('sdn')
     .component('search', SearchComponent);

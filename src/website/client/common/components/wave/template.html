@@ -8,7 +8,9 @@
         <h5>{{vm.trackData.title}}</h5>
         <div class="card-controls">
             <p class="play-btn" ng-click="vm.onPlayClicked(track)">
-                <span class="fa fa-play fa-lg"></span>
+                <a class="play-btn highlight" href="" ng-click="vm.onPlayClicked(track)">
+                    <span class="fa fa-play fa-lg"></span>
+                </a>
             </p>
             <p class="duration">{{vm.trackData.duration | trackDurationFilter:"mm:ss"}}</p>
         </div>

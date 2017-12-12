@@ -2,10 +2,15 @@
  * Created by dannyyassine on 2017-12-10.
  */
 
-const SearchController = function (soundCloudService) {
+const SearchController = function ($scope, soundCloudService) {
     let vm = this;
     vm.tracks = [];
     vm.isLoading = false;
+
+    /**
+     * Used for throttling
+     */
+    let eventTimeout;
 
     /**
      * Life cycles
@@ -15,8 +20,8 @@ const SearchController = function (soundCloudService) {
     vm.$onChanges = $onChanges;
     vm.$postLink = $postLink;
 
-    vm.onSearchSubmit = onSearchSubmit;
-    
+    vm.onSearchInputChange = onSearchInputChange;
+
     function $onInit() {
 
     }
@@ -28,9 +33,26 @@ const SearchController = function (soundCloudService) {
     function $onChanges($event) {
         // console.log($event);
     }
-    
-    function onSearchSubmit(event) {
+
+    function onSearchInputChange(e) {
+        if (eventTimeout) {
+            clearTimeout(eventTimeout);
+        }
+        eventTimeout = setTimeout(function() {
+            eventTimeout = null;
+            searchTracks();
+        }, 500);
+    }
+
+
+    function searchTracks() {
         let query = document.getElementById('search_input').value;
+        if (query.length === 0) {
+            vm.tracks.length = 0;
+            $scope.$apply();
+            return;
+        }
+
         vm.isLoading = true;
         soundCloudService.searchTracks(query)
             .then((response) => {
@@ -38,7 +60,8 @@ const SearchController = function (soundCloudService) {
                 vm.tracks = response;
             });
     }
-    
+
+
 };
 
 module.exports = SearchController;
