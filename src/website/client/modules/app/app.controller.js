@@ -14,6 +14,9 @@ function AppController ($scope, $timeout) {
         });
         $timeout(function () {
             vm.launched = true;
+            $timeout(function () {
+                vm.removeSplash = true;
+            })
         }, 1000);
     }
 }

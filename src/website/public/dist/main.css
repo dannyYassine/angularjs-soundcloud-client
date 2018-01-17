@@ -317,6 +317,9 @@ th {
   -o-background-size: 100px;
   background-size: 100px;
 }
+.hide-splash {
+  display: none;
+}
 @keyframes fade-away-anim {
   from {
     opacity: 1;

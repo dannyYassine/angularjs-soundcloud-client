@@ -65072,7 +65072,7 @@ module.exports = {
 /* 134 */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n    <div class=\"launch-image\" ng-class=\"{'fade-away': vm.launched}\">\n        <div class=\"launch-image-image\"></div>\n    </div>\n    <div ng-if=\"vm.launched\">\n        <nav-header></nav-header>\n        <div class=\"main-layout\">\n            <div ui-view></div>\n        </div>\n        <app-footer></app-footer>\n        <player></player>\n    </div>\n</div>";
+module.exports = "<div>\n    <div class=\"launch-image\" ng-class=\"{'fade-away': vm.launched, 'hide-splash': vm.removeSplash}\">\n        <div class=\"launch-image-image\"></div>\n    </div>\n    <div ng-if=\"vm.launched\">\n        <nav-header></nav-header>\n        <div class=\"main-layout\">\n            <div ui-view></div>\n        </div>\n        <app-footer></app-footer>\n        <player></player>\n    </div>\n</div>";
 
 /***/ }),
 /* 135 */
@@ -65094,6 +65094,9 @@ function AppController($scope, $timeout) {
         });
         $timeout(function () {
             vm.launched = true;
+            $timeout(function () {
+                vm.removeSplash = true;
+            });
         }, 1000);
     }
 }
