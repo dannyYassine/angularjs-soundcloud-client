@@ -1,8 +1,13 @@
 <div>
-    <nav-header></nav-header>
-    <div class="main-layout">
-        <div ui-view></div>
+    <div class="launch-image" ng-class="{'fade-away': vm.launched}">
+        <div class="launch-image-image"></div>
     </div>
-    <app-footer></app-footer>
-    <player></player>
+    <div ng-if="vm.launched">
+        <nav-header></nav-header>
+        <div class="main-layout">
+            <div ui-view></div>
+        </div>
+        <app-footer></app-footer>
+        <player></player>
+    </div>
 </div>

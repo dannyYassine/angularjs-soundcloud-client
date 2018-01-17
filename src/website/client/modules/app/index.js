@@ -5,7 +5,7 @@ import angular from 'angular';
 import AppComponent from './app.component';
 import AppController from './app.controller';
 
-AppController.$inject = ['$scope'];
+AppController.$inject = ['$scope', '$timeout'];
 
 AppComponent.controller = AppController;
 

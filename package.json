@@ -4,12 +4,15 @@
   "description": "",
   "main": "src/server/index.js",
   "scripts": {
+    "build": "webpack --config webpack.config.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "webpack --watch --config webpack.config.js",
-    "serve": "nodemon src/server/index.js --watch src/website -e css,html",
+    "serve": "npm run build; nodemon src/server/index.js --watch src/website -e css,html",
     "sync": "browser-sync start --proxy \"localhost:3002\" --files \"src/**/*\"",
     "nodemon": "nodemon src/server/index.js",
-    "start": "forever src/server/index.js"
+    "start": "forever src/server/index.js",
+    "deploy": "git push heroku master",
+    "less": "gulp less"
   },
   "dependencies": {
     "@uirouter/angularjs": "^1.0.0",

@@ -304,6 +304,40 @@ th {
 .highlight:hover {
   opacity: 1.0;
 }
+.launch-image {
+  position: absolute;
+  height: 100vh;
+  width: 100vh;
+  top: 0;
+  left: 0;
+  background-color: #1D1E1F;
+}
+.launch-image-image {
+  height: 100vh;
+  width: 100vh;
+  background: url("../assets/launch-image-image.png") center no-repeat fixed;
+  -webkit-background-size: 100px;
+  -moz-background-size: 100px;
+  -o-background-size: 100px;
+  background-size: 100px;
+}
+@keyframes fade-away-anim {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+.fade-away {
+  animation-duration: 0.35s;
+  -webkit-animation-timing-function: ease-out;
+  -moz-animation-timing-function: ease-out;
+  -o-animation-timing-function: ease-out;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  animation-name: fade-away-anim;
+}
 html,
 body {
   background: #262728;
