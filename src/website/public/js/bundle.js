@@ -25329,7 +25329,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-
+console.log(__WEBPACK_IMPORTED_MODULE_1__uirouter_angularjs___default.a);
 __webpack_require__(80);
 __webpack_require__(83);
 __webpack_require__(86);

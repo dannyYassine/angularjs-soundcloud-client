@@ -4,7 +4,7 @@
 
 import angular from 'angular';
 import uiRouter from '@uirouter/angularjs';
-
+console.log(uiRouter);
 require('./common/directives');
 require('./common/filters');
 require('./common/services');
