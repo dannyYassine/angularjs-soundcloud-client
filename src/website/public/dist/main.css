@@ -457,7 +457,7 @@ input[type=text] {
 .header-nav li {
   float: left;
 }
-.header-nav li a {
+.header-nav a {
   display: block;
   color: white;
   text-align: center;
@@ -465,12 +465,12 @@ input[type=text] {
   text-decoration: none;
   font-size: 12px;
 }
+a.nav-btn-active {
+  color: #FF5400;
+}
 /* Change the link color to #111 (black) on hover */
 .header-nav li a:hover {
   background-color: #7F2A00;
-}
-.nav-btn-active {
-  background-color: #FF5400;
 }
 .header-nav .right-btn {
   float: right;
