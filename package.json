@@ -37,11 +37,14 @@
     "wavesurfer.js": "^2.0.0-beta01"
   },
   "devDependencies": {
+    "css-loader": "^0.28.9",
+    "extract-text-webpack-plugin": "^3.0.2",
     "gulp": "^3.9.1",
     "gulp-less": "^3.3.2",
     "gulp-sourcemaps": "^2.6.1",
     "less": "^2.7.3",
     "less-loader": "^4.0.5",
+    "style-loader": "^0.20.1",
     "webpack": "^3"
   },
   "author": "",

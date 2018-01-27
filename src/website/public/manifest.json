@@ -8,6 +8,7 @@
       "sizes": "144x144"
     }
   ],
+  "background_color": "#262728",
   "start_url": "index.html",
   "display": "standalone",
   "theme_color": "#FF5400"
