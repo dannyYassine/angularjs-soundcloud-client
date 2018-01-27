@@ -2,17 +2,17 @@
     <div ng-if="vm.isLoading" class="sm-spinner"></div>
     <br>
     <br>
-    <div class="wave" id="{{'track'+vm.trackData.id}}" ng-click="vm.onProgressClicked($event)"></div>
+    <div class="wave" id="{{'track'+::vm.trackData.id}}" ng-click="vm.onProgressClicked($event)"></div>
 
     <div class="wave-details">
-        <h5>{{vm.trackData.title}}</h5>
+        <h5>{{::vm.trackData.title}}</h5>
         <div class="card-controls">
             <p class="play-btn" ng-click="vm.onPlayClicked(track)">
                 <a class="play-btn highlight" href="" ng-click="vm.onPlayClicked(track)">
                     <span class="fa fa-play fa-lg"></span>
                 </a>
             </p>
-            <p class="duration">{{vm.trackData.duration | trackDurationFilter:"mm:ss"}}</p>
+            <p class="duration">{{::vm.trackData.duration | trackDurationFilter:"mm:ss"}}</p>
         </div>
     </div>
 </div>

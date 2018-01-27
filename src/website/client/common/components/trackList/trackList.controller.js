@@ -22,8 +22,8 @@ function TrackListController (playerService) {
      * Input methods
      */
 
-    function onPlayClicked(track) {
-        playerService.play(track);
+    function onPlayClicked(index) {
+        playerService.play(vm.tracks[index]);
     }
 
     function onPauseClicked() {

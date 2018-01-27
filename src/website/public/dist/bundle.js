@@ -64299,7 +64299,7 @@ module.exports = WaveComponent;
 /* 98 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"wave-container\">\n    <div ng-if=\"vm.isLoading\" class=\"sm-spinner\"></div>\n    <br>\n    <br>\n    <div class=\"wave\" id=\"{{'track'+vm.trackData.id}}\" ng-click=\"vm.onProgressClicked($event)\"></div>\n\n    <div class=\"wave-details\">\n        <h5>{{vm.trackData.title}}</h5>\n        <div class=\"card-controls\">\n            <p class=\"play-btn\" ng-click=\"vm.onPlayClicked(track)\">\n                <a class=\"play-btn highlight\" href=\"\" ng-click=\"vm.onPlayClicked(track)\">\n                    <span class=\"fa fa-play fa-lg\"></span>\n                </a>\n            </p>\n            <p class=\"duration\">{{vm.trackData.duration | trackDurationFilter:\"mm:ss\"}}</p>\n        </div>\n    </div>\n</div>";
+module.exports = "<div class=\"wave-container\">\n    <div ng-if=\"vm.isLoading\" class=\"sm-spinner\"></div>\n    <br>\n    <br>\n    <div class=\"wave\" id=\"{{'track'+::vm.trackData.id}}\" ng-click=\"vm.onProgressClicked($event)\"></div>\n\n    <div class=\"wave-details\">\n        <h5>{{::vm.trackData.title}}</h5>\n        <div class=\"card-controls\">\n            <p class=\"play-btn\" ng-click=\"vm.onPlayClicked(track)\">\n                <a class=\"play-btn highlight\" href=\"\" ng-click=\"vm.onPlayClicked(track)\">\n                    <span class=\"fa fa-play fa-lg\"></span>\n                </a>\n            </p>\n            <p class=\"duration\">{{::vm.trackData.duration | trackDurationFilter:\"mm:ss\"}}</p>\n        </div>\n    </div>\n</div>";
 
 /***/ }),
 /* 99 */
@@ -64438,7 +64438,7 @@ module.exports = TrackListComponent;
 /* 103 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"track-list-container\">\n    <div ng-repeat=\"track in ::vm.tracks\" dy-fade index=\"{{$index}}\">\n            <div class=\"border-top-line\"></div>\n            <div class=\"track-card hover-position-shadow\">\n                    <div class=\"card-img-container\">\n                        <img class=\"card-img\" ng-src=\"{{track.artwork_url | trackArtworkFilter:500 }}\"/>\n                    </div>\n                <div class=\"black-line\"></div>\n                <div class=\"track-info\">\n                    <a ui-sref=\"users({ id: track.user.id })\">\n                        <p id=\"title\" class=\"highlight\">{{track.user.permalink}}</p>\n                    </a>\n                    <p id=\"sub-title\">{{track.title}}</p>\n                    <div class=\"card-controls\">\n                        <p class=\"play-btn\">\n                            <a class=\"play-btn highlight\" href=\"\" ng-click=\"vm.onPlayClicked(track)\">\n                                <span class=\"fa fa-play fa-lg\"></span>\n                            </a>\n                        </p>\n                        <p class=\"duration\">{{track.duration | trackDurationFilter:\"mm:ss\"}}</p>\n                    </div>\n                </div>\n            </div>\n    </div>\n</div>";
+module.exports = "<div class=\"track-list-container\">\n    <div ng-repeat=\"track in ::vm.tracks\" >\n            <div class=\"border-top-line\"></div>\n            <div class=\"track-card hover-position-shadow\">\n                    <div class=\"card-img-container\">\n                        <img class=\"card-img\" src=\"{{::track.artwork_url | trackArtworkFilter:500 }}\"/>\n                    </div>\n                <div class=\"black-line\"></div>\n                <div class=\"track-info\">\n                    <a ui-sref=\"users({ id: {{::track.user_id}} })\">\n                        <p id=\"title\" class=\"highlight\">{{::track.user.permalink}}</p>\n                    </a>\n                    <p id=\"sub-title\">{{::track.title}}</p>\n                    <div class=\"card-controls\">\n                        <p class=\"play-btn\">\n                            <a class=\"play-btn highlight\" href=\"\" ng-click=\"vm.onPlayClicked($index)\">\n                                <span class=\"fa fa-play fa-lg\"></span>\n                            </a>\n                        </p>\n                        <p class=\"duration\">{{::track.duration | trackDurationFilter:\"mm:ss\"}}</p>\n                    </div>\n                </div>\n            </div>\n    </div>\n</div>";
 
 /***/ }),
 /* 104 */
@@ -64466,8 +64466,8 @@ function TrackListController(playerService) {
      * Input methods
      */
 
-    function onPlayClicked(track) {
-        playerService.play(track);
+    function onPlayClicked(index) {
+        playerService.play(vm.tracks[index]);
     }
 
     function onPauseClicked() {
@@ -64525,7 +64525,7 @@ module.exports = WaveListComponent;
 /* 107 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"wave-list-container\">\n    <div ng-repeat=\"track in vm.tracks\" dy-fade index=\"{{$index}}\">\n        <br>\n        <br>\n        <div class=\"border-top-line\"></div>\n        <waveform track-data=\"::track\"></waveform>\n    </div>\n</div>";
+module.exports = "<div class=\"wave-list-container\">\n    <div ng-repeat=\"track in ::vm.tracks\" dy-fade index=\"{{::$index}}\">\n        <br>\n        <br>\n        <div class=\"border-top-line\"></div>\n        <waveform track-data=\"::track\"></waveform>\n    </div>\n</div>";
 
 /***/ }),
 /* 108 */

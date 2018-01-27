@@ -8,5 +8,3 @@ SoundcloudModule.$inject = ['Restangular', 'soundCloudConfigAPI'];
 
 angular.module('sdn.api.services')
     .service('soundcloundAPI', SoundcloudModule);
-
-
