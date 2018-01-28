@@ -64299,7 +64299,7 @@ module.exports = WaveComponent;
 /* 98 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"wave-container\">\n    <div ng-if=\"vm.isLoading\" class=\"sm-spinner\"></div>\n    <br>\n    <br>\n    <div class=\"wave\" id=\"{{'track'+vm.trackData.id}}\" ng-click=\"vm.onProgressClicked($event)\"></div>\n\n    <div class=\"wave-details\">\n        <h5>{{vm.trackData.title}}</h5>\n        <div class=\"card-controls\">\n            <p class=\"play-btn\" ng-click=\"vm.onPlayClicked(track)\">\n                <a class=\"play-btn highlight\" href=\"\" ng-click=\"vm.onPlayClicked(track)\">\n                    <span class=\"fa fa-play fa-lg\"></span>\n                </a>\n            </p>\n            <p class=\"duration\">{{vm.trackData.duration | trackDurationFilter:\"mm:ss\"}}</p>\n        </div>\n    </div>\n</div>";
+module.exports = "<div class=\"wave-container\">\n    <div ng-if=\"vm.isLoading\" class=\"sm-spinner\"></div>\n    <br>\n    <br>\n    <div class=\"wave\" id=\"{{'track'+ vm.trackData.id}}\" ng-click=\"vm.onProgressClicked($event)\"></div>\n\n    <div class=\"wave-details\">\n        <h5>{{::vm.trackData.title}}</h5>\n        <div class=\"card-controls\">\n            <p class=\"play-btn\" ng-click=\"vm.onPlayClicked(track)\">\n                <a class=\"play-btn highlight\" href=\"\" ng-click=\"vm.onPlayClicked(track)\">\n                    <span class=\"fa fa-play fa-lg\"></span>\n                </a>\n            </p>\n            <p class=\"duration\">{{::vm.trackData.duration | trackDurationFilter:\"mm:ss\"}}</p>\n        </div>\n    </div>\n</div>";
 
 /***/ }),
 /* 99 */
