@@ -65,3 +65,5 @@ app.config(function($stateProvider) {
     $stateProvider.state(searchState);
     $stateProvider.state(userDetailState);
 });
+
+export default app;

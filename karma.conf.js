@@ -1,18 +1,23 @@
-//jshint strict: false
+
+var path = require('path');
+
 module.exports = function(config) {
     config.set({
         files: [
             'node_modules/angular/angular.js',
             'node_modules/angular-mocks/angular-mocks.js',
             'src/website/client/**/*.js',
+            'src/website/client/**/*.test.js'
         ],
         exclude: [
             'src/website/public'
         ],
-        frameworks: ['jasmine'],
+        frameworks: ['jasmine', 'mocha'],
         preprocessors: {
             'src/website/client/**/*.js': ['webpack'],
+            'src/website/client/**/*.test.js': ['webpack']
         },
+        reporters: [ 'progress', 'coverage-istanbul' ],
         browsers: ['Chrome'],
         singleRun: false,
         plugins: [
@@ -21,17 +26,27 @@ module.exports = function(config) {
             'karma-jasmine',
             'karma-coverage',
             'karma-sourcemap-loader',
-            'karma-mocha'
+            'karma-mocha',
+            'istanbul-instrumenter-loader',
+            'karma-coverage-istanbul-reporter'
         ],
         webpack: {
+            devtool: 'inline-source-map',
             module: {
-                loaders: [
+                rules: [
                     {
                         test: /\.js$/,
                         exclude: /(node_modules|bower_components)/,
-                        use: {
-                            loader: 'babel-loader'
-                        }
+                        use: [
+                                {
+                                    loader: 'babel-loader',
+                                },
+                                {
+                                    loader: 'istanbul-instrumenter-loader',
+                                    options: { esModules: true }
+                                }
+                            ],
+                        include: path.resolve('src/')
                     },
                     {
                         test: /\.(html)$/,
@@ -45,6 +60,11 @@ module.exports = function(config) {
         },
         webpackMiddleware: {
             stats: 'errors-only'
+        },
+        coverageIstanbulReporter: {
+            reports: [ 'html', 'text-summary' ],
+            dir: path.join(__dirname, 'coverage'),
+            fixWebpackSourcePaths: true
         }
     });
 };
