@@ -8,9 +8,11 @@ function AppController ($scope, $timeout) {
     vm.launched = false;
     vm.$onInit = $onInit;
 
+    vm.scrollToTop = scrollToTop;
+
     function $onInit() {
         $scope.$on('$locationChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
-            window.scrollTo(0, 0);
+            vm.scrollToTop();
         });
         $timeout(function () {
             vm.launched = true;
@@ -18,6 +20,10 @@ function AppController ($scope, $timeout) {
                 vm.removeSplash = true;
             })
         }, 1000);
+    }
+
+    function scrollToTop() {
+        window.scrollTo(0, 0);
     }
 }
 

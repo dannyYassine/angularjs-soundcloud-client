@@ -9,4 +9,4 @@ require('./footer');
 require('./search');
 require('./userDetail');
 
-require('./app');
+import app from './app'
