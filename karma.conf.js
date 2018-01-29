@@ -15,7 +15,7 @@ module.exports = function(config) {
         preprocessors: {
             'src/website/client/**/*.test.js': ['webpack']
         },
-        reporters: [ 'progress', 'coverage-istanbul' ],
+        reporters: [ 'mocha', 'html', 'coverage-istanbul' ],
         browsers: ['Chrome'],
         singleRun: false,
         plugins: [
@@ -26,8 +26,16 @@ module.exports = function(config) {
             'karma-sourcemap-loader',
             'karma-mocha',
             'istanbul-instrumenter-loader',
-            'karma-coverage-istanbul-reporter'
+            'karma-coverage-istanbul-reporter',
+            'karma-mocha-reporter',
+            'karma-html-reporter'
         ],
+        client: {
+            mocha: {
+                reporter: 'html',
+                ui: 'bdd'
+            }
+        },
         webpack: {
             devtool: 'inline-source-map',
             module: {
@@ -39,11 +47,11 @@ module.exports = function(config) {
                                 {
                                     loader: 'babel-loader',
                                 },
-                                {
-                                    loader: 'istanbul-instrumenter-loader',
-                                    options: { esModules: true }
-                                }
-                            ],
+                            {
+                                loader: 'istanbul-instrumenter-loader',
+                                options: {esModules: true}
+                            }
+                        ],
                         include: path.resolve('src/')
                     },
                     {
@@ -60,9 +68,22 @@ module.exports = function(config) {
             stats: 'errors-only'
         },
         coverageIstanbulReporter: {
-            reports: [ 'html', 'text' ],
+            reports: ['html'],
             dir: path.join(__dirname, 'coverage'),
             fixWebpackSourcePaths: true
+        },
+            htmlReporter: {
+            outputDir: 'tests_html', // where to put the reports
+            templatePath: null, // set if you moved jasmine_template.html
+            focusOnFailures: true, // reports show failures on start
+            namedFiles: true, // name files instead of creating sub-directories
+            pageTitle: null, // page title for reports; browser info by default
+            urlFriendlyName: false, // simply replaces spaces with _ for files/dirs
+            reportName: 'index', // report summary filename; browser info by default
+
+            // experimental
+            preserveDescribeNesting: false, // folded suites stay folded
+            foldAll: false, // reports start folded (only with preserveDescribeNesting)
         }
     });
 };

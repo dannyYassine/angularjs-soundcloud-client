@@ -11,28 +11,17 @@ import HomeController from './home.controller';
 describe('Home Module', function () {
 
     let controller;
-    let soundCloudService;
+
+    function SoundCloudMOCK () {
+        this.getFeaturedTracks = function () {
+            return new Promise((resolve, reject) => {
+                resolve()
+            });
+        }
+    }
 
     beforeEach(() => {
         angular.mock.module(home);
-    });
-
-    beforeEach(() => {
-        soundCloudService = {
-            delay: false,
-            runResolve: null,
-            getFeaturedTracks: function () {
-                return new Promise(function (resolve, reject) {
-                    this.runResolve = resolve;
-
-                    if (delay) {
-                        return;
-                    }
-                    resolve({})
-                });
-            }
-        };
-
     });
 
     it('should be defined', inject(function() {
@@ -42,9 +31,10 @@ describe('Home Module', function () {
     }));
 
     it('getFeaturedTracks called onInit', inject(function() {
-        let getFeaturedTracksSpy = sinon.spy(soundCloudService, 'getFeaturedTracks');
+        let mock = new SoundCloudMOCK();
+        let getFeaturedTracksSpy = sinon.spy(mock, 'getFeaturedTracks');
 
-        controller = new HomeController(soundCloudService);
+        controller = new HomeController(mock);
 
         controller.$onInit();
 
@@ -53,26 +43,24 @@ describe('Home Module', function () {
 
     it('Received tracks', inject(function() {
 
-        controller = new HomeController(soundCloudService);
+        controller = new HomeController(new SoundCloudMOCK());
 
         controller.$onInit();
 
         assert(controller.tracks !== null);
     }));
 
-    it('Verify isLoading boolean while loading tracks', inject(function() {
-        soundCloudService.delay = true;
+    it('Verify isLoading boolean while loading tracks', function() {
 
-        controller = new HomeController(soundCloudService);
+        let mock = new SoundCloudMOCK();
+        controller = new HomeController(mock);
 
-        assert(!controller.isLoading);
+        assert.isFalse(controller.isLoading, 'must be false');
 
         controller.$onInit();
 
-        soundCloudService.runResolve({});
+        assert(controller.isLoading);
 
-        assert(!controller.isLoading);
-
-    }));
+    });
 
 });

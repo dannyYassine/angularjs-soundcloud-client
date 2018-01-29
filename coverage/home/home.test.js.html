@@ -20,14 +20,14 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">86.67% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>26/30</span>
+        <span class='fraction'>26/26</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/2</span>
+        <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>9/9</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">86.67% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>26/30</span>
+        <span class='fraction'>26/26</span>
       </div>
     </div>
   </div>
@@ -108,19 +108,7 @@
 63
 64
 65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+66</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -131,6 +119,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -140,29 +135,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -183,6 +161,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -190,10 +170,6 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -210,28 +186,17 @@ import HomeController from './home.controller';
 describe('Home Module', function () {
 &nbsp;
     let controller;
-    let soundCloudService;
+&nbsp;
+    function SoundCloudMOCK () {
+        this.getFeaturedTracks = function () {
+            return new Promise((resolve, reject) =&gt; {
+                resolve()
+            });
+        }
+    }
 &nbsp;
     beforeEach(() =&gt; {
         angular.mock.module(home);
-    });
-&nbsp;
-    beforeEach(() =&gt; {
-        soundCloudService = {
-            delay: false,
-            runResolve: null,
-            getFeaturedTracks: function () {
-                return new Promise(function (resolve, reject) {
-                    this.runResolve = resolve;
-&nbsp;
-<span class="cstat-no" title="statement not covered" >                    if (delay) {</span>
-<span class="cstat-no" title="statement not covered" >                        return;</span>
-                    }
-<span class="cstat-no" title="statement not covered" >                    resolve({})</span>
-                });
-            }
-        };
-&nbsp;
     });
 &nbsp;
     it('should be defined', inject(function() {
@@ -241,9 +206,10 @@ describe('Home Module', function () {
     }));
 &nbsp;
     it('getFeaturedTracks called onInit', inject(function() {
-        let getFeaturedTracksSpy = sinon.spy(soundCloudService, 'getFeaturedTracks');
+        let mock = new SoundCloudMOCK();
+        let getFeaturedTracksSpy = sinon.spy(mock, 'getFeaturedTracks');
 &nbsp;
-        controller = new HomeController(soundCloudService);
+        controller = new HomeController(mock);
 &nbsp;
         controller.$onInit();
 &nbsp;
@@ -252,27 +218,25 @@ describe('Home Module', function () {
 &nbsp;
     it('Received tracks', inject(function() {
 &nbsp;
-        controller = new HomeController(soundCloudService);
+        controller = new HomeController(new SoundCloudMOCK());
 &nbsp;
         controller.$onInit();
 &nbsp;
         assert(controller.tracks !== null);
     }));
 &nbsp;
-    it('Verify isLoading boolean while loading tracks', inject(function() {
-        soundCloudService.delay = true;
+    it('Verify isLoading boolean while loading tracks', function() {
 &nbsp;
-        controller = new HomeController(soundCloudService);
+        let mock = new SoundCloudMOCK();
+        controller = new HomeController(mock);
 &nbsp;
-        assert(!controller.isLoading);
+        assert.isFalse(controller.isLoading, 'must be false');
 &nbsp;
         controller.$onInit();
 &nbsp;
-        soundCloudService.runResolve({});
+        assert(controller.isLoading);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        assert(!controller.isLoading);</span>
-&nbsp;
-    }));
+    });
 &nbsp;
 });</pre></td></tr>
 </table></pre>
@@ -280,7 +244,7 @@ describe('Home Module', function () {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Jan 28 2018 19:40:51 GMT-0500 (EST)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Jan 29 2018 09:39:32 GMT-0500 (EST)
 </div>
 </div>
 <script src="../prettify.js"></script>

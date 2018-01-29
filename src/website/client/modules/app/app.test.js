@@ -17,8 +17,8 @@ describe('App Module', function() {
         angular.mock.module(app);
     });
 
-    it('should run', function (done) {
-        done()
+    it('should run', function () {
+        assert(true);
     });
     describe('AppController', function(){
 
@@ -42,16 +42,16 @@ describe('App Module', function() {
         }));
 
         it('should scroll to top when change state provider', inject(function ($rootScope, $timeout) {
-            controller = new AppController($rootScope.$new(), $timeout);
+            let scope = $rootScope.$new();
+            controller = new AppController(scope, $timeout);
 
-            const sandbox = sinon.sandbox.create();
-            sandbox.stub(controller, 'scrollToTop');
+            let scrollToTopSpy = sinon.spy(controller, 'scrollToTop');
 
             controller.$onInit();
 
-            $rootScope.$broadcast('$locationChangeSuccess');
+            scope.$broadcast('$locationChangeSuccess');
 
-            sinon.assert.calledOnce(controller.scrollToTop);
+            sinon.assert.calledOnce(scrollToTopSpy);
 
         }));
 

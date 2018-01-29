@@ -2,7 +2,7 @@
  * Created by dannyyassine on 2017-12-04.
  */
 
-function TrackListController (playerService) {
+export default function TrackListController (playerService) {
     let vm = this;
 
     vm.$onInit = $onInit;
@@ -35,5 +35,3 @@ function TrackListController (playerService) {
     }
 
 }
-
-module.exports = TrackListController;
