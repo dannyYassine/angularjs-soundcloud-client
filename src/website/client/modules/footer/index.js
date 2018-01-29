@@ -5,5 +5,5 @@
 import angular from 'angular';
 import AppFooterComponent from './appFooter.component';
 
-angular.module('sdn')
+export default angular.module('sdn.footer', [])
     .component('appFooter', AppFooterComponent);

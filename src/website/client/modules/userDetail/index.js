@@ -6,5 +6,5 @@ import UserDetailComponent from './userDetail.component';
 
 UserDetailComponent.$inject = ['soundcloundAPI'];
 
-angular.module('sdn')
+export default angular.module('sdn.user-defail', [])
     .component('userDetail', UserDetailComponent);

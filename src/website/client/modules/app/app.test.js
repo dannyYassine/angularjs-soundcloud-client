@@ -5,13 +5,16 @@ import chai from 'chai';
 const assert = chai.assert;
 import sinon from 'sinon';
 import angular from 'angular';
+
+import app from './index';
+
 import AppController from './app.controller';
 
 describe('App Module', function() {
 
     let controller;
     beforeEach(() => {
-        angular.mock.module('sdn');
+        angular.mock.module(app);
     });
 
     it('should run', function (done) {

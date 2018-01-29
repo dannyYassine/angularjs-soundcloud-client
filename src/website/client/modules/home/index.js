@@ -8,5 +8,5 @@ import HomeContainerController from './home.controller';
 HomeContainerController.$inject = ['soundcloundAPI'];
 HomeComponent.controller = HomeContainerController;
 
-angular.module('sdn')
+export default angular.module('sdn.home', [])
     .component('home', HomeComponent);

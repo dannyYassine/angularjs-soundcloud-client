@@ -18,10 +18,17 @@ let app = angular.module('sdn',
         'sdn.api.services',
         'sdn.components',
         'sdn.filters',
-        'sdn.directives'
+        'sdn.directives',
+
+        'sdn.app',
+        'sdn.footer',
+        'sdn.home',
+        'sdn.nav',
+        'sdn.player',
+        'sdn.search',
+        'sdn.user-detail'
     ]);
 
-require('./modules');
 
 app
     .config(configLocationProvider)

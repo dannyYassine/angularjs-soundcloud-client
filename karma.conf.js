@@ -6,7 +6,6 @@ module.exports = function(config) {
         files: [
             'node_modules/angular/angular.js',
             'node_modules/angular-mocks/angular-mocks.js',
-            'src/website/client/**/*.js',
             'src/website/client/**/*.test.js'
         ],
         exclude: [
@@ -14,7 +13,6 @@ module.exports = function(config) {
         ],
         frameworks: ['jasmine', 'mocha'],
         preprocessors: {
-            'src/website/client/**/*.js': ['webpack'],
             'src/website/client/**/*.test.js': ['webpack']
         },
         reporters: [ 'progress', 'coverage-istanbul' ],
@@ -62,7 +60,7 @@ module.exports = function(config) {
             stats: 'errors-only'
         },
         coverageIstanbulReporter: {
-            reports: [ 'html', 'text-summary' ],
+            reports: [ 'html', 'text' ],
             dir: path.join(__dirname, 'coverage'),
             fixWebpackSourcePaths: true
         }

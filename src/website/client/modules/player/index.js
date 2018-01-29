@@ -7,5 +7,5 @@ import PlayerComponent from './player.component';
 
 PlayerComponent.$inject = ['$scope', 'playerService'];
 
-angular.module('sdn')
+export default angular.module('sdn.player', [])
     .component('player', PlayerComponent);

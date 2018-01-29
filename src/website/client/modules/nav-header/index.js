@@ -5,5 +5,5 @@
 import angular from 'angular';
 import NavHeader from './navHeader.component';
 
-angular.module('sdn')
+export default angular.module('sdn.nav', [])
     .component('navHeader', NavHeader);

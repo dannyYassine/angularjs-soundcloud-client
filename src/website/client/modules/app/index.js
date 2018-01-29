@@ -10,5 +10,5 @@ AppController.$inject = ['$scope', '$timeout'];
 
 AppComponent.controller = AppController;
 
-export default angular.module('sdn')
+export default angular.module('sdn.app', [])
     .component('app', AppComponent);
