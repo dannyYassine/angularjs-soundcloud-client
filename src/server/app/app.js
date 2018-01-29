@@ -11,6 +11,12 @@ let nunjucks        = require('nunjucks');
  * App Configuration
  */
 app.use(express.static(path.join(__dirname, '../..', '/website/public')));
+
+/**
+ * Code Coverage
+ */
+app.use('/coverage', express.static(path.join(__dirname, '../../..', '/coverage')));
+
 app.use(bodyParser.urlencoded({'extended':'true'}));
 app.use(bodyParser.json());
 

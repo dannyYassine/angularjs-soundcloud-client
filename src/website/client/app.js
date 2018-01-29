@@ -10,10 +10,11 @@ require('./common/filters');
 require('./common/services');
 require('./common/components');
 
+import './modules';
+
 let app = angular.module('sdn',
     [
         uiRouter,
-        'ngMock',
 
         'sdn.api.services',
         'sdn.components',
