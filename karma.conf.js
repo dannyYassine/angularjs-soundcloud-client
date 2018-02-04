@@ -6,14 +6,14 @@ module.exports = function(config) {
         files: [
             'node_modules/angular/angular.js',
             'node_modules/angular-mocks/angular-mocks.js',
-            'src/website/client/**/*.test.js'
+            'src/website/client/**/*.spec.js'
         ],
         exclude: [
             'src/website/public'
         ],
         frameworks: ['jasmine', 'mocha'],
         preprocessors: {
-            'src/website/client/**/*.test.js': ['webpack']
+            'src/website/client/**/*.spec.js': ['webpack']
         },
         reporters: [ 'mocha', 'html', 'coverage-istanbul' ],
         browsers: ['Chrome'],

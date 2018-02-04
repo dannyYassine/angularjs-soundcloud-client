@@ -33,7 +33,6 @@ describe('App Module', function() {
 
             assert.equal(controller.launched, false);
 
-
             controller.$onInit();
 
             $timeout.flush();
