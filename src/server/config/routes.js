@@ -8,9 +8,8 @@ const { exec } = require('child_process');
 module.exports = app => {
 
     /**
-     * Front-end application
+     * Tests
      */
-
     app.get('/tests/run', (request, response) => {
         if (request.query.run == true) {
             exec('npm run test', (err, stdout, stderr) => {
@@ -21,10 +20,18 @@ module.exports = app => {
         }
     });
 
+
+    /**
+     * Front-end application
+     */
+
     app.get('/*', (request, response) => {
         response.render('index.html');
     });
 
+    /**
+     * Errors
+     */
     app.use((request, response, err) => {
         response.render('404.html');
     });

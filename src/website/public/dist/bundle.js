@@ -39462,26 +39462,23 @@ function PlayerController($scope, playerService) {
      * @type {$onInit}
      */
     vm.$onInit = $onInit;
-    vm.$onChanges = $onChanges;
-    vm.$postLink = $postLink;
 
+    /**
+     * Methods
+     */
     vm.onPauseClicked = onPauseClicked;
     vm.onStopClicked = onStopClicked;
     vm.onProgressClicked = onProgressClicked;
 
     function $onInit() {
         vm.player = playerService.player;
-        $scope.$on('sdn.notifications.player.update', function (event, player) {
+        playerService.on('sdn.notifications.player.update', function (player) {
             var canvasElement = document.getElementById('progress');
             var progress = player.audio.currentTime / player.audio.duration;
             canvasElement.style.width = progress * document.body.clientWidth + "px";
-            $scope.$apply();
+            $scope.$evalAsync();
         });
     }
-
-    function $postLink() {}
-
-    function $onChanges($event) {}
 
     function onPauseClicked() {
         playerService.player.isPaused() ? playerService.pause() : playerService.resume();
@@ -39670,6 +39667,7 @@ var SearchController = function SearchController($scope, soundCloudService) {
         soundCloudService.searchTracks(query).then(function (response) {
             vm.isLoading = false;
             vm.tracks = response;
+            $scope.$evalAsync();
         });
     }
 };
@@ -41584,7 +41582,7 @@ var SoundCloundAPI = function SoundCloundAPI(restangular, soundcloudConfigAPI) {
     var getFeaturedTracks = function getFeaturedTracks() {
         var params = defaultParams;
         params.q = "chrono trigger";
-        params.limit = 60;
+        params.limit = 30;
         var tracks = restangular.all('/tracks');
         return tracks.getList(params);
     };
@@ -41618,7 +41616,7 @@ var SoundCloundAPI = function SoundCloundAPI(restangular, soundcloudConfigAPI) {
     var searchTracks = function searchTracks(searchText) {
         var params = defaultParams;
         params.q = searchText;
-        params.limit = 60;
+        params.limit = 30;
         var tracks = restangular.all('/tracks');
         return tracks.getList(params);
     };
@@ -41653,7 +41651,7 @@ var PlayerService = __webpack_require__(122); /**
                                                   * Created by dannyyassine on 2017-12-04.
                                                   */
 
-PlayerService.$inject = ['$rootScope', 'soundCloudConfigAPI'];
+PlayerService.$inject = ['soundCloudConfigAPI'];
 
 _angular2.default.module('sdn.api.services').service('playerService', PlayerService);
 
@@ -41673,7 +41671,7 @@ _angular2.default.module('sdn.api.services').service('playerService', PlayerServ
  * Class to handle audio actions for the current song
  * @type {Function}
  */
-var PlayerService = function PlayerService($rootScope, soundCloudConfigAPI) {
+var PlayerService = function PlayerService(soundCloudConfigAPI) {
 
     /**
      * Player Object
@@ -41686,6 +41684,12 @@ var PlayerService = function PlayerService($rootScope, soundCloudConfigAPI) {
         isPaused: isPaused
     };
 
+    var events = {
+        'sdn.notifications.player.update': [],
+        'sdn.notifications.player.play': [],
+        'sdn.notifications.player.error': []
+    };
+
     return {
         player: player,
         getCurrentTime: getCurrentTime,
@@ -41693,7 +41697,8 @@ var PlayerService = function PlayerService($rootScope, soundCloudConfigAPI) {
         resume: resume,
         pause: pauseSong,
         stop: stopSong,
-        seek: seekToPosition
+        seek: seekToPosition,
+        on: on
     };
 
     function _canPlaySong(song) {
@@ -41725,11 +41730,21 @@ var PlayerService = function PlayerService($rootScope, soundCloudConfigAPI) {
     function updateProgress() {
         player.text = isPaused() ? "PAUSE" : "PLAY";
         player.currentTime = player.audio.currentTime;
-        $rootScope.$broadcast('sdn.notifications.player.update', player);
+        trigger('sdn.notifications.player.update', player);
     }
 
     function getCurrentTime() {
         return player.audio ? player.audio.currentTime : 1;
+    }
+
+    function on(event, callback) {
+        events[event].push(callback);
+    }
+
+    function trigger(event, data) {
+        events[event].forEach(function (callback) {
+            callback(data);
+        });
     }
 
     /**
@@ -41745,7 +41760,7 @@ var PlayerService = function PlayerService($rootScope, soundCloudConfigAPI) {
         player.track = song;
         _initAudio(song);
         player.audio.play();
-        $rootScope.$broadcast('sdn.notifications.player.play', song);
+        trigger('sdn.notifications.player.play', song);
     }
 
     /**
@@ -41906,13 +41921,13 @@ function WaveController($scope, $timeout, playerService, soundCloudConfigAPI) {
      */
     function $onInit() {
         vm.player = playerService.player;
-        $scope.$on('sdn.notifications.player.update', function (event, player) {
+        playerService.on('sdn.notifications.player.update', function (player) {
             if (player.track.id !== vm.trackData.id) {
                 return;
             }
             var progress = player.audio.currentTime / player.audio.duration;
             vm.wavesurfer.seekTo(progress);
-            $scope.$apply();
+            $scope.$evalAsync();
         });
     }
 

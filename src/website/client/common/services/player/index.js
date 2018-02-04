@@ -4,7 +4,7 @@
 import angular from 'angular';
 
 const PlayerService = require('./player.service');
-PlayerService.$inject = ['$rootScope', 'soundCloudConfigAPI'];
+PlayerService.$inject = ['soundCloudConfigAPI'];
 
 angular.module('sdn.api.services')
     .service('playerService', PlayerService);

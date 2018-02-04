@@ -19,13 +19,13 @@ export default function WaveController ($scope, $timeout, playerService, soundCl
      */
     function $onInit() {
         vm.player = playerService.player;
-        $scope.$on('sdn.notifications.player.update', (event, player) => {
+        playerService.on('sdn.notifications.player.update', (player) => {
             if (player.track.id !== vm.trackData.id) {
                 return;
             }
             let progress = player.audio.currentTime / player.audio.duration;
             vm.wavesurfer.seekTo(progress);
-            $scope.$apply();
+            $scope.$evalAsync();
         });
     }
 

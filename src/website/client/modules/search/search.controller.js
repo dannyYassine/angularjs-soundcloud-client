@@ -58,6 +58,7 @@ const SearchController = function ($scope, soundCloudService) {
             .then((response) => {
                 vm.isLoading = false;
                 vm.tracks = response;
+                $scope.$evalAsync();
             });
     }
 

@@ -7,7 +7,7 @@
  * Class to handle audio actions for the current song
  * @type {Function}
  */
-const PlayerService = (function ($rootScope, soundCloudConfigAPI) {
+const PlayerService = (function (soundCloudConfigAPI) {
 
     /**
      * Player Object
@@ -20,6 +20,12 @@ const PlayerService = (function ($rootScope, soundCloudConfigAPI) {
         isPaused
     };
 
+    let events = {
+        'sdn.notifications.player.update': [],
+        'sdn.notifications.player.play': [],
+        'sdn.notifications.player.error': []
+    };
+
     return {
         player,
         getCurrentTime,
@@ -27,7 +33,8 @@ const PlayerService = (function ($rootScope, soundCloudConfigAPI) {
         resume: resume,
         pause: pauseSong,
         stop : stopSong,
-        seek : seekToPosition
+        seek : seekToPosition,
+        on: on
     };
 
     function _canPlaySong (song) {
@@ -59,13 +66,22 @@ const PlayerService = (function ($rootScope, soundCloudConfigAPI) {
     function updateProgress() {
         player.text = isPaused() ? "PAUSE" : "PLAY";
         player.currentTime = player.audio.currentTime;
-        $rootScope.$broadcast('sdn.notifications.player.update', player);
+        trigger('sdn.notifications.player.update', player);
     }
 
     function getCurrentTime() {
         return player.audio ? player.audio.currentTime : 1;
     }
 
+    function on (event, callback) {
+        events[event].push(callback);
+    }
+    
+    function trigger(event, data) {
+        events[event].forEach((callback) => {
+            callback(data);
+        });
+    }
 
     /**
      * Play song and set it as new current song
@@ -80,7 +96,7 @@ const PlayerService = (function ($rootScope, soundCloudConfigAPI) {
         player.track = song;
         _initAudio(song);
         player.audio.play();
-        $rootScope.$broadcast('sdn.notifications.player.play', song);
+        trigger('sdn.notifications.player.play', song);
     }
 
     /**

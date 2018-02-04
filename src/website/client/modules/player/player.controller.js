@@ -10,28 +10,22 @@ function PlayerController ($scope, playerService) {
      * @type {$onInit}
      */
     vm.$onInit = $onInit;
-    vm.$onChanges = $onChanges;
-    vm.$postLink = $postLink;
 
+    /**
+     * Methods
+     */
     vm.onPauseClicked = onPauseClicked;
     vm.onStopClicked = onStopClicked;
     vm.onProgressClicked = onProgressClicked;
 
     function $onInit() {
         vm.player = playerService.player;
-        $scope.$on('sdn.notifications.player.update', (event, player) => {
+        playerService.on('sdn.notifications.player.update', (player) => {
             let canvasElement = document.getElementById('progress');
             let progress = player.audio.currentTime / player.audio.duration;
             canvasElement.style.width = progress * document.body.clientWidth + "px";
-            $scope.$apply();
+            $scope.$evalAsync();
         });
-    }
-
-    function $postLink() {
-
-    }
-
-    function $onChanges($event) {
     }
 
     function onPauseClicked() {
