@@ -39602,7 +39602,7 @@ module.exports = SearchComponent;
 /* 99 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"full-height\">\n    <div class=\"home-header\">\n        <div class=\"main-content-layout\">\n            <div class=\"title-container\">\n                <h5>Search /</h5>\n                <form ng-submit=\"vm.searchTracks($event)\">\n                    <input id=\"search_input\" type=\"text\" placeholder=\"Start typing\" autoComplete=\"off\" autofocus ng-model=\"vm.name\" ng-change=\"vm.onSearchInputChange()\"/>\n                </form>\n            </div>\n        </div>\n    </div>\n    <div class=\"main-content-layout\">\n        <div ng-if=\"vm.isLoading\" class=\"spinner\"></div>\n        <track-list tracks=\"vm.tracks\" ng-if=\"vm.tracks.length > 0\"></track-list>\n    </div>\n</div>";
+module.exports = "<div class=\"full-height\">\n    <div class=\"home-header\">\n        <div class=\"main-content-layout\">\n            <div class=\"title-container\">\n                <h5>Search /</h5>\n                <form ng-submit=\"vm.searchTracks($event)\">\n                    <input id=\"search_input\" type=\"text\" placeholder=\"Start typing\" autoComplete=\"off\" autofocus ng-model=\"vm.name\" ng-change=\"vm.onSearchInputChange()\" auto-focus/>\n                </form>\n            </div>\n        </div>\n    </div>\n    <div class=\"main-content-layout\">\n        <div ng-if=\"vm.isLoading\" class=\"spinner\"></div>\n        <track-list tracks=\"vm.tracks\" ng-if=\"vm.tracks.length > 0\"></track-list>\n    </div>\n</div>";
 
 /***/ }),
 /* 100 */
@@ -39630,20 +39630,10 @@ var SearchController = function SearchController($scope, soundCloudService) {
      * @type {$onInit}
      */
     vm.$onInit = $onInit;
-    vm.$onChanges = $onChanges;
-    vm.$postLink = $postLink;
 
     vm.onSearchInputChange = onSearchInputChange;
 
     function $onInit() {}
-
-    function $postLink() {
-        document.getElementById('search_input').focus();
-    }
-
-    function $onChanges($event) {
-        // console.log($event);
-    }
 
     function onSearchInputChange(e) {
         if (eventTimeout) {
@@ -39882,6 +39872,7 @@ _angular2.default.module('sdn.directives', []); /**
                                                  */
 
 __webpack_require__(110);
+__webpack_require__(137);
 
 /***/ }),
 /* 110 */
@@ -43068,6 +43059,48 @@ function TrackListController(playerService) {
 }
 
 module.exports = TrackListController;
+
+/***/ }),
+/* 137 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Created by dannyyassine on 2017-12-01.
+ */
+var angular = __webpack_require__(2);
+
+var AutoFocusDirective = __webpack_require__(138);
+
+angular.module('sdn.directives').directive('autoFocus', AutoFocusDirective);
+
+/***/ }),
+/* 138 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Created by dannyyassine on 2017-12-01.
+ */
+var AutoFocusDirective = function AutoFocusDirective() {
+    var directive = {
+        link: link,
+        restrict: 'A'
+    };
+
+    function link(scope, element, attr) {
+        var indexCount = attr.index;
+        var raw = element[0];
+        raw.focus();
+    }
+
+    return directive;
+};
+module.exports = AutoFocusDirective;
 
 /***/ })
 /******/ ]);

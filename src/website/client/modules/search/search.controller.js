@@ -17,21 +17,11 @@ const SearchController = function ($scope, soundCloudService) {
      * @type {$onInit}
      */
     vm.$onInit = $onInit;
-    vm.$onChanges = $onChanges;
-    vm.$postLink = $postLink;
 
     vm.onSearchInputChange = onSearchInputChange;
 
     function $onInit() {
 
-    }
-
-    function $postLink() {
-        document.getElementById('search_input').focus();
-    }
-
-    function $onChanges($event) {
-        // console.log($event);
     }
 
     function onSearchInputChange(e) {
@@ -43,7 +33,6 @@ const SearchController = function ($scope, soundCloudService) {
             searchTracks();
         }, 500);
     }
-
 
     function searchTracks() {
         let query = document.getElementById('search_input').value;

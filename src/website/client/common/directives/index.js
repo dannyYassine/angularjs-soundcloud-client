@@ -7,3 +7,4 @@ import angular from 'angular';
 angular.module('sdn.directives', []);
 
 require('./fade');
+require('./autoFocus');
