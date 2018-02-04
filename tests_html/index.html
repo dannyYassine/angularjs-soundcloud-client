@@ -93,17 +93,20 @@ body { background-color: #eeeeee; padding: 0; margin: 5px; overflow-y: scroll; }
 </style>
 </head>
 
-<body id="HTMLReporter" class="html-reporter">
-<h1>Tested in Chrome 64.0.3282 (Mac OS X 10.12.6) on Sat Feb 03 2018</h1>
+<body id="HTMLReporter" class="html-reporter showDetails">
+<h1>Tested in PhantomJS 2.1.1 (Mac OS X 0.0.0) on Sat Feb 03 2018</h1>
 
 <div class="alert">
 
 
+<!-- <span class="failingAlert bar">Failed 3 specs</span> -->
+<span class="failingAlert bar"><span class="fold-buttons"><a href="#" onclick="fold();">Fold</a> | 
+  <a href="#" onclick="unfold();">Unfold</a></span>20 specs, 3 failed, 0 pending</span>
+<span class="resultsMenu bar">
+<a class="summaryMenuItem" onclick="showSummary();" href="#">Spec List<a>|<a 
+   class="detailsMenuItem" onclick="showFailures();" href="#">Failures</a>
+</span>
 
-  
-  <span class="passingAlert bar"><span class="fold-buttons"><a href="#" onclick="fold();">Fold</a> | 
-  <a href="#" onclick="unfold();">Unfold</a></span>20 specs, 0 failed, 0 pending</span>
-  
 
 
 </div>
@@ -208,22 +211,22 @@ body { background-color: #eeeeee; padding: 0; margin: 5px; overflow-y: scroll; }
     
     </div>
   
-    <div class="suite passed">
+    <div class="suite failed">
       <span class="description">Home Module</span>
     
       <div class="specSummary passed">
       <span class="description">should be defined</span>
       </div>
     
-      <div class="specSummary passed">
+      <div class="specSummary failed">
       <span class="description">getFeaturedTracks called onInit</span>
       </div>
     
-      <div class="specSummary passed">
+      <div class="specSummary failed">
       <span class="description">Received tracks</span>
       </div>
     
-      <div class="specSummary passed">
+      <div class="specSummary failed">
       <span class="description">Verify isLoading boolean while loading tracks</span>
       </div>
     
@@ -233,6 +236,56 @@ body { background-color: #eeeeee; padding: 0; margin: 5px; overflow-y: scroll; }
 </div>
 
 <div id="details">
+  
+  
+  <div class="specDetail failed">
+    <span class="description">Home Module getFeaturedTracks called onInit</span>
+    <div class="stackTrace">
+      <div class="resultMessage">ReferenceError: Can't find variable: Promise (line 60282)
+getFeaturedTracks@http://localhost:9876/base/src/website/client/modules/home/home.spec.js?fdd8ec562d343539af7614d018dad47eef61b0e2:60282:69
+invoke@http://localhost:9876/base/src/website/client/modules/home/home.spec.js?fdd8ec562d343539af7614d018dad47eef61b0e2:36490:56
+getFeaturedTracks@http://localhost:9876/base/src/website/client/modules/home/home.spec.js?fdd8ec562d343539af7614d018dad47eef61b0e2:36376:28
+$onInit@http://localhost:9876/base/src/website/client/modules/home/home.spec.js?fdd8ec562d343539af7614d018dad47eef61b0e2:60226:126
+http://localhost:9876/base/src/website/client/modules/home/home.spec.js?fdd8ec562d343539af7614d018dad47eef61b0e2:60291:287
+invoke@http://localhost:9876/base/node_modules/angular/angular.js?8e715168f6c1f688fe78d8fbd89dc7aca7cec3ea:5097:24
+WorkFn@http://localhost:9876/base/node_modules/angular-mocks/angular-mocks.js?412f8dcd3e1f1862e07f0ca7a10bc85718519adf:3183:26
+inject@http://localhost:9876/base/node_modules/angular-mocks/angular-mocks.js?412f8dcd3e1f1862e07f0ca7a10bc85718519adf:3150:28
+http://localhost:9876/base/src/website/client/modules/home/home.spec.js?fdd8ec562d343539af7614d018dad47eef61b0e2:60290:74
+http://localhost:9876/base/src/website/client/modules/home/home.spec.js?fdd8ec562d343539af7614d018dad47eef61b0e2:60279:95
+__webpack_require__@http://localhost:9876/base/src/website/client/modules/home/home.spec.js?fdd8ec562d343539af7614d018dad47eef61b0e2:20:34
+http://localhost:9876/base/src/website/client/modules/home/home.spec.js?fdd8ec562d343539af7614d018dad47eef61b0e2:63:37
+global code@http://localhost:9876/base/src/website/client/modules/home/home.spec.js?fdd8ec562d343539af7614d018dad47eef61b0e2:64:12</div>
+    </div>
+  </div>
+  
+  <div class="specDetail failed">
+    <span class="description">Home Module Received tracks</span>
+    <div class="stackTrace">
+      <div class="resultMessage">ReferenceError: Can't find variable: Promise (line 60282)
+getFeaturedTracks@http://localhost:9876/base/src/website/client/modules/home/home.spec.js?fdd8ec562d343539af7614d018dad47eef61b0e2:60282:69
+$onInit@http://localhost:9876/base/src/website/client/modules/home/home.spec.js?fdd8ec562d343539af7614d018dad47eef61b0e2:60226:126
+http://localhost:9876/base/src/website/client/modules/home/home.spec.js?fdd8ec562d343539af7614d018dad47eef61b0e2:60293:145
+invoke@http://localhost:9876/base/node_modules/angular/angular.js?8e715168f6c1f688fe78d8fbd89dc7aca7cec3ea:5097:24
+WorkFn@http://localhost:9876/base/node_modules/angular-mocks/angular-mocks.js?412f8dcd3e1f1862e07f0ca7a10bc85718519adf:3183:26
+inject@http://localhost:9876/base/node_modules/angular-mocks/angular-mocks.js?412f8dcd3e1f1862e07f0ca7a10bc85718519adf:3150:28
+http://localhost:9876/base/src/website/client/modules/home/home.spec.js?fdd8ec562d343539af7614d018dad47eef61b0e2:60292:58
+http://localhost:9876/base/src/website/client/modules/home/home.spec.js?fdd8ec562d343539af7614d018dad47eef61b0e2:60279:95
+__webpack_require__@http://localhost:9876/base/src/website/client/modules/home/home.spec.js?fdd8ec562d343539af7614d018dad47eef61b0e2:20:34
+http://localhost:9876/base/src/website/client/modules/home/home.spec.js?fdd8ec562d343539af7614d018dad47eef61b0e2:63:37
+global code@http://localhost:9876/base/src/website/client/modules/home/home.spec.js?fdd8ec562d343539af7614d018dad47eef61b0e2:64:12</div>
+    </div>
+  </div>
+  
+  <div class="specDetail failed">
+    <span class="description">Home Module Verify isLoading boolean while loading tracks</span>
+    <div class="stackTrace">
+      <div class="resultMessage">ReferenceError: Can't find variable: Promise in http://localhost:9876/base/src/website/client/modules/home/home.spec.js?fdd8ec562d343539af7614d018dad47eef61b0e2 (line 60282)
+getFeaturedTracks@http://localhost:9876/base/src/website/client/modules/home/home.spec.js?fdd8ec562d343539af7614d018dad47eef61b0e2:60282:69
+$onInit@http://localhost:9876/base/src/website/client/modules/home/home.spec.js?fdd8ec562d343539af7614d018dad47eef61b0e2:60226:126
+http://localhost:9876/base/src/website/client/modules/home/home.spec.js?fdd8ec562d343539af7614d018dad47eef61b0e2:60295:264</div>
+    </div>
+  </div>
+  
   
 </div>
 
@@ -245,7 +298,7 @@ document.body.onkeypress = function (e) {
   switch (e.keyCode) {
     case 102: toggleFold(); break;
     case 49: showSummary(); break;
-    
+    case 50: showFailures(); break;
   }
 };
 
