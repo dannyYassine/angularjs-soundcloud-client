@@ -4,7 +4,7 @@
             <div class="title-container">
                 <h5>Search /</h5>
                 <form ng-submit="vm.searchTracks($event)">
-                    <input id="search_input" type="text" placeholder="Start typing" autoComplete="off" autofocus ng-model="vm.name" ng-change="vm.onSearchInputChange()" auto-focus/>
+                    <input id="search_input" type="text" placeholder="Start typing" autoComplete="off" autofocus ng-model="vm.name" input-change on-change="vm.onSearchInputChange(value)" auto-focus/>
                 </form>
             </div>
         </div>

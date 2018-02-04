@@ -39602,7 +39602,7 @@ module.exports = SearchComponent;
 /* 99 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"full-height\">\n    <div class=\"home-header\">\n        <div class=\"main-content-layout\">\n            <div class=\"title-container\">\n                <h5>Search /</h5>\n                <form ng-submit=\"vm.searchTracks($event)\">\n                    <input id=\"search_input\" type=\"text\" placeholder=\"Start typing\" autoComplete=\"off\" autofocus ng-model=\"vm.name\" ng-change=\"vm.onSearchInputChange()\" auto-focus/>\n                </form>\n            </div>\n        </div>\n    </div>\n    <div class=\"main-content-layout\">\n        <div ng-if=\"vm.isLoading\" class=\"spinner\"></div>\n        <track-list tracks=\"vm.tracks\" ng-if=\"vm.tracks.length > 0\"></track-list>\n    </div>\n</div>";
+module.exports = "<div class=\"full-height\">\n    <div class=\"home-header\">\n        <div class=\"main-content-layout\">\n            <div class=\"title-container\">\n                <h5>Search /</h5>\n                <form ng-submit=\"vm.searchTracks($event)\">\n                    <input id=\"search_input\" type=\"text\" placeholder=\"Start typing\" autoComplete=\"off\" autofocus ng-model=\"vm.name\" input-change on-change=\"vm.onSearchInputChange(value)\" auto-focus/>\n                </form>\n            </div>\n        </div>\n    </div>\n    <div class=\"main-content-layout\">\n        <div ng-if=\"vm.isLoading\" class=\"spinner\"></div>\n        <track-list tracks=\"vm.tracks\" ng-if=\"vm.tracks.length > 0\"></track-list>\n    </div>\n</div>";
 
 /***/ }),
 /* 100 */
@@ -39635,18 +39635,17 @@ var SearchController = function SearchController($scope, soundCloudService) {
 
     function $onInit() {}
 
-    function onSearchInputChange(e) {
+    function onSearchInputChange(value) {
         if (eventTimeout) {
             clearTimeout(eventTimeout);
         }
         eventTimeout = setTimeout(function () {
             eventTimeout = null;
-            searchTracks();
+            searchTracks(value);
         }, 500);
     }
 
-    function searchTracks() {
-        var query = document.getElementById('search_input').value;
+    function searchTracks(query) {
         if (query.length === 0) {
             vm.tracks.length = 0;
             $scope.$apply();
@@ -39873,6 +39872,7 @@ _angular2.default.module('sdn.directives', []); /**
 
 __webpack_require__(110);
 __webpack_require__(137);
+__webpack_require__(139);
 
 /***/ }),
 /* 110 */
@@ -43101,6 +43101,61 @@ var AutoFocusDirective = function AutoFocusDirective() {
     return directive;
 };
 module.exports = AutoFocusDirective;
+
+/***/ }),
+/* 139 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Created by dannyyassine on 2017-12-01.
+ */
+var angular = __webpack_require__(2);
+
+var InputChangeDirective = __webpack_require__(140);
+
+angular.module('sdn.directives').directive('inputChange', InputChangeDirective);
+
+/***/ }),
+/* 140 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Created by dannyyassine on 2017-12-01.
+ */
+
+var InputChangeDirective = function InputChangeDirective() {
+    var value = '';
+    var inputChange = null;
+
+    var directive = {
+        scope: {
+            onChange: '&'
+        },
+        link: link,
+        restrict: 'A'
+    };
+
+    function link(scope, element, attrs) {
+        var raw = element[0];
+
+        raw.addEventListener('input', function () {
+            if (value !== raw.value) {
+                scope.onChange({ value: raw.value });
+            }
+            value = raw.value;
+        });
+    }
+
+    return directive;
+};
+
+module.exports = InputChangeDirective;
 
 /***/ })
 /******/ ]);

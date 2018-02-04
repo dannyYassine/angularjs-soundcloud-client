@@ -24,18 +24,17 @@ const SearchController = function ($scope, soundCloudService) {
 
     }
 
-    function onSearchInputChange(e) {
+    function onSearchInputChange(value) {
         if (eventTimeout) {
             clearTimeout(eventTimeout);
         }
         eventTimeout = setTimeout(function() {
             eventTimeout = null;
-            searchTracks();
+            searchTracks(value);
         }, 500);
     }
 
-    function searchTracks() {
-        let query = document.getElementById('search_input').value;
+    function searchTracks(query) {
         if (query.length === 0) {
             vm.tracks.length = 0;
             $scope.$apply();
