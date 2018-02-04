@@ -19,7 +19,7 @@ const SoundCloundAPI = (function (restangular, soundcloudConfigAPI) {
     const getFeaturedTracks = () => {
         const params = defaultParams;
         params.q = "chrono trigger";
-        params.limit = 60;
+        params.limit = 30;
         let tracks = restangular.all('/tracks');
         return tracks.getList(params);
     };
@@ -55,7 +55,7 @@ const SoundCloundAPI = (function (restangular, soundcloudConfigAPI) {
     const searchTracks = (searchText) => {
         const params = defaultParams;
         params.q = searchText;
-        params.limit = 60;
+        params.limit = 30;
         let tracks = restangular.all('/tracks');
         return tracks.getList(params);
     };

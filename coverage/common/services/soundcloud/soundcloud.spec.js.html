@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">92.98% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>57/57</span>
+        <span class='fraction'>53/57</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -30,14 +30,14 @@
         <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">88.89% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>18/18</span>
+        <span class='fraction'>16/18</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">92.98% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>57/57</span>
+        <span class='fraction'>53/57</span>
       </div>
     </div>
   </div>
@@ -193,7 +193,19 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -223,25 +235,13 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -299,14 +299,14 @@ describe('SoundCloud API Service', function () {
 &nbsp;
         it('Featured tracks correct params', function () {
             let data = null;
-            soundcloundAPI.getFeaturedTracks().then(response =&gt; {
-                data = response;
+            soundcloundAPI.getFeaturedTracks().then(<span class="fstat-no" title="function not covered" >re</span>sponse =&gt; {
+<span class="cstat-no" title="statement not covered" >                data = response;</span>
             });
             $httpBackend.when('GET', 'https://api.soundcloud.com/tracks?client_id=ShH74NlijJdrezMwJlhCWxRr4TlUqG3U&amp;limit=60&amp;q=chrono+trigger').respond(200, []);
             $httpBackend.expectGET('https://api.soundcloud.com/tracks?client_id=ShH74NlijJdrezMwJlhCWxRr4TlUqG3U&amp;limit=60&amp;q=chrono+trigger');
             $httpBackend.flush();
 &nbsp;
-            expect(data).not.toBe(null);
+<span class="cstat-no" title="statement not covered" >            expect(data).not.toBe(null);</span>
         });
 &nbsp;
         it('Get user with id', function () {
@@ -335,14 +335,14 @@ describe('SoundCloud API Service', function () {
 &nbsp;
         it('Get search tracks', function () {
             let data = null;
-            soundcloundAPI.searchTracks('chrono trigger').then(response =&gt; {
-                data = response;
+            soundcloundAPI.searchTracks('chrono trigger').then(<span class="fstat-no" title="function not covered" >re</span>sponse =&gt; {
+<span class="cstat-no" title="statement not covered" >                data = response;</span>
             });
             $httpBackend.when('GET', 'https://api.soundcloud.com/tracks?client_id=ShH74NlijJdrezMwJlhCWxRr4TlUqG3U&amp;limit=60&amp;q=chrono+trigger').respond([]);
             $httpBackend.expectGET('https://api.soundcloud.com/tracks?client_id=ShH74NlijJdrezMwJlhCWxRr4TlUqG3U&amp;limit=60&amp;q=chrono+trigger');
             $httpBackend.flush();
 &nbsp;
-            expect(data).not.toBe(null);
+<span class="cstat-no" title="statement not covered" >            expect(data).not.toBe(null);</span>
         });
     });
 &nbsp;
@@ -352,7 +352,7 @@ describe('SoundCloud API Service', function () {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sat Feb 03 2018 20:59:38 GMT-0500 (EST)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sat Feb 03 2018 21:02:13 GMT-0500 (EST)
 </div>
 </div>
 <script src="../../../prettify.js"></script>
