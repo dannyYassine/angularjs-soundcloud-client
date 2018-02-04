@@ -20,7 +20,6 @@ const PlayerService = (function ($rootScope, soundCloudConfigAPI) {
         isPaused
     };
 
-
     return {
         player,
         getCurrentTime,

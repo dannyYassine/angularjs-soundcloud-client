@@ -93,20 +93,17 @@ body { background-color: #eeeeee; padding: 0; margin: 5px; overflow-y: scroll; }
 </style>
 </head>
 
-<body id="HTMLReporter" class="html-reporter showDetails">
+<body id="HTMLReporter" class="html-reporter">
 <h1>Tested in Chrome 64.0.3282 (Mac OS X 10.12.6) on Sat Feb 03 2018</h1>
 
 <div class="alert">
 
 
-<!-- <span class="failingAlert bar">Failed 1 specs</span> -->
-<span class="failingAlert bar"><span class="fold-buttons"><a href="#" onclick="fold();">Fold</a> | 
-  <a href="#" onclick="unfold();">Unfold</a></span>17 specs, 1 failed, 0 pending</span>
-<span class="resultsMenu bar">
-<a class="summaryMenuItem" onclick="showSummary();" href="#">Spec List<a>|<a 
-   class="detailsMenuItem" onclick="showFailures();" href="#">Failures</a>
-</span>
 
+  
+  <span class="passingAlert bar"><span class="fold-buttons"><a href="#" onclick="fold();">Fold</a> | 
+  <a href="#" onclick="unfold();">Unfold</a></span>20 specs, 0 failed, 0 pending</span>
+  
 
 
 </div>
@@ -138,11 +135,23 @@ body { background-color: #eeeeee; padding: 0; margin: 5px; overflow-y: scroll; }
     
     </div>
   
-    <div class="suite failed">
+    <div class="suite passed">
       <span class="description">SoundCloud API Service Restangular testing methods</span>
     
-      <div class="specSummary failed">
+      <div class="specSummary passed">
       <span class="description">Featured tracks correct params</span>
+      </div>
+    
+      <div class="specSummary passed">
+      <span class="description">Get user with id</span>
+      </div>
+    
+      <div class="specSummary passed">
+      <span class="description">Get user tracks</span>
+      </div>
+    
+      <div class="specSummary passed">
+      <span class="description">Get search tracks</span>
       </div>
     
     </div>
@@ -225,30 +234,6 @@ body { background-color: #eeeeee; padding: 0; margin: 5px; overflow-y: scroll; }
 
 <div id="details">
   
-  
-  <div class="specDetail failed">
-    <span class="description">SoundCloud API Service Restangular testing methods Featured tracks correct params</span>
-    <div class="stackTrace">
-      <div class="resultMessage">Error: Unexpected request: GET https://api.soundcloud.com/tracks?client_id=ShH74NlijJdrezMwJlhCWxRr4TlUqG3U&amp;limit=60&amp;q=chrono+trigger
-Expected GET /tracks
-    at $httpBackend (http://localhost:9876/base/node_modules/angular-mocks/angular-mocks.js?412f8dcd3e1f1862e07f0ca7a10bc85718519adf:1450:9)
-    at sendReq (http://localhost:9876/base/node_modules/angular/angular.js?8e715168f6c1f688fe78d8fbd89dc7aca7cec3ea:12564:9)
-    at serverRequest (http://localhost:9876/base/node_modules/angular/angular.js?8e715168f6c1f688fe78d8fbd89dc7aca7cec3ea:12312:16)
-    at processQueue (http://localhost:9876/base/node_modules/angular/angular.js?8e715168f6c1f688fe78d8fbd89dc7aca7cec3ea:17145:37)
-    at http://localhost:9876/base/node_modules/angular/angular.js?8e715168f6c1f688fe78d8fbd89dc7aca7cec3ea:17193:27
-    at Scope.$digest (http://localhost:9876/base/node_modules/angular/angular.js?8e715168f6c1f688fe78d8fbd89dc7aca7cec3ea:18331:15)
-    at Function.$httpBackend.flush (http://localhost:9876/base/node_modules/angular-mocks/angular-mocks.js?412f8dcd3e1f1862e07f0ca7a10bc85718519adf:1849:38)
-    at UserContext.&lt;anonymous&gt; (http://localhost:9876/base/src/website/client/common/services/soundcloud/soundcloud.spec.js?234d8d92e67798b7a5bd8ca4f02be54aced55dcf:122:103),Error: [$rootScope:inprog] $digest already in progress
-http://errors.angularjs.org/1.6.7/$rootScope/inprog?p0=%24digest
-    at http://localhost:9876/base/node_modules/angular/angular.js?8e715168f6c1f688fe78d8fbd89dc7aca7cec3ea:116:12
-    at beginPhase (http://localhost:9876/base/node_modules/angular/angular.js?8e715168f6c1f688fe78d8fbd89dc7aca7cec3ea:18885:15)
-    at Scope.$digest (http://localhost:9876/base/node_modules/angular/angular.js?8e715168f6c1f688fe78d8fbd89dc7aca7cec3ea:18307:9)
-    at Function.$httpBackend.verifyNoOutstandingExpectation (http://localhost:9876/base/node_modules/angular-mocks/angular-mocks.js?412f8dcd3e1f1862e07f0ca7a10bc85718519adf:1884:38)
-    at UserContext.&lt;anonymous&gt; (http://localhost:9876/base/src/website/client/common/services/soundcloud/soundcloud.spec.js?234d8d92e67798b7a5bd8ca4f02be54aced55dcf:118:65)</div>
-    </div>
-  </div>
-  
-  
 </div>
 
 <script>
@@ -260,7 +245,7 @@ document.body.onkeypress = function (e) {
   switch (e.keyCode) {
     case 102: toggleFold(); break;
     case 49: showSummary(); break;
-    case 50: showFailures(); break;
+    
   }
 };
 
