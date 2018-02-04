@@ -17,7 +17,7 @@ module.exports = function(config) {
         },
         reporters: [ 'mocha', 'html', 'coverage-istanbul' ],
         browsers: ['Chrome'],
-        singleRun: false,
+        singleRun: true,
         plugins: [
             'karma-chrome-launcher',
             'karma-webpack',
