@@ -55,8 +55,8 @@ describe('SoundCloud API Service', function () {
             soundcloundAPI.getFeaturedTracks().then(response => {
                 data = response;
             });
-            $httpBackend.when('GET', 'https://api.soundcloud.com/tracks?client_id=ShH74NlijJdrezMwJlhCWxRr4TlUqG3U&limit=60&q=chrono+trigger').respond(200, []);
-            $httpBackend.expectGET('https://api.soundcloud.com/tracks?client_id=ShH74NlijJdrezMwJlhCWxRr4TlUqG3U&limit=60&q=chrono+trigger');
+            $httpBackend.when('GET', 'https://api.soundcloud.com/tracks?client_id=ShH74NlijJdrezMwJlhCWxRr4TlUqG3U&limit=30&q=chrono+trigger').respond(200, []);
+            $httpBackend.expectGET('https://api.soundcloud.com/tracks?client_id=ShH74NlijJdrezMwJlhCWxRr4TlUqG3U&limit=30&q=chrono+trigger');
             $httpBackend.flush();
 
             expect(data).not.toBe(null);
@@ -91,8 +91,8 @@ describe('SoundCloud API Service', function () {
             soundcloundAPI.searchTracks('chrono trigger').then(response => {
                 data = response;
             });
-            $httpBackend.when('GET', 'https://api.soundcloud.com/tracks?client_id=ShH74NlijJdrezMwJlhCWxRr4TlUqG3U&limit=60&q=chrono+trigger').respond([]);
-            $httpBackend.expectGET('https://api.soundcloud.com/tracks?client_id=ShH74NlijJdrezMwJlhCWxRr4TlUqG3U&limit=60&q=chrono+trigger');
+            $httpBackend.when('GET', 'https://api.soundcloud.com/tracks?client_id=ShH74NlijJdrezMwJlhCWxRr4TlUqG3U&limit=30&q=chrono+trigger').respond([]);
+            $httpBackend.expectGET('https://api.soundcloud.com/tracks?client_id=ShH74NlijJdrezMwJlhCWxRr4TlUqG3U&limit=30&q=chrono+trigger');
             $httpBackend.flush();
 
             expect(data).not.toBe(null);

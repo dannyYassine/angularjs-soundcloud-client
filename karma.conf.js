@@ -20,6 +20,7 @@ module.exports = function(config) {
         singleRun: true,
         plugins: [
             'karma-chrome-launcher',
+            'karma-phantomjs-launcher',
             'karma-webpack',
             'karma-jasmine',
             'karma-coverage',
