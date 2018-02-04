@@ -14,11 +14,6 @@ module.exports = app => {
     app.get('/tests/run', (request, response) => {
         if (request.query.run == true) {
             exec('npm run test', (err, stdout, stderr) => {
-                if (err) {
-                    console.error(err);
-                    response.send(err);
-                }
-                console.log(stdout);
                 response.redirect('/tests');
             });
         } else {
