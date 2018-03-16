@@ -8,7 +8,7 @@ import home from './index';
 
 import HomeController from './home.controller';
 
-describe('Home Module', function () {
+xdescribe('Home Module', function () {
 
     let controller;
 
