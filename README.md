@@ -23,4 +23,3 @@ https://dannyyassine-soundcloud.herokuapp.com/
 
 ## Audio Player
 ![](https://github.com/dannyYassine/angularjs-soundcloud-client/blob/master/github/home_2.png)
-
