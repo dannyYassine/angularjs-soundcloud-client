@@ -16,7 +16,7 @@ module.exports = function(config) {
             'src/website/client/**/*.spec.js': ['webpack']
         },
         reporters: [ 'mocha', 'html', 'coverage-istanbul' ],
-        browsers: ['Chrome'],
+        browsers: ['PhantomJS'],
         singleRun: true,
         plugins: [
             'karma-chrome-launcher',
