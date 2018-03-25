@@ -65,7 +65,9 @@ const PlayerService = (function (soundCloudConfigAPI) {
 
     function updateProgress() {
         player.text = isPaused() ? "PAUSE" : "PLAY";
-        player.currentTime = player.audio.currentTime;
+        if (player.audio) {
+            player.currentTime = player.audio.currentTime;
+        }
         trigger('sdn.notifications.player.update', player);
     }
 

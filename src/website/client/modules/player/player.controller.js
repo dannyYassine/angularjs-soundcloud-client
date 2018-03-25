@@ -22,9 +22,11 @@ function PlayerController ($scope, playerService) {
         vm.player = playerService.player;
         playerService.on('sdn.notifications.player.update', (player) => {
             let canvasElement = document.getElementById('progress');
-            let progress = player.audio.currentTime / player.audio.duration;
-            canvasElement.style.width = progress * document.body.clientWidth + "px";
-            $scope.$evalAsync();
+            if (player.audio) {
+                let progress = player.audio.currentTime / player.audio.duration;
+                canvasElement.style.width = progress * document.body.clientWidth + "px";
+                $scope.$evalAsync();
+            }
         });
     }
 

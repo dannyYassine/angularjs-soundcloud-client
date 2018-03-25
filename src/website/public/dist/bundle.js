@@ -18243,9 +18243,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  */
 
 __webpack_require__(109);
-__webpack_require__(112);
-__webpack_require__(115);
-__webpack_require__(123);
+__webpack_require__(116);
+__webpack_require__(119);
+__webpack_require__(127);
 
 var app = _angular2.default.module('sdn', [_angularjs2.default, 'sdn.api.services', 'sdn.components', 'sdn.filters', 'sdn.directives', 'sdn.app', 'sdn.footer', 'sdn.home', 'sdn.nav', 'sdn.player', 'sdn.search', 'sdn.user-detail']);
 
@@ -39474,9 +39474,11 @@ function PlayerController($scope, playerService) {
         vm.player = playerService.player;
         playerService.on('sdn.notifications.player.update', function (player) {
             var canvasElement = document.getElementById('progress');
-            var progress = player.audio.currentTime / player.audio.duration;
-            canvasElement.style.width = progress * document.body.clientWidth + "px";
-            $scope.$evalAsync();
+            if (player.audio) {
+                var progress = player.audio.currentTime / player.audio.duration;
+                canvasElement.style.width = progress * document.body.clientWidth + "px";
+                $scope.$evalAsync();
+            }
         });
     }
 
@@ -39871,8 +39873,8 @@ _angular2.default.module('sdn.directives', []); /**
                                                  */
 
 __webpack_require__(110);
-__webpack_require__(137);
-__webpack_require__(139);
+__webpack_require__(112);
+__webpack_require__(114);
 
 /***/ }),
 /* 110 */
@@ -39928,6 +39930,103 @@ module.exports = FadeDirective;
 "use strict";
 
 
+/**
+ * Created by dannyyassine on 2017-12-01.
+ */
+var angular = __webpack_require__(2);
+
+var AutoFocusDirective = __webpack_require__(113);
+
+angular.module('sdn.directives').directive('autoFocus', AutoFocusDirective);
+
+/***/ }),
+/* 113 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Created by dannyyassine on 2017-12-01.
+ */
+var AutoFocusDirective = function AutoFocusDirective() {
+    var directive = {
+        link: link,
+        restrict: 'A'
+    };
+
+    function link(scope, element, attr) {
+        var indexCount = attr.index;
+        var raw = element[0];
+        raw.focus();
+    }
+
+    return directive;
+};
+module.exports = AutoFocusDirective;
+
+/***/ }),
+/* 114 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Created by dannyyassine on 2017-12-01.
+ */
+var angular = __webpack_require__(2);
+
+var InputChangeDirective = __webpack_require__(115);
+
+angular.module('sdn.directives').directive('inputChange', InputChangeDirective);
+
+/***/ }),
+/* 115 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Created by dannyyassine on 2017-12-01.
+ */
+
+var InputChangeDirective = function InputChangeDirective() {
+    var value = '';
+    var inputChange = null;
+
+    var directive = {
+        scope: {
+            onChange: '&'
+        },
+        link: link,
+        restrict: 'A'
+    };
+
+    function link(scope, element, attrs) {
+        var raw = element[0];
+
+        raw.addEventListener('input', function () {
+            if (value !== raw.value) {
+                scope.onChange({ value: raw.value });
+            }
+            value = raw.value;
+        });
+    }
+
+    return directive;
+};
+
+module.exports = InputChangeDirective;
+
+/***/ }),
+/* 116 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
 var _angular = __webpack_require__(2);
 
 var _angular2 = _interopRequireDefault(_angular);
@@ -39938,11 +40037,11 @@ _angular2.default.module('sdn.filters', []); /**
                                               * Created by dannyyassine on 2017-12-09.
                                               */
 
-__webpack_require__(113);
-__webpack_require__(114);
+__webpack_require__(117);
+__webpack_require__(118);
 
 /***/ }),
-/* 113 */
+/* 117 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39970,7 +40069,7 @@ _angular2.default.module('sdn.filters').filter('trackArtworkFilter', function ()
      */
 
 /***/ }),
-/* 114 */
+/* 118 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -40025,7 +40124,7 @@ _angular2.default.module('sdn.filters').filter('trackDurationFilter', function (
      */
 
 /***/ }),
-/* 115 */
+/* 119 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -40039,7 +40138,7 @@ var _lodash = __webpack_require__(54);
 
 var _lodash2 = _interopRequireDefault(_lodash);
 
-__webpack_require__(116);
+__webpack_require__(120);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -40048,7 +40147,7 @@ var api_services = _angular2.default.module('sdn.api.services', ['restangular'])
                                                                                    */
 
 
-__webpack_require__(117);
+__webpack_require__(121);
 
 api_services.config(configRestAngularProvider);
 api_services.config(configSoundCloundProvider);
@@ -40064,11 +40163,11 @@ function configSoundCloundProvider(soundCloudConfigAPIProvider) {
     soundCloudConfigAPIProvider.setClientID('ShH74NlijJdrezMwJlhCWxRr4TlUqG3U');
 }
 
-__webpack_require__(119);
-__webpack_require__(121);
+__webpack_require__(123);
+__webpack_require__(125);
 
 /***/ }),
-/* 116 */
+/* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -41443,7 +41542,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 });
 
 /***/ }),
-/* 117 */
+/* 121 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -41453,7 +41552,7 @@ var _angular = __webpack_require__(2);
 
 var _angular2 = _interopRequireDefault(_angular);
 
-var _soundcloudAPI = __webpack_require__(118);
+var _soundcloudAPI = __webpack_require__(122);
 
 var _soundcloudAPI2 = _interopRequireDefault(_soundcloudAPI);
 
@@ -41466,7 +41565,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 _angular2.default.module('sdn.api.services').provider('soundCloudConfigAPI', _soundcloudAPI2.default);
 
 /***/ }),
-/* 118 */
+/* 122 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -41525,7 +41624,7 @@ function SoundCloudConfigAPIProvider() {
 module.exports = SoundCloudConfigAPIProvider;
 
 /***/ }),
-/* 119 */
+/* 123 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -41537,7 +41636,7 @@ var _angular2 = _interopRequireDefault(_angular);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var SoundcloudModule = __webpack_require__(120); /**
+var SoundcloudModule = __webpack_require__(124); /**
                                                              * Created by dannyyassine on 2017-12-04.
                                                              */
 
@@ -41546,7 +41645,7 @@ SoundcloudModule.$inject = ['Restangular', 'soundCloudConfigAPI'];
 _angular2.default.module('sdn.api.services').service('soundcloundAPI', SoundcloudModule);
 
 /***/ }),
-/* 120 */
+/* 124 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -41626,7 +41725,7 @@ var SoundCloundAPI = function SoundCloundAPI(restangular, soundcloudConfigAPI) {
 module.exports = SoundCloundAPI;
 
 /***/ }),
-/* 121 */
+/* 125 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -41638,7 +41737,7 @@ var _angular2 = _interopRequireDefault(_angular);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var PlayerService = __webpack_require__(122); /**
+var PlayerService = __webpack_require__(126); /**
                                                   * Created by dannyyassine on 2017-12-04.
                                                   */
 
@@ -41647,7 +41746,7 @@ PlayerService.$inject = ['soundCloudConfigAPI'];
 _angular2.default.module('sdn.api.services').service('playerService', PlayerService);
 
 /***/ }),
-/* 122 */
+/* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -41720,7 +41819,9 @@ var PlayerService = function PlayerService(soundCloudConfigAPI) {
 
     function updateProgress() {
         player.text = isPaused() ? "PAUSE" : "PLAY";
-        player.currentTime = player.audio.currentTime;
+        if (player.audio) {
+            player.currentTime = player.audio.currentTime;
+        }
         trigger('sdn.notifications.player.update', player);
     }
 
@@ -41801,7 +41902,7 @@ var PlayerService = function PlayerService(soundCloudConfigAPI) {
 module.exports = PlayerService;
 
 /***/ }),
-/* 123 */
+/* 127 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -41817,13 +41918,13 @@ _angular2.default.module('sdn.components', []); /**
                                                  * Created by dannyyassine on 2017-12-06.
                                                  */
 
-__webpack_require__(124);
+__webpack_require__(128);
 
-__webpack_require__(129);
 __webpack_require__(133);
+__webpack_require__(137);
 
 /***/ }),
-/* 124 */
+/* 128 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -41833,11 +41934,11 @@ var _angular = __webpack_require__(2);
 
 var _angular2 = _interopRequireDefault(_angular);
 
-var _wave = __webpack_require__(125);
+var _wave = __webpack_require__(129);
 
 var _wave2 = _interopRequireDefault(_wave);
 
-var _wave3 = __webpack_require__(127);
+var _wave3 = __webpack_require__(131);
 
 var _wave4 = _interopRequireDefault(_wave3);
 
@@ -41852,7 +41953,7 @@ _wave2.default.$inject = ['$scope', '$timeout', 'playerService', 'soundCloudConf
 _angular2.default.module('sdn.components').component('waveform', _wave2.default);
 
 /***/ }),
-/* 125 */
+/* 129 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -41866,20 +41967,20 @@ var WaveComponent = {
     bindings: {
         trackData: '=trackData'
     },
-    template: __webpack_require__(126),
+    template: __webpack_require__(130),
     controllerAs: 'vm'
 };
 
 module.exports = WaveComponent;
 
 /***/ }),
-/* 126 */
+/* 130 */
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"wave-container\">\n    <div ng-if=\"vm.isLoading\" class=\"sm-spinner\"></div>\n    <br>\n    <br>\n    <div class=\"wave\" id=\"{{'track'+ vm.trackData.id}}\" ng-click=\"vm.onProgressClicked($event)\"></div>\n\n    <div class=\"wave-details\">\n        <h5>{{::vm.trackData.title}}</h5>\n        <div class=\"card-controls\">\n            <p class=\"play-btn\" ng-click=\"vm.onPlayClicked(track)\">\n                <a class=\"play-btn highlight\" href=\"\" ng-click=\"vm.onPlayClicked(track)\">\n                    <span class=\"fa fa-play fa-lg\"></span>\n                </a>\n            </p>\n            <p class=\"duration\">{{::vm.trackData.duration | trackDurationFilter:\"mm:ss\"}}</p>\n        </div>\n    </div>\n</div>";
 
 /***/ }),
-/* 127 */
+/* 131 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -41890,7 +41991,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = WaveController;
 
-var _wavesurfer = __webpack_require__(128);
+var _wavesurfer = __webpack_require__(132);
 
 var _wavesurfer2 = _interopRequireDefault(_wavesurfer);
 
@@ -41967,7 +42068,7 @@ function WaveController($scope, $timeout, playerService, soundCloudConfigAPI) {
    */
 
 /***/ }),
-/* 128 */
+/* 132 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42860,7 +42961,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(55)(module)))
 
 /***/ }),
-/* 129 */
+/* 133 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42870,7 +42971,7 @@ var _angular = __webpack_require__(2);
 
 var _angular2 = _interopRequireDefault(_angular);
 
-var _trackList = __webpack_require__(130);
+var _trackList = __webpack_require__(134);
 
 var _trackList2 = _interopRequireDefault(_trackList);
 
@@ -42885,13 +42986,13 @@ _trackList2.default.$inject = ['playerService'];
 _angular2.default.module('sdn.components').component('trackList', _trackList2.default);
 
 /***/ }),
-/* 130 */
+/* 134 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _trackList = __webpack_require__(131);
+var _trackList = __webpack_require__(135);
 
 var _trackList2 = _interopRequireDefault(_trackList);
 
@@ -42901,7 +43002,7 @@ var TrackListComponent = {
     bindings: {
         tracks: '<'
     },
-    template: __webpack_require__(132),
+    template: __webpack_require__(136),
     controller: _trackList2.default,
     controllerAs: 'vm'
 }; /**
@@ -42912,7 +43013,7 @@ var TrackListComponent = {
 module.exports = TrackListComponent;
 
 /***/ }),
-/* 131 */
+/* 135 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42958,13 +43059,13 @@ function TrackListController(playerService) {
 }
 
 /***/ }),
-/* 132 */
+/* 136 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"track-list-container\">\n    <div ng-repeat=\"track in ::vm.tracks\" dy-fade index=\"{{$index}}\">\n            <div class=\"border-top-line\"></div>\n            <div class=\"track-card hover-position-shadow\">\n                    <div class=\"card-img-container\">\n                        <img class=\"card-img\" src=\"{{::track.artwork_url | trackArtworkFilter:500 }}\"/>\n                    </div>\n                <div class=\"black-line\"></div>\n                <div class=\"track-info\">\n                    <a ui-sref=\"users({ id: {{::track.user_id}} })\">\n                        <p id=\"title\" class=\"highlight\">{{::track.user.permalink}}</p>\n                    </a>\n                    <p id=\"sub-title\">{{::track.title}}</p>\n                    <div class=\"card-controls\">\n                        <p class=\"play-btn\">\n                            <a class=\"play-btn highlight\" href=\"\" ng-click=\"vm.onPlayClicked($index)\">\n                                <span class=\"fa fa-play fa-lg\"></span>\n                            </a>\n                        </p>\n                        <p class=\"duration\">{{::track.duration | trackDurationFilter:\"mm:ss\"}}</p>\n                    </div>\n                </div>\n            </div>\n    </div>\n</div>";
+module.exports = "<div class=\"track-list-container\">\n    <div ng-repeat=\"track in ::vm.tracks\" dy-fade index=\"{{$index}}\" e2e-track>\n            <div class=\"border-top-line\"></div>\n            <div class=\"track-card hover-position-shadow\">\n                    <div class=\"card-img-container\">\n                        <img class=\"card-img\" src=\"{{::track.artwork_url | trackArtworkFilter:500 }}\"/>\n                    </div>\n                <div class=\"black-line\"></div>\n                <div class=\"track-info\">\n                    <a class=\"e2e-user-detail\" ui-sref=\"users({ id: {{::track.user_id}} })\">\n                        <p id=\"title\" class=\"highlight\">{{::track.user.permalink}}</p>\n                    </a>\n                    <p id=\"sub-title\">{{::track.title}}</p>\n                    <div class=\"card-controls\">\n                        <p class=\"play-btn\">\n                            <a class=\"play-btn highlight e2e-play-btn\" href=\"\" ng-click=\"vm.onPlayClicked($index)\">\n                                <span class=\"fa fa-play fa-lg\"></span>\n                            </a>\n                        </p>\n                        <p class=\"duration\">{{::track.duration | trackDurationFilter:\"mm:ss\"}}</p>\n                    </div>\n                </div>\n            </div>\n    </div>\n</div>";
 
 /***/ }),
-/* 133 */
+/* 137 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42974,7 +43075,7 @@ var _angular = __webpack_require__(2);
 
 var _angular2 = _interopRequireDefault(_angular);
 
-var _waveList = __webpack_require__(134);
+var _waveList = __webpack_require__(138);
 
 var _waveList2 = _interopRequireDefault(_waveList);
 
@@ -42989,7 +43090,7 @@ _waveList2.default.$inject = ['playerService'];
 _angular2.default.module('sdn.components').component('waveList', _waveList2.default);
 
 /***/ }),
-/* 134 */
+/* 138 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -43003,21 +43104,21 @@ var WaveListComponent = {
     bindings: {
         tracks: '<'
     },
-    template: __webpack_require__(135),
-    controller: __webpack_require__(136),
+    template: __webpack_require__(139),
+    controller: __webpack_require__(140),
     controllerAs: 'vm'
 };
 
 module.exports = WaveListComponent;
 
 /***/ }),
-/* 135 */
+/* 139 */
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"wave-list-container\">\n    <div ng-repeat=\"track in vm.tracks\" dy-fade index=\"{{$index}}\">\n        <br>\n        <br>\n        <div class=\"border-top-line\"></div>\n        <waveform track-data=\"::track\"></waveform>\n    </div>\n</div>";
 
 /***/ }),
-/* 136 */
+/* 140 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -43059,103 +43160,6 @@ function TrackListController(playerService) {
 }
 
 module.exports = TrackListController;
-
-/***/ }),
-/* 137 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Created by dannyyassine on 2017-12-01.
- */
-var angular = __webpack_require__(2);
-
-var AutoFocusDirective = __webpack_require__(138);
-
-angular.module('sdn.directives').directive('autoFocus', AutoFocusDirective);
-
-/***/ }),
-/* 138 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Created by dannyyassine on 2017-12-01.
- */
-var AutoFocusDirective = function AutoFocusDirective() {
-    var directive = {
-        link: link,
-        restrict: 'A'
-    };
-
-    function link(scope, element, attr) {
-        var indexCount = attr.index;
-        var raw = element[0];
-        raw.focus();
-    }
-
-    return directive;
-};
-module.exports = AutoFocusDirective;
-
-/***/ }),
-/* 139 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Created by dannyyassine on 2017-12-01.
- */
-var angular = __webpack_require__(2);
-
-var InputChangeDirective = __webpack_require__(140);
-
-angular.module('sdn.directives').directive('inputChange', InputChangeDirective);
-
-/***/ }),
-/* 140 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Created by dannyyassine on 2017-12-01.
- */
-
-var InputChangeDirective = function InputChangeDirective() {
-    var value = '';
-    var inputChange = null;
-
-    var directive = {
-        scope: {
-            onChange: '&'
-        },
-        link: link,
-        restrict: 'A'
-    };
-
-    function link(scope, element, attrs) {
-        var raw = element[0];
-
-        raw.addEventListener('input', function () {
-            if (value !== raw.value) {
-                scope.onChange({ value: raw.value });
-            }
-            value = raw.value;
-        });
-    }
-
-    return directive;
-};
-
-module.exports = InputChangeDirective;
 
 /***/ })
 /******/ ]);

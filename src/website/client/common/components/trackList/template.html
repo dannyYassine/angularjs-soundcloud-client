@@ -1,5 +1,5 @@
 <div class="track-list-container">
-    <div ng-repeat="track in ::vm.tracks" dy-fade index="{{$index}}">
+    <div ng-repeat="track in ::vm.tracks" dy-fade index="{{$index}}" e2e-track>
             <div class="border-top-line"></div>
             <div class="track-card hover-position-shadow">
                     <div class="card-img-container">
@@ -7,13 +7,13 @@
                     </div>
                 <div class="black-line"></div>
                 <div class="track-info">
-                    <a ui-sref="users({ id: {{::track.user_id}} })">
+                    <a class="e2e-user-detail" ui-sref="users({ id: {{::track.user_id}} })">
                         <p id="title" class="highlight">{{::track.user.permalink}}</p>
                     </a>
                     <p id="sub-title">{{::track.title}}</p>
                     <div class="card-controls">
                         <p class="play-btn">
-                            <a class="play-btn highlight" href="" ng-click="vm.onPlayClicked($index)">
+                            <a class="play-btn highlight e2e-play-btn" href="" ng-click="vm.onPlayClicked($index)">
                                 <span class="fa fa-play fa-lg"></span>
                             </a>
                         </p>
