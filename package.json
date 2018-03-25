@@ -14,7 +14,8 @@
     "deploy": "git push heroku master",
     "less": "gulp less",
     "test": "karma start karma.conf.js",
-    "e2e": "node_modules/.bin/cypress open"
+    "e2e:open": "node_modules/.bin/cypress open",
+    "e2e:run": "node_modules/.bin/cypress run"
   },
   "dependencies": {
     "@uirouter/angularjs": "^1.0.0",

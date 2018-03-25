@@ -1,5 +1,6 @@
+import {TrackCardPageObject} from "./trackCard.po";
 
-export function HomePage() {
+export function HomePageObject() {
     this.go = function () {
         cy.visit('/');
     };
@@ -19,11 +20,14 @@ export function HomePage() {
             .click();
     };
 
+    this.testShouldBeVisible = function () {
+        cy.get('.home')
+            .should('be.visible');
+    };
+
     this.testShouldHaveUserHrefInTrack = function () {
-        cy.get('[e2e-track] .e2e-user-detail').then(($el) => {
-            let regExp = RegExp('/users/[0-9]*$');
-            expect(regExp.test($el.attr('href'))).to.equal(true, 'href contains user detail route');
-        })
+        let trackCard = new TrackCardPageObject();
+        trackCard.testShouldHaveUserHrefInTrack();
     };
 
     this.testShouldHaveSongs = function () {

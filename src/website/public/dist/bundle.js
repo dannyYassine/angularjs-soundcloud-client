@@ -39604,7 +39604,7 @@ module.exports = SearchComponent;
 /* 99 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"full-height\">\n    <div class=\"home-header\">\n        <div class=\"main-content-layout\">\n            <div class=\"title-container\">\n                <h5>Search /</h5>\n                <form ng-submit=\"vm.searchTracks($event)\">\n                    <input id=\"search_input\" type=\"text\" placeholder=\"Start typing\" autoComplete=\"off\" autofocus ng-model=\"vm.name\" input-change on-change=\"vm.onSearchInputChange(value)\" auto-focus/>\n                </form>\n            </div>\n        </div>\n    </div>\n    <div class=\"main-content-layout\">\n        <div ng-if=\"vm.isLoading\" class=\"spinner\"></div>\n        <track-list tracks=\"vm.tracks\" ng-if=\"vm.tracks.length > 0\"></track-list>\n    </div>\n</div>";
+module.exports = "<div class=\"full-height search\">\n    <div class=\"home-header\">\n        <div class=\"main-content-layout\">\n            <div class=\"title-container\">\n                <h5>Search /</h5>\n                <form ng-submit=\"vm.searchTracks($event)\">\n                    <input id=\"search_input\" type=\"text\" placeholder=\"Start typing\" autoComplete=\"off\" autofocus ng-model=\"vm.name\" input-change on-change=\"vm.onSearchInputChange(value)\" auto-focus/>\n                </form>\n            </div>\n        </div>\n    </div>\n    <div class=\"main-content-layout\">\n        <div ng-if=\"vm.isLoading\" class=\"spinner\"></div>\n        <track-list tracks=\"vm.tracks\" ng-if=\"vm.tracks.length > 0\"></track-list>\n    </div>\n</div>";
 
 /***/ }),
 /* 100 */

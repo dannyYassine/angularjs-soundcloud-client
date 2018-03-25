@@ -1,11 +1,11 @@
-import { HomePage } from '../pages/home.po.js'
+import { HomePageObject } from '../pages/home.po.js'
 import { PlayerPage } from '../pages/player.po.js'
 
 describe('Home Page', function () {
     let homePage, playerPage;
 
     beforeEach(() => {
-        homePage = new HomePage();
+        homePage = new HomePageObject();
         homePage.routeTracks();
         homePage.go();
         homePage.waitTracks();
