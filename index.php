@@ -1,5 +1,5 @@
 <?php
-$directory = '/angularjs-soundclound-client/src/website/public';
+$directory = '/angularjs-soundcloud-client/src/website/public';
 
 ?>
 
