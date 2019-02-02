@@ -304,6 +304,9 @@ th {
 .highlight:hover {
   opacity: 1.0;
 }
+body {
+  background-color: #262728;
+}
 .launch-image {
   position: absolute;
   top: 0;
