@@ -35,7 +35,7 @@ $directory = '/projects/angularjs-soundcloud-client/src/website/public';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <base href="/projects/angularjs-soundcloud-client/">
 </head>
-<body>
+<body style="background-color: #262728;">
 
 <app></app>
 
