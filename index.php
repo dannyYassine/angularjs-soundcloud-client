@@ -40,6 +40,7 @@ $directory = '/projects/angularjs-soundcloud-client/src/website/public';
 <app></app>
 
 <script src="<?=$directory?>/dist/bundle.js" type="text/javascript"></script>
+<script src="<?=$directory?>/js/serviceworker.js" type="text/javascript"></script>
 
 <!-- Google Analytics -->
 <script>
